@@ -180,6 +180,27 @@ def cmd_run(args: argparse.Namespace) -> None:
 
 
 # ═══════════════════════════════════════════════════════════════
+# Sottocomando: serve (API server)
+# ═══════════════════════════════════════════════════════════════
+
+
+def cmd_serve(args: argparse.Namespace) -> None:
+    """Sottocomando serve: avvia il server API REST."""
+    import uvicorn
+
+    logger = logging.getLogger("serve")
+    logger.info("Avvio API server su %s:%d", args.host, args.port)
+    logger.info("Docs: http://%s:%d/docs", args.host, args.port)
+
+    uvicorn.run(
+        "src.api.app:app",
+        host=args.host,
+        port=args.port,
+        log_level="info",
+    )
+
+
+# ═══════════════════════════════════════════════════════════════
 # CLI Parser
 # ═══════════════════════════════════════════════════════════════
 
@@ -255,6 +276,21 @@ def main() -> None:
     )
     run_parser.set_defaults(func=cmd_run)
 
+    # ── serve (API server) ───────────────────────────────────
+    serve_parser = subparsers.add_parser(
+        "serve",
+        help="Avvia il server API REST (FastAPI + uvicorn)",
+    )
+    serve_parser.add_argument(
+        "--host", default="0.0.0.0",
+        help="Host su cui ascoltare (default: 0.0.0.0)",
+    )
+    serve_parser.add_argument(
+        "--port", type=int, default=8000,
+        help="Porta su cui ascoltare (default: 8000)",
+    )
+    serve_parser.set_defaults(func=cmd_serve)
+
     # ── Parse e dispatch ─────────────────────────────────────
     args = parser.parse_args()
     setup_logging(args.log_level)
@@ -263,3 +299,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
