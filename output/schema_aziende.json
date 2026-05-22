@@ -1,0 +1,275 @@
+{
+  "properties": {
+    "dimensione_azienda": {
+      "description": "Grandezza dell'azienda, tipicamente classificada per fatturato o dipendenti.",
+      "title": "Dimensione azienda",
+      "type": "string"
+    },
+    "ebitda_eur": {
+      "description": "Profitto prima interessi, tasse, ammortamenti e svalutazioni, in euro.",
+      "title": "EBITDA (€)",
+      "type": "number"
+    },
+    "fatturato_ultimo_esercizio_eur": {
+      "description": "Ricavo complessivo dell'ultimo anno fiscale, espresso in euro.",
+      "title": "Fatturato ultimo esercizio (€)",
+      "type": "number"
+    },
+    "macro_settore": {
+      "description": "Settore industriale principale dell'azienda.",
+      "title": "Macro-settore",
+      "type": "string"
+    },
+    "mercato_geografico": {
+      "description": "Area geografica di mercato servita dall'azienda.",
+      "title": "Mercato geografico",
+      "type": "string"
+    },
+    "modello_di_business": {
+      "description": "Struttura economica che descrive come l'azienda genera ricavi.",
+      "title": "Modello di business",
+      "type": "string"
+    },
+    "numero_dipendenti": {
+      "description": "Totale di lavoratori impiegati dall'azienda.",
+      "title": "Numero dipendenti",
+      "type": "integer"
+    },
+    "prezzo_richiesto_valutazione_eur": {
+      "description": "Importo richiesto o valutazione dell'azienda, in euro.",
+      "title": "Prezzo richiesto / Valutazione (€)",
+      "type": "number"
+    },
+    "provincia_sede_legale": {
+      "description": "Provincia in cui si trova la sede legale.",
+      "title": "Provincia sede legale",
+      "type": "string"
+    },
+    "regione_sede_legale": {
+      "description": "Regione italiana dove ha sede legale l'azienda.",
+      "title": "Regione sede legale",
+      "type": "string"
+    },
+    "settore_operativo": {
+      "description": "Area di business specifica in cui opera l'azienda.",
+      "title": "Settore operativo",
+      "type": "string"
+    },
+    "tipologia_operazione": {
+      "description": "Tipo di transazione, ad esempio acquisto, vendita o partnership.",
+      "title": "Tipologia operazione",
+      "type": "string"
+    },
+    "anno_di_costituzione": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Anno in cui è stata fondata l'azienda.",
+      "title": "Anno di costituzione"
+    },
+    "brevetti_marchi": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Numero e tipologia di brevetti o marchi registrati.",
+      "title": "Brevetti/marchi"
+    },
+    "certificazioni": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Certificazioni e standard di qualità dell’immobile.",
+      "title": "Certificazioni"
+    },
+    "comune_sede_legale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Municipio dove risiede la sede legale.",
+      "title": "Comune sede legale"
+    },
+    "concentrazione_clienti_top_3": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Percentuale di ricavi provenienti dai tre clienti principali.",
+      "title": "Concentrazione clienti top 3 (%)"
+    },
+    "copertura_geografica": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Area geografica servita dalla rete di distribuzione.",
+      "title": "Copertura geografica"
+    },
+    "ebitda_margin": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Percentuale di margine EBITDA rispetto al fatturato.",
+      "title": "EBITDA margin (%)"
+    },
+    "forma_giuridica": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Tipo di entità legale, ad esempio S.r.l., S.p.a.",
+      "title": "Forma giuridica"
+    },
+    "licenze_di_trasporto": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Tipologia di licenze per operazioni di trasporto possedute.",
+      "title": "Licenze di trasporto"
+    },
+    "magazzini_hub_mq": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Superficie totale di magazzini e hub logistici.",
+      "title": "Magazzini/hub (mq)"
+    },
+    "mezzi_di_propriet_n": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Numero di veicoli o mezzi di trasporto di proprietà.",
+      "title": "Mezzi di proprietà (n.)"
+    },
+    "motivazione_cessione": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Motivo principale per cui l'azienda è in vendita.",
+      "title": "Motivazione cessione"
+    },
+    "quota_offerta": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Percentuale di partecipazione offerta nella transazione.",
+      "title": "Quota offerta (%)"
+    },
+    "spedizioni_anno": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Numero di spedizioni eseguite annualmente.",
+      "title": "Spedizioni/anno"
+    },
+    "trend_fatturato_triennio": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Evoluzione del fatturato negli ultimi tre anni.",
+      "title": "Trend fatturato triennio"
+    }
+  },
+  "required": [
+    "dimensione_azienda",
+    "ebitda_eur",
+    "fatturato_ultimo_esercizio_eur",
+    "macro_settore",
+    "mercato_geografico",
+    "modello_di_business",
+    "numero_dipendenti",
+    "prezzo_richiesto_valutazione_eur",
+    "provincia_sede_legale",
+    "regione_sede_legale",
+    "settore_operativo",
+    "tipologia_operazione"
+  ],
+  "title": "ProductSchema",
+  "type": "object"
+}

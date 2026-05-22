@@ -1,0 +1,231 @@
+{
+  "properties": {
+    "comune": {
+      "description": "Comune in cui è situata l’immobile.",
+      "title": "Comune",
+      "type": "string"
+    },
+    "licenza_somministrazione_flag": {
+      "description": "Possesso di licenza per la somministrazione di cibo.",
+      "title": "Licenza somministrazione (Sì/No)",
+      "type": "boolean"
+    },
+    "numero_dipendenti": {
+      "description": "Totale di lavoratori impiegati dall'azienda.",
+      "title": "Numero dipendenti",
+      "type": "integer"
+    },
+    "prezzo_richiesto_eur": {
+      "description": "Valore di vendita richiesto, espresso in euro.",
+      "title": "Prezzo richiesto (€)",
+      "type": "number"
+    },
+    "provincia": {
+      "description": "Provincia dove si trova l'immobile.",
+      "title": "Provincia",
+      "type": "string"
+    },
+    "regione": {
+      "description": "Regione di appartenenza della proprietà.",
+      "title": "Regione",
+      "type": "string"
+    },
+    "superficie_sala_pubblico_mq": {
+      "description": "Area totale della sala destinata al pubblico, in mq.",
+      "title": "Superficie sala/pubblico (mq)",
+      "type": "number"
+    },
+    "tipologia_attivit": {
+      "description": "Categoria dell'attività (commerciale, industriale, etc.).",
+      "title": "Tipologia attività",
+      "type": "string"
+    },
+    "zona": {
+      "description": "Ubicazione geografica o zona di attività.",
+      "title": "Zona",
+      "type": "string"
+    },
+    "anni_di_attivit": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Anni di attività dell'azienda.",
+      "title": "Anni di attività"
+    },
+    "avviamento_storico": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Valore storico dell'avviamento.",
+      "title": "Avviamento storico"
+    },
+    "canna_fumaria_flag": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Presenza di canna fumaria.",
+      "title": "Canna fumaria (Sì/No)"
+    },
+    "canone_locazione_annuo_eur": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Canone annuale di locazione in €.",
+      "title": "Canone locazione annuo (€)"
+    },
+    "dehors_posti_esterni_n": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Numero di posti esterni (dehors) disponibili.",
+      "title": "Dehors/posti esterni (n.)"
+    },
+    "durata_residua_contratto_locazione_anni": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Durata residua del contratto di locazione, in anni.",
+      "title": "Durata residua contratto locazione (anni)"
+    },
+    "fatturato_annuo_eur": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Ricavi totali annui della struttura.",
+      "title": "Fatturato annuo (€)"
+    },
+    "flusso_pedonale_zona": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Traffico pedonale nella zona di interesse.",
+      "title": "Flusso pedonale zona"
+    },
+    "licenza_tabacchi_flag": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Possesso di licenza per la vendita di tabacchi.",
+      "title": "Licenza tabacchi (Sì/No)"
+    },
+    "posti_a_sedere_interni_n": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Numero di posti a sedere all'interno della struttura.",
+      "title": "Posti a sedere interni (n.)"
+    },
+    "potenziale_di_sviluppo": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Possibilità di espansione futura dell’attività.",
+      "title": "Potenziale di sviluppo"
+    },
+    "propriet_mura_flag": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Proprietà delle mura dell'immobile.",
+      "title": "Proprietà mura (Sì/No)"
+    },
+    "scontrino_medio_eur": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Valore medio del singolo scontrino in euro.",
+      "title": "Scontrino medio (€)"
+    }
+  },
+  "required": [
+    "comune",
+    "licenza_somministrazione_flag",
+    "numero_dipendenti",
+    "prezzo_richiesto_eur",
+    "provincia",
+    "regione",
+    "superficie_sala_pubblico_mq",
+    "tipologia_attivit",
+    "zona"
+  ],
+  "title": "ProductSchema",
+  "type": "object"
+}

@@ -3,7 +3,10 @@ src/main.py
 -----------
 CLI entrypoint per la pipeline Rules Retrieval.
 Sottocomandi:
-  - build-kg: costruisce il Knowledge Graph da rules.json e lo carica su Neo4j.
+  - build-kg:  costruisce il Knowledge Graph da rules.json e lo carica su Neo4j.
+  - route:     routing LLM + vector search per identificare Level1 e Level2.
+  - extract:   estrae gli attributi applicabili via Cypher.
+  - run:       pipeline completa: descrizione → JSON schema.
 """
 
 from __future__ import annotations
@@ -22,11 +25,16 @@ def setup_logging(level: str = "INFO") -> None:
     )
 
 
+# ═══════════════════════════════════════════════════════════════
+# Sottocomando: build-kg
+# ═══════════════════════════════════════════════════════════════
+
+
 def cmd_build_kg(args: argparse.Namespace) -> None:
     """Sottocomando build-kg: costruisce e carica il KG."""
     from src.config import get_neo4j_driver
     from src.kg.builder import build_kg
-    from src.kg.embedder import deduplicate_attributes, populate_embeddings
+    from src.kg.embedder import populate_embeddings
     from src.kg.neo4j_loader import clear_graph, create_constraints, load_graph
 
     logger = logging.getLogger("build-kg")
@@ -62,6 +70,120 @@ def cmd_build_kg(args: argparse.Namespace) -> None:
     print("╚══════════════════════════════════════════╝")
 
 
+# ═══════════════════════════════════════════════════════════════
+# Sottocomando: route
+# ═══════════════════════════════════════════════════════════════
+
+
+def cmd_route(args: argparse.Namespace) -> None:
+    """Sottocomando route: routing LLM → Level1 + Level2."""
+    from src.config import get_neo4j_driver
+    from src.routing import route
+
+    logger = logging.getLogger("route")
+    logger.info("═══ Routing: %s ═══", args.description[:60] + "...")
+
+    driver = get_neo4j_driver()
+    try:
+        level1, level2, reason = route(driver, args.description)
+    finally:
+        driver.close()
+
+    print()
+    print("╔══════════════════════════════════════════╗")
+    print("║           ROUTING COMPLETATO             ║")
+    print("╠══════════════════════════════════════════╣")
+    print(f"║  Level1:  {level1:<30} ║")
+    print(f"║  Level2:  {level2:<30} ║")
+    print("╠══════════════════════════════════════════╣")
+    print(f"║  Reason:  {reason[:30]:<30} ║")
+    print("╚══════════════════════════════════════════╝")
+
+
+# ═══════════════════════════════════════════════════════════════
+# Sottocomando: extract
+# ═══════════════════════════════════════════════════════════════
+
+
+def cmd_extract(args: argparse.Namespace) -> None:
+    """Sottocomando extract: estrai regole via Cypher."""
+    from src.config import get_neo4j_driver
+    from src.extractor import extract_rules
+
+    logger = logging.getLogger("extract")
+    logger.info("═══ Estrazione: %s → %s ═══", args.level1, args.level2)
+
+    driver = get_neo4j_driver()
+    try:
+        attributes = extract_rules(driver, args.level1, args.level2)
+    finally:
+        driver.close()
+
+    # Output tabellare
+    print()
+    print(f"{'Nome':<45} {'Tipo':<8} {'Obbl.':<6} {'Descrizione'}")
+    print("─" * 100)
+    for attr in attributes:
+        flag = "✓" if attr.mandatory else " "
+        desc = (attr.description[:40] + "...") if len(attr.description) > 40 else attr.description
+        print(f"{attr.name:<45} {attr.field_type:<8} {flag:<6} {desc}")
+
+    print(f"\nTotale: {len(attributes)} attributi")
+
+
+# ═══════════════════════════════════════════════════════════════
+# Sottocomando: run (pipeline completa)
+# ═══════════════════════════════════════════════════════════════
+
+
+def cmd_run(args: argparse.Namespace) -> None:
+    """Sottocomando run: pipeline completa → JSON schema."""
+    from src.config import get_neo4j_driver
+    from src.extractor import extract_rules
+    from src.routing import route
+    from src.schema_builder import build_schema, export_json_schema, save_json_schema
+
+    logger = logging.getLogger("run")
+    logger.info("═══ Pipeline completa ═══")
+
+    driver = get_neo4j_driver()
+    try:
+        # Phase 2: Routing
+        logger.info("── STEP 1/3: Routing ──")
+        level1, level2, reason = route(driver, args.description)
+        logger.info("Routing: %s → %s (%s)", level1, level2, reason[:50])
+
+        # Phase 3: Extraction
+        logger.info("── STEP 2/3: Estrazione regole ──")
+        attributes = extract_rules(driver, level1, level2)
+
+        # Phase 4: Schema Builder
+        logger.info("── STEP 3/3: Generazione schema ──")
+        model = build_schema(attributes)
+        schema = export_json_schema(model)
+
+        # Salva su file
+        save_json_schema(schema, args.output)
+
+    finally:
+        driver.close()
+
+    print()
+    print("╔══════════════════════════════════════════╗")
+    print("║       PIPELINE COMPLETATA                ║")
+    print("╠══════════════════════════════════════════╣")
+    print(f"║  Level1:      {level1:<26} ║")
+    print(f"║  Level2:      {level2:<26} ║")
+    print(f"║  Attributi:   {len(attributes):<26} ║")
+    print(f"║  Output:      {str(args.output):<26} ║")
+    print("╚══════════════════════════════════════════╝")
+
+
+# ═══════════════════════════════════════════════════════════════
+# CLI Parser
+# ═══════════════════════════════════════════════════════════════
+
+
 def main() -> None:
     """Punto d'ingresso CLI."""
     parser = argparse.ArgumentParser(
@@ -83,16 +205,55 @@ def main() -> None:
         help="Costruisce il Knowledge Graph da rules.json e lo carica su Neo4j",
     )
     build_parser.add_argument(
-        "--input",
-        default="rules/rules.json",
+        "--input", default="rules/rules.json",
         help="Percorso al file rules.json (default: rules/rules.json)",
     )
     build_parser.add_argument(
-        "--enrich",
-        action="store_true",
-        help="Usa l'LLM per generare descrizioni degli attributi (opzionale)",
+        "--enrich", action="store_true",
+        help="Usa l'LLM per generare descrizioni degli attributi",
     )
     build_parser.set_defaults(func=cmd_build_kg)
+
+    # ── route ────────────────────────────────────────────────
+    route_parser = subparsers.add_parser(
+        "route",
+        help="Routing: descrizione → Level1 + Level2",
+    )
+    route_parser.add_argument(
+        "--description", required=True,
+        help="Descrizione testuale del prodotto/asset",
+    )
+    route_parser.set_defaults(func=cmd_route)
+
+    # ── extract ──────────────────────────────────────────────
+    extract_parser = subparsers.add_parser(
+        "extract",
+        help="Estrazione regole: Level1 + Level2 → attributi",
+    )
+    extract_parser.add_argument(
+        "--level1", required=True,
+        help="Nome del Level1 (es. Immobili)",
+    )
+    extract_parser.add_argument(
+        "--level2", required=True,
+        help="Nome del Level2 (es. Villa)",
+    )
+    extract_parser.set_defaults(func=cmd_extract)
+
+    # ── run (pipeline completa) ──────────────────────────────
+    run_parser = subparsers.add_parser(
+        "run",
+        help="Pipeline completa: descrizione → JSON schema",
+    )
+    run_parser.add_argument(
+        "--description", required=True,
+        help="Descrizione testuale del prodotto/asset",
+    )
+    run_parser.add_argument(
+        "--output", default="schema.json",
+        help="Percorso del file di output JSON schema (default: schema.json)",
+    )
+    run_parser.set_defaults(func=cmd_run)
 
     # ── Parse e dispatch ─────────────────────────────────────
     args = parser.parse_args()

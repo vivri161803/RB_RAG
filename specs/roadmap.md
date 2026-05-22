@@ -15,13 +15,13 @@ Scaffolding  KG Build  Routing   Extract   Schema
 
 ### Tasks
 
-- [ ] Aggiungere dipendenze a `pyproject.toml` (`pydantic`, `instructor`, `openai`, `neo4j`, `numpy`, `python-dotenv`) tramite `uv add`
-- [ ] Creare struttura directory `src/` con `__init__.py` in ogni package
-- [ ] Implementare `src/config.py`:
+- [x] Aggiungere dipendenze a `pyproject.toml` (`pydantic`, `instructor`, `openai`, `neo4j`, `numpy`, `python-dotenv`) tramite `uv add`
+- [x] Creare struttura directory `src/` con `__init__.py` in ogni package
+- [x] Implementare `src/config.py`:
   - Legge `.env` con `python-dotenv`
   - Espone `NEO4J_URI`, `NEO4J_USERNAME`, `NEO4J_PASSWORD`, `API`, `MODEL`, `EMBEDDING_MODEL`, `TOP_K`
   - Valida la presenza delle chiavi obbligatorie (Pydantic `BaseSettings`)
-- [ ] Implementare `src/models.py` con i Pydantic model condivisi:
+- [x] Implementare `src/models.py` con i Pydantic model condivisi:
   - `Level1Node` (nome, descrizione), `Level2Node` (nome, descrizione, ambedding descrizione), `AttributeNode` (nome, tipo del campo, descrizione, obbligatorio [booleano])
   - `RouterOutput` (livello 1 + riassunto ≤100 parole)
   - `RerankerOutput` (livello 2 scelto)
@@ -37,7 +37,7 @@ Scaffolding  KG Build  Routing   Extract   Schema
 
 ### Tasks
 
-- [ ] `src/kg/builder.py` — estrazione LLM delle triple dal JSON:
+- [x] `src/kg/builder.py` — estrazione LLM delle triple dal JSON:
   - Per ogni categoria in `rules.json`, costruire un prompt che include il testo della categoria (id, description, mandatory_fields, optional_fields, sub_categories)
   - Chiamare l'LLM via `instructor` con output strutturato `KGChunk` (Pydantic BaseModel):
     ```python
@@ -51,19 +51,19 @@ Scaffolding  KG Build  Routing   Extract   Schema
     ```
   - L'LLM legge la categoria ed estrae autonomamente entità e relazioni seguendo lo schema ontologico
   - Aggregare i `KGChunk` di tutte le categorie in un unico `KGraph(BaseModel)` con deduplicazione degli attributi
-- [ ] `src/kg/embedder.py` — generazione embedding post-estrazione:
+- [x] `src/kg/embedder.py` — generazione embedding post-estrazione:
   - Funzione `embed_text(text: str) -> list[float]` via OpenRouter embedding
   - Funzione `cosine_similarity(a, b) -> float` con numpy
   - Popolare il campo `description_embedding` di ogni `Level1Node`, `Level2Node`, `AttributeNode` dopo l'estrazione LLM
   - Deduplicare `AttributeNode` con nome simile (cosine sim > 0.95) prima del caricamento
-- [ ] `src/kg/neo4j_loader.py` — caricamento su Neo4j:
+- [x] `src/kg/neo4j_loader.py` — caricamento su Neo4j:
   - `clear_graph()` — DROP completo prima del rebuild
   - `create_constraints()` — unicità su `Level1.id`, `Level2.id`, `Attribute.name`
   - `load_graph(kg: KGraph)` — singola funzione che itera le triple del `KGraph` e le scrive:
     - Nodi `Level1`, `Level2`, `Attribute` con `MERGE`
     - Archi `BELONGS_TO`, `REQUIRES` con `MERGE`
   - Uso di `MERGE` Cypher per idempotenza (per evitare duplicati)
-- [ ] `src/main.py` — sottocomando `build-kg`:
+- [x] `src/main.py` — sottocomando `build-kg`:
 
   ```
   uv run python -m src.main build-kg --input rules/rules.json

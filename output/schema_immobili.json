@@ -1,0 +1,224 @@
+{
+  "properties": {
+    "comune": {
+      "description": "Comune in cui è situata l’immobile.",
+      "title": "Comune",
+      "type": "string"
+    },
+    "numero_camere_da_letto": {
+      "description": "Conteggio delle camere da letto.",
+      "title": "Numero camere da letto",
+      "type": "integer"
+    },
+    "numero_piani": {
+      "description": "Quantità di livelli dell’edificio.",
+      "title": "Numero piani",
+      "type": "integer"
+    },
+    "prezzo_richiesto_eur": {
+      "description": "Valore di vendita richiesto, espresso in euro.",
+      "title": "Prezzo richiesto (€)",
+      "type": "number"
+    },
+    "provincia": {
+      "description": "Provincia dove si trova l'immobile.",
+      "title": "Provincia",
+      "type": "string"
+    },
+    "regione": {
+      "description": "Regione di appartenenza della proprietà.",
+      "title": "Regione",
+      "type": "string"
+    },
+    "stato_di_conservazione": {
+      "description": "Livello di manutenzione e stato architettonico.",
+      "title": "Stato di conservazione",
+      "type": "string"
+    },
+    "stato_di_occupazione": {
+      "description": "Condizione occupazionale corrente (libero, affittato, occupato).",
+      "title": "Stato di occupazione",
+      "type": "string"
+    },
+    "superficie_coperta_mq": {
+      "description": "Superficie interna coperta in metri quadrati.",
+      "title": "Superficie coperta (mq)",
+      "type": "number"
+    },
+    "superficie_terreno_mq": {
+      "description": "Dimensione del terreno in metri quadrati.",
+      "title": "Superficie terreno (mq)",
+      "type": "number"
+    },
+    "anno_di_costruzione": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Anno in cui è stato completato l’edificio.",
+      "title": "Anno di costruzione"
+    },
+    "classe_energetica_ape": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Valore APE che indica efficienza energetica.",
+      "title": "Classe energetica (APE)"
+    },
+    "dependance_mq": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Superficie delle dipendenze in metri quadrati.",
+      "title": "Dependance (mq)"
+    },
+    "destinazione_duso_attuale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Funzione attuale dell’immobile (residenziale, commerciale).",
+      "title": "Destinazione d'uso attuale"
+    },
+    "destinazione_duso_potenziale": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Possibile destinazione futura prevista.",
+      "title": "Destinazione d'uso potenziale"
+    },
+    "giardino_mq": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Area del giardino in metri quadrati.",
+      "title": "Giardino (mq)"
+    },
+    "livello_finiture": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Qualità e tipo delle finiture interne.",
+      "title": "Livello finiture"
+    },
+    "numero_bagni": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Numero di bagni presenti.",
+      "title": "Numero bagni"
+    },
+    "piscina_flag": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Disponibilità di piscina: Sì o No.",
+      "title": "Piscina (Sì/No)"
+    },
+    "vincoli": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Eventuali vincoli legali o di pianificazione.",
+      "title": "Vincoli"
+    },
+    "vista": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Tipo di vista offerta (montagna, mare, città).",
+      "title": "Vista"
+    },
+    "zona_quartiere": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Indicazione del quartiere o area circostante.",
+      "title": "Zona/Quartiere"
+    }
+  },
+  "required": [
+    "comune",
+    "numero_camere_da_letto",
+    "numero_piani",
+    "prezzo_richiesto_eur",
+    "provincia",
+    "regione",
+    "stato_di_conservazione",
+    "stato_di_occupazione",
+    "superficie_coperta_mq",
+    "superficie_terreno_mq"
+  ],
+  "title": "ProductSchema",
+  "type": "object"
+}
