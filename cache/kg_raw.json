@@ -1,0 +1,5455 @@
+{
+  "level1_nodes": [
+    {
+      "name": "Immobili",
+      "description": "immobile, proprietà, acquisto, vendita, affitto, investimento immobiliare, real estate, castello, palazzo, villa, casale, appartamento, attico, capannone, ufficio, negozio, hotel, albergo, agriturismo, terreno, magazzino, logistica, retail, centro commerciale, residence",
+      "name_embedding": []
+    },
+    {
+      "name": "Aziende",
+      "description": "azienda, impresa, società, cessione azienda, acquisizione azienda, share deal, operazione straordinaria, M&A, fusione, scissione, ramo d'azienda, passaggio generazionale, startup, PMI, manifattura, logistica, trasporti, costruzioni, energia, agroindustria, food, retail, distribuzione, hospitality, sanità, ICT, tecnologia, servizi imprese, ambiente, economia circolare, ESG",
+      "name_embedding": []
+    },
+    {
+      "name": "Attività Commerciali",
+      "description": "attività commerciale, negozio, bar, ristorante, pizzeria, gelateria, panificio, pasticceria, parrucchiere, estetica, farmacia, tabaccheria, edicola, lavanderia, palestra, fitness, autofficina, carrozzeria, concessionaria, agenzia immobiliare, agenzia assicurativa, B&B, affittacamere, ostello, bowling, escape room, sala giochi, cessione attività, avviamento commerciale, licenza commerciale",
+      "name_embedding": []
+    }
+  ],
+  "level2_nodes": [
+    {
+      "name": "Castello",
+      "description": "castello, maniero, torre, fortezza, residenza storica feudale",
+      "description_embedding": []
+    },
+    {
+      "name": "Palazzo",
+      "description": "palazzo storico, palazzo d'epoca, palazzetto, palazzo nobiliare, palazzo monumentale",
+      "description_embedding": []
+    },
+    {
+      "name": "Villa",
+      "description": "villa, villa singola, villa bifamiliare, villa di lusso, villa con parco, residenza con giardino",
+      "description_embedding": []
+    },
+    {
+      "name": "Casale",
+      "description": "casale, rustico, cascina, casale rurale, casolare, casale ristrutturato, casale di campagna",
+      "description_embedding": []
+    },
+    {
+      "name": "Appartamento",
+      "description": "appartamento, bilocale, trilocale, quadrilocale, monolocale, unità abitativa, flat, alloggio",
+      "description_embedding": []
+    },
+    {
+      "name": "Attico",
+      "description": "attico, superattico, attico con terrazzo, penthouse, lastrico solare, attico panoramico",
+      "description_embedding": []
+    },
+    {
+      "name": "Capannone industriale",
+      "description": "capannone industriale, stabilimento produttivo, polo industriale, sito produttivo, impianto industriale",
+      "description_embedding": []
+    },
+    {
+      "name": "Capannone logistico",
+      "description": "capannone logistico, hub logistico, magazzino logistico, centro distribuzione, distribution center, polo logistico",
+      "description_embedding": []
+    },
+    {
+      "name": "Capannone artigianale",
+      "description": "capannone artigianale, laboratorio artigianale, officina, bottega artigiana, spazio produttivo artigianale",
+      "description_embedding": []
+    },
+    {
+      "name": "Laboratorio",
+      "description": "laboratorio, laboratorio scientifico, laboratorio farmaceutico, clean room, laboratorio chimico, laboratorio R&D",
+      "description_embedding": []
+    },
+    {
+      "name": "Magazzino",
+      "description": "magazzino, deposito, stoccaggio, storage, magazzino commerciale",
+      "description_embedding": []
+    },
+    {
+      "name": "Ufficio",
+      "description": "ufficio, spazio ufficio, open space, coworking, studio professionale, ufficio singolo, suite direzionale",
+      "description_embedding": []
+    },
+    {
+      "name": "Palazzina direzionale",
+      "description": "palazzina uffici, edificio direzionale, business center, palazzo uffici, torre uffici, centro direzionale",
+      "description_embedding": []
+    },
+    {
+      "name": "Negozio",
+      "description": "negozio, locale commerciale, esercizio commerciale, bottega, showroom, retail, punto vendita",
+      "description_embedding": []
+    },
+    {
+      "name": "Capannone commerciale",
+      "description": "capannone commerciale, showroom industriale, spazio espositivo commerciale, grande superficie commerciale",
+      "description_embedding": []
+    },
+    {
+      "name": "Retail Park",
+      "description": "retail park, parco commerciale, villaggio commerciale, shopping park, outlet commerciale open air",
+      "description_embedding": []
+    },
+    {
+      "name": "Centro commerciale",
+      "description": "centro commerciale, galleria commerciale, mall, shopping center, shopping mall, grande centro commerciale",
+      "description_embedding": []
+    },
+    {
+      "name": "Outlet Park",
+      "description": "outlet, outlet village, factory outlet, village outlet, outlet di lusso, outlet premium",
+      "description_embedding": []
+    },
+    {
+      "name": "Hotel",
+      "description": "hotel, albergo, struttura ricettiva, locanda, boutique hotel, resort, grande albergo",
+      "description_embedding": []
+    },
+    {
+      "name": "Agriturismo",
+      "description": "agriturismo, fattoria, agriturismo con vigneto, agriturismo con piscina, azienda agrituristica, bed and breakfast rurale",
+      "description_embedding": []
+    },
+    {
+      "name": "Residence",
+      "description": "residence, aparthotel, suite hotel, extended stay, appartamenti serviti, residenze turistiche",
+      "description_embedding": []
+    },
+    {
+      "name": "Azienda agricola",
+      "description": "azienda agricola, podere, tenuta agricola, azienda vitivinicola, azienda olivicola, masseria, fattoria produttiva",
+      "description_embedding": []
+    },
+    {
+      "name": "Senior living",
+      "description": "senior living, RSA, casa di riposo, residenza anziani, assisted living, casa protetta",
+      "description_embedding": []
+    },
+    {
+      "name": "Student housing",
+      "description": "student housing, alloggi universitari, residenza universitaria, residence studenti, campus housing",
+      "description_embedding": []
+    },
+    {
+      "name": "Casa di cura",
+      "description": "casa di cura, clinica privata, poliambulatorio, struttura sanitaria privata, clinica riabilitazione",
+      "description_embedding": []
+    },
+    {
+      "name": "Convento",
+      "description": "convento, monastero, abbazia, eremo, complesso conventuale, certosa",
+      "description_embedding": []
+    },
+    {
+      "name": "Caserma",
+      "description": "caserma, ex caserma, edificio militare dismesso, immobile ex militare, complesso militare",
+      "description_embedding": []
+    },
+    {
+      "name": "Sportello bancario",
+      "description": "sportello bancario, filiale bancaria, agenzia bancaria, locale ex banca, immobile bancario",
+      "description_embedding": []
+    },
+    {
+      "name": "Stabilimento balneare",
+      "description": "stabilimento balneare, bagno, lido, stabilimento mare, concessione demaniale marittima",
+      "description_embedding": []
+    },
+    {
+      "name": "Ufficio pubblico",
+      "description": "ufficio pubblico, immobile PA, edificio pubblico, sede ente pubblico, ufficio comunale, sede ministeriale",
+      "description_embedding": []
+    },
+    {
+      "name": "Complesso sportivo",
+      "description": "complesso sportivo, impianto sportivo, stadio, palazzetto, campo sportivo, tensostruttura sportiva",
+      "description_embedding": []
+    },
+    {
+      "name": "Autorimessa",
+      "description": "autorimessa, parcheggio multipiano, garage multipiano, parking, parcheggio coperto, rimessa auto",
+      "description_embedding": []
+    },
+    {
+      "name": "Industria e Manifattura",
+      "description": "industria, manifattura, stabilimento produttivo, fabbrica, produzione industriale, manifatturiero",
+      "description_embedding": []
+    },
+    {
+      "name": "Logistica e Trasporti",
+      "description": "logistica, trasporti, spedizioni, corriere, distribuzione merci, autotrasporto, magazzinaggio",
+      "description_embedding": []
+    },
+    {
+      "name": "Costruzioni e Infrastrutture",
+      "description": "costruzioni, edilizia, infrastrutture, impresa edile, general contractor, cantieristica",
+      "description_embedding": []
+    },
+    {
+      "name": "Energia e Utilities",
+      "description": "energia, utilities, rinnovabili, fotovoltaico, eolico, gas, distribuzione energia, utility",
+      "description_embedding": []
+    },
+    {
+      "name": "Agroindustria e Food",
+      "description": "agroindustria, food, agroalimentare, industria alimentare, trasformazione alimentare, bevande",
+      "description_embedding": []
+    },
+    {
+      "name": "Retail e Distribuzione (Azienda)",
+      "description": "retail, distribuzione, catena negozi, GDO, grande distribuzione, rete vendita",
+      "description_embedding": []
+    },
+    {
+      "name": "Hospitality e Turismo (Azienda)",
+      "description": "hospitality azienda, catena alberghiera, gruppo turistico, gestione hotel, management alberghiero",
+      "description_embedding": []
+    },
+    {
+      "name": "Sanità e Servizi alla Persona (Azienda)",
+      "description": "sanità azienda, clinica, gruppo sanitario, servizi sanitari, RSA gestione, poliambulatorio",
+      "description_embedding": []
+    },
+    {
+      "name": "ICT Media e Tecnologia",
+      "description": "ICT, tecnologia, software, SaaS, servizi IT, media, digital, startup tech, informatica",
+      "description_embedding": []
+    },
+    {
+      "name": "Servizi alle Imprese",
+      "description": "servizi imprese, consulenza, engineering, facility management, outsourcing, BPO",
+      "description_embedding": []
+    },
+    {
+      "name": "Ambiente Economia Circolare ESG",
+      "description": "ambiente, economia circolare, ESG, rifiuti, riciclo, gestione ambientale, smaltimento, sostenibilità",
+      "description_embedding": []
+    },
+    {
+      "name": "Settori Speciali Altro",
+      "description": "settore speciale, attività di nicchia, settore regolamentato, concessione speciale",
+      "description_embedding": []
+    },
+    {
+      "name": "Bar",
+      "description": "bar, caffè, bar tabacchi, bar sport, bar diurno, bar serale",
+      "description_embedding": []
+    },
+    {
+      "name": "Caffetteria",
+      "description": "caffetteria, coffee shop, specialty coffee, caffetteria pasticceria",
+      "description_embedding": []
+    },
+    {
+      "name": "Ristorante",
+      "description": "ristorante, trattoria di lusso, ristorante gourmet, ristorante etnico, steakhouse",
+      "description_embedding": []
+    },
+    {
+      "name": "Pizzeria",
+      "description": "pizzeria, pizzeria al taglio, pizza al metro, pizzeria d'asporto, pizzeria ristorante",
+      "description_embedding": []
+    },
+    {
+      "name": "Trattoria Osteria",
+      "description": "trattoria, osteria, locanda, trattoria tipica, osteria con cucina",
+      "description_embedding": []
+    },
+    {
+      "name": "Gastronomia",
+      "description": "gastronomia, gastronomia da asporto, tavola calda, rosticceria, gastronomia artigianale",
+      "description_embedding": []
+    },
+    {
+      "name": "Panificio Pasticceria",
+      "description": "panificio, pasticceria, forno, panetteria, pasticceria artigianale, laboratorio dolci",
+      "description_embedding": []
+    },
+    {
+      "name": "Gelateria",
+      "description": "gelateria, gelateria artigianale, gelato artigianale, yogurteria",
+      "description_embedding": []
+    },
+    {
+      "name": "Enoteca Wine bar",
+      "description": "enoteca, wine bar, vineria, degustazione vini, bar vini",
+      "description_embedding": []
+    },
+    {
+      "name": "Pub Birreria",
+      "description": "pub, birreria, birreria artigianale, brew pub, irish pub",
+      "description_embedding": []
+    },
+    {
+      "name": "Tabaccheria",
+      "description": "tabaccheria, tabacchi, rivendita tabacchi, tabacchino, tabaccheria ricevitoria",
+      "description_embedding": []
+    },
+    {
+      "name": "Edicola",
+      "description": "edicola, chiosco giornali, edicola cartoleria, punto stampa",
+      "description_embedding": []
+    },
+    {
+      "name": "Profumeria",
+      "description": "profumeria, profumeria di nicchia, profumeria artistica, cosmetica",
+      "description_embedding": []
+    },
+    {
+      "name": "Abbigliamento",
+      "description": "abbigliamento, boutique, negozio moda, fashion retail, abbigliamento uomo donna",
+      "description_embedding": []
+    },
+    {
+      "name": "Calzature",
+      "description": "calzature, negozio scarpe, calzoleria, scarpe uomo donna, shoe store",
+      "description_embedding": []
+    },
+    {
+      "name": "Ottica",
+      "description": "ottica, negozio occhiali, ottico, centro ottico, lenti",
+      "description_embedding": []
+    },
+    {
+      "name": "Gioielleria",
+      "description": "gioielleria, oreficeria, gioielli, orafo, gioielleria di lusso",
+      "description_embedding": []
+    },
+    {
+      "name": "Telefonia",
+      "description": "telefonia, negozio telefonia, centro telefonia, dealer telefonia, riparazione smartphone",
+      "description_embedding": []
+    },
+    {
+      "name": "Elettronica di consumo",
+      "description": "elettronica, negozio elettronica, hi-fi, informatica, elettrodomestici",
+      "description_embedding": []
+    },
+    {
+      "name": "Articoli per la casa",
+      "description": "articoli casa, casalinghi, arredamento, ferramenta, brico, utensileria",
+      "description_embedding": []
+    },
+    {
+      "name": "Parrucchiere",
+      "description": "parrucchiere, salone bellezza, hair stylist, barbiere, barber shop",
+      "description_embedding": []
+    },
+    {
+      "name": "Estetica",
+      "description": "centro estetico, estetica, beauty center, trattamenti estetici, solarium",
+      "description_embedding": []
+    },
+    {
+      "name": "Centro unghie",
+      "description": "centro unghie, nail bar, nail salon, manicure pedicure, ricostruzione unghie",
+      "description_embedding": []
+    },
+    {
+      "name": "Lavanderia",
+      "description": "lavanderia, lavanderia self-service, lavanderia a secco, lavanderia industriale, tintoria",
+      "description_embedding": []
+    },
+    {
+      "name": "Scuola guida",
+      "description": "scuola guida, autoscuola, patente, agenzia pratiche auto",
+      "description_embedding": []
+    },
+    {
+      "name": "Scuola di lingue",
+      "description": "scuola lingue, centro linguistico, corso lingue, language school",
+      "description_embedding": []
+    },
+    {
+      "name": "Farmacia",
+      "description": "farmacia, farmacia comunale, farmacia urbana, farmacia rurale",
+      "description_embedding": []
+    },
+    {
+      "name": "Parafarmacia",
+      "description": "parafarmacia, erboristeria, integratori, cosmetica farmaceutica",
+      "description_embedding": []
+    },
+    {
+      "name": "Sanitaria ortopedia",
+      "description": "sanitaria, ortopedia, ausili sanitari, noleggio ausili, officina ortopedica",
+      "description_embedding": []
+    },
+    {
+      "name": "Centro fisioterapico",
+      "description": "centro fisioterapico, fisioterapia, riabilitazione, studio fisioterapico",
+      "description_embedding": []
+    },
+    {
+      "name": "Palestra fitness",
+      "description": "palestra, fitness, centro fitness, crossfit, centro sportivo, gym",
+      "description_embedding": []
+    },
+    {
+      "name": "Centro medico polispecialistico",
+      "description": "centro medico, poliambulatorio, ambulatorio, studio medico, centro diagnostico",
+      "description_embedding": []
+    },
+    {
+      "name": "Agenzia immobiliare",
+      "description": "agenzia immobiliare, studio immobiliare, franchising immobiliare, intermediazione immobiliare",
+      "description_embedding": []
+    },
+    {
+      "name": "Agenzia assicurativa",
+      "description": "agenzia assicurativa, broker assicurativo, subagente, franchising assicurazioni",
+      "description_embedding": []
+    },
+    {
+      "name": "CAF Patronato",
+      "description": "CAF, patronato, centro assistenza fiscale, consulenza fiscale, 730, ISEE",
+      "description_embedding": []
+    },
+    {
+      "name": "Servizi finanziari al dettaglio",
+      "description": "servizi finanziari, cessione quinto, prestiti, mutui, mediazione creditizia, agenzia finanziaria",
+      "description_embedding": []
+    },
+    {
+      "name": "Sala giochi",
+      "description": "sala giochi, sala slot, sala VLT, gaming, amusement",
+      "description_embedding": []
+    },
+    {
+      "name": "Centro scommesse",
+      "description": "centro scommesse, agenzia scommesse, betting, punto scommesse",
+      "description_embedding": []
+    },
+    {
+      "name": "Bowling",
+      "description": "bowling, bowling center, pista bowling, intrattenimento bowling",
+      "description_embedding": []
+    },
+    {
+      "name": "Escape room",
+      "description": "escape room, gioco di fuga, esperienza immersiva, room escape",
+      "description_embedding": []
+    },
+    {
+      "name": "B&B",
+      "description": "bed and breakfast, B&B, B and B, casa vacanze con colazione",
+      "description_embedding": []
+    },
+    {
+      "name": "Affittacamere",
+      "description": "affittacamere, guest house, pensione, camera in affitto",
+      "description_embedding": []
+    },
+    {
+      "name": "Ostello",
+      "description": "ostello, hostel, ostello della gioventù, backpacker hostel",
+      "description_embedding": []
+    },
+    {
+      "name": "Autofficina",
+      "description": "autofficina, officina meccanica, meccanico auto, centro revisioni, elettrauto",
+      "description_embedding": []
+    },
+    {
+      "name": "Carrozzeria",
+      "description": "carrozzeria, riparazione auto, verniciatura auto, centro riparazione sinistri",
+      "description_embedding": []
+    },
+    {
+      "name": "Gommista",
+      "description": "gommista, centro pneumatici, cambio gomme, deposito gomme",
+      "description_embedding": []
+    },
+    {
+      "name": "Autolavaggio",
+      "description": "autolavaggio, car wash, lavaggio auto, autolavaggio self-service",
+      "description_embedding": []
+    },
+    {
+      "name": "Concessionaria",
+      "description": "concessionaria auto, concessionaria moto, autosalone, vendita veicoli",
+      "description_embedding": []
+    }
+  ],
+  "attributes": [
+    {
+      "name": "Regione",
+      "field_type": "str",
+      "description": "Regione",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Provincia",
+      "field_type": "str",
+      "description": "Provincia",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Comune",
+      "field_type": "str",
+      "description": "Comune",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Prezzo richiesto (€)",
+      "field_type": "float",
+      "description": "Prezzo richiesto (€)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Stato di occupazione",
+      "field_type": "str",
+      "description": "Stato di occupazione",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Stato di conservazione",
+      "field_type": "str",
+      "description": "Stato di conservazione",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Zona/Quartiere",
+      "field_type": "str",
+      "description": "Zona/Quartiere",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Anno di costruzione",
+      "field_type": "str",
+      "description": "Anno di costruzione",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Classe energetica (APE)",
+      "field_type": "str",
+      "description": "Classe energetica (APE)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Vincoli",
+      "field_type": "str",
+      "description": "Vincoli",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Destinazione d'uso attuale",
+      "field_type": "str",
+      "description": "Destinazione d'uso attuale",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Destinazione d'uso potenziale",
+      "field_type": "str",
+      "description": "Destinazione d'uso potenziale",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie coperta totale (mq)",
+      "field_type": "float",
+      "description": "Superficie coperta totale (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie terreno/parco (ha)",
+      "field_type": "float",
+      "description": "Superficie terreno/parco (ha)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Vincolo monumentale (Sì/No)",
+      "field_type": "bool",
+      "description": "Vincolo monumentale (Sì/No)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero camere/vani",
+      "field_type": "int",
+      "description": "Numero camere/vani",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero bagni",
+      "field_type": "int",
+      "description": "Numero bagni",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Epoca storica",
+      "field_type": "str",
+      "description": "Epoca storica",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Torre/torrione (Sì/No)",
+      "field_type": "bool",
+      "description": "Torre/torrione (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Mura di cinta (Sì/No)",
+      "field_type": "bool",
+      "description": "Mura di cinta (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Piscina (Sì/No)",
+      "field_type": "bool",
+      "description": "Piscina (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Terreno agricolo annesso (ha)",
+      "field_type": "float",
+      "description": "Terreno agricolo annesso (ha)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Idoneità hospitality (Sì/No)",
+      "field_type": "bool",
+      "description": "Idoneità hospitality (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Idoneità eventi (Sì/No)",
+      "field_type": "bool",
+      "description": "Idoneità eventi (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero piani",
+      "field_type": "int",
+      "description": "Numero piani",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero unità immobiliari",
+      "field_type": "str",
+      "description": "Numero unità immobiliari",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero vani complessivi",
+      "field_type": "str",
+      "description": "Numero vani complessivi",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Piano nobile (Sì/No)",
+      "field_type": "bool",
+      "description": "Piano nobile (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Cortile interno (Sì/No)",
+      "field_type": "bool",
+      "description": "Cortile interno (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Reddito locativo annuo (€)",
+      "field_type": "float",
+      "description": "Reddito locativo annuo (€)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie coperta (mq)",
+      "field_type": "float",
+      "description": "Superficie coperta (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie terreno (mq)",
+      "field_type": "float",
+      "description": "Superficie terreno (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero camere da letto",
+      "field_type": "int",
+      "description": "Numero camere da letto",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Livello finiture",
+      "field_type": "str",
+      "description": "Livello finiture",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Giardino (mq)",
+      "field_type": "float",
+      "description": "Giardino (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Vista",
+      "field_type": "str",
+      "description": "Vista",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Dependance (mq)",
+      "field_type": "float",
+      "description": "Dependance (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie commerciale (mq)",
+      "field_type": "float",
+      "description": "Superficie commerciale (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Piano",
+      "field_type": "str",
+      "description": "Piano",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Balcone/terrazzo (mq)",
+      "field_type": "float",
+      "description": "Balcone/terrazzo (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Ascensore (Sì/No)",
+      "field_type": "bool",
+      "description": "Ascensore (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Posto auto/garage",
+      "field_type": "str",
+      "description": "Posto auto/garage",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Spese condominiali annue (€)",
+      "field_type": "float",
+      "description": "Spese condominiali annue (€)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie terrazzo/lastrico solare (mq)",
+      "field_type": "float",
+      "description": "Superficie terrazzo/lastrico solare (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Vista panoramica",
+      "field_type": "str",
+      "description": "Vista panoramica",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Domotica (Sì/No)",
+      "field_type": "bool",
+      "description": "Domotica (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Posto auto/garage (n.)",
+      "field_type": "int",
+      "description": "Posto auto/garage (n.)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Altezza sottotrave (m)",
+      "field_type": "float",
+      "description": "Altezza sottotrave (m)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Accesso TIR/bilici (Sì/No)",
+      "field_type": "bool",
+      "description": "Accesso TIR/bilici (Sì/No)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Area scoperta/piazzale (mq)",
+      "field_type": "float",
+      "description": "Area scoperta/piazzale (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Potenza elettrica (kW)",
+      "field_type": "str",
+      "description": "Potenza elettrica (kW)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Carroponte (Sì/No)",
+      "field_type": "bool",
+      "description": "Carroponte (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Baie di carico (n.)",
+      "field_type": "int",
+      "description": "Baie di carico (n.)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Distanza casello autostradale (km)",
+      "field_type": "float",
+      "description": "Distanza casello autostradale (km)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Impianto fotovoltaico (kWp)",
+      "field_type": "str",
+      "description": "Impianto fotovoltaico (kWp)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Altezza interna (m)",
+      "field_type": "float",
+      "description": "Altezza interna (m)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Area esterna (mq)",
+      "field_type": "float",
+      "description": "Area esterna (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Ufficio annesso (mq)",
+      "field_type": "float",
+      "description": "Ufficio annesso (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Accesso veicolare (tipo)",
+      "field_type": "str",
+      "description": "Accesso veicolare (tipo)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie (mq)",
+      "field_type": "float",
+      "description": "Superficie (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Scaffalature (Sì/No)",
+      "field_type": "bool",
+      "description": "Scaffalature (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Layout (open space/suddiviso/misto)",
+      "field_type": "str",
+      "description": "Layout (open space/suddiviso/misto)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Sala riunioni (n.)",
+      "field_type": "int",
+      "description": "Sala riunioni (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Climatizzazione (Sì/No)",
+      "field_type": "bool",
+      "description": "Climatizzazione (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Parcheggi (n.)",
+      "field_type": "int",
+      "description": "Parcheggi (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Certificazioni",
+      "field_type": "str",
+      "description": "Certificazioni",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero unità/piani indipendenti",
+      "field_type": "str",
+      "description": "Numero unità/piani indipendenti",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Sala conferenze (Sì/No)",
+      "field_type": "bool",
+      "description": "Sala conferenze (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie totale (mq)",
+      "field_type": "float",
+      "description": "Superficie totale (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie vendita (mq)",
+      "field_type": "float",
+      "description": "Superficie vendita (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Fronte vetrina (ml)",
+      "field_type": "float",
+      "description": "Fronte vetrina (ml)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Flusso pedonale",
+      "field_type": "str",
+      "description": "Flusso pedonale",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Canna fumaria (Sì/No)",
+      "field_type": "bool",
+      "description": "Canna fumaria (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Destinazione merceologica attuale",
+      "field_type": "str",
+      "description": "Destinazione merceologica attuale",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "GLA – Gross Leasable Area (mq)",
+      "field_type": "float",
+      "description": "GLA – Gross Leasable Area (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero unità commerciali",
+      "field_type": "str",
+      "description": "Numero unità commerciali",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Ancora alimentare (Sì/No)",
+      "field_type": "bool",
+      "description": "Ancora alimentare (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tenant mix",
+      "field_type": "str",
+      "description": "Tenant mix",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Occupancy rate",
+      "field_type": "str",
+      "description": "Occupancy rate",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "GLA totale (mq)",
+      "field_type": "float",
+      "description": "GLA totale (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero negozi/unità",
+      "field_type": "str",
+      "description": "Numero negozi/unità",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Food court (Sì/No)",
+      "field_type": "bool",
+      "description": "Food court (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero unità/brand",
+      "field_type": "str",
+      "description": "Numero unità/brand",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Segmento di mercato",
+      "field_type": "str",
+      "description": "Segmento di mercato",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Visitatori/anno",
+      "field_type": "str",
+      "description": "Visitatori/anno",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero camere",
+      "field_type": "int",
+      "description": "Numero camere",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Classificazione stelle (1-5)",
+      "field_type": "str",
+      "description": "Classificazione stelle (1-5)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero posti letto",
+      "field_type": "int",
+      "description": "Numero posti letto",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Ristorante (Sì/No)",
+      "field_type": "bool",
+      "description": "Ristorante (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "SPA/wellness (Sì/No)",
+      "field_type": "bool",
+      "description": "SPA/wellness (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "RevPAR (€)",
+      "field_type": "float",
+      "description": "RevPAR (€)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Occupancy rate medio",
+      "field_type": "str",
+      "description": "Occupancy rate medio",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Fatturato annuo (€)",
+      "field_type": "float",
+      "description": "Fatturato annuo (€)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero posti auto",
+      "field_type": "int",
+      "description": "Numero posti auto",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie complessiva (mq)",
+      "field_type": "float",
+      "description": "Superficie complessiva (mq)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Colonnine ricarica elettrica (n.)",
+      "field_type": "int",
+      "description": "Colonnine ricarica elettrica (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Fronte mare (ml)",
+      "field_type": "float",
+      "description": "Fronte mare (ml)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Scadenza concessione demaniale",
+      "field_type": "str",
+      "description": "Scadenza concessione demaniale",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Cabine (n.)",
+      "field_type": "int",
+      "description": "Cabine (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Bar/ristorante (Sì/No)",
+      "field_type": "bool",
+      "description": "Bar/ristorante (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Stagionalità (mesi)",
+      "field_type": "str",
+      "description": "Stagionalità (mesi)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Conduttore PA (tipologia ente)",
+      "field_type": "str",
+      "description": "Conduttore PA (tipologia ente)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Contratto residuo (anni)",
+      "field_type": "str",
+      "description": "Contratto residuo (anni)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Concessione comunale (scadenza)",
+      "field_type": "str",
+      "description": "Concessione comunale (scadenza)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero unità abitative",
+      "field_type": "str",
+      "description": "Numero unità abitative",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero camere/unità abitative",
+      "field_type": "str",
+      "description": "Numero camere/unità abitative",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Accreditamento SSN/SSR (Sì/No)",
+      "field_type": "bool",
+      "description": "Accreditamento SSN/SSR (Sì/No)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Specializzazioni",
+      "field_type": "str",
+      "description": "Specializzazioni",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Sale operatorie (n.)",
+      "field_type": "int",
+      "description": "Sale operatorie (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Chiostro (Sì/No)",
+      "field_type": "bool",
+      "description": "Chiostro (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Idoneità ricettiva (Sì/No)",
+      "field_type": "bool",
+      "description": "Idoneità ricettiva (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Destinazione urbanistica vigente",
+      "field_type": "str",
+      "description": "Destinazione urbanistica vigente",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Necessità bonifica (Sì/No)",
+      "field_type": "bool",
+      "description": "Necessità bonifica (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Volumetria esistente (mc)",
+      "field_type": "str",
+      "description": "Volumetria esistente (mc)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Caveau (Sì/No)",
+      "field_type": "bool",
+      "description": "Caveau (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Contratto locazione residuo (anni)",
+      "field_type": "str",
+      "description": "Contratto locazione residuo (anni)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Regione sede legale",
+      "field_type": "str",
+      "description": "Regione sede legale",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Provincia sede legale",
+      "field_type": "str",
+      "description": "Provincia sede legale",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Macro-settore",
+      "field_type": "str",
+      "description": "Macro-settore",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Settore operativo",
+      "field_type": "str",
+      "description": "Settore operativo",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Dimensione azienda",
+      "field_type": "str",
+      "description": "Dimensione azienda",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Fatturato ultimo esercizio (€)",
+      "field_type": "float",
+      "description": "Fatturato ultimo esercizio (€)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "EBITDA (€)",
+      "field_type": "float",
+      "description": "EBITDA (€)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Prezzo richiesto / Valutazione (€)",
+      "field_type": "float",
+      "description": "Prezzo richiesto / Valutazione (€)",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia operazione",
+      "field_type": "str",
+      "description": "Tipologia operazione",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero dipendenti",
+      "field_type": "int",
+      "description": "Numero dipendenti",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Modello di business",
+      "field_type": "str",
+      "description": "Modello di business",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Mercato geografico",
+      "field_type": "str",
+      "description": "Mercato geografico",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Comune sede legale",
+      "field_type": "str",
+      "description": "Comune sede legale",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Anno di costituzione",
+      "field_type": "str",
+      "description": "Anno di costituzione",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Forma giuridica",
+      "field_type": "str",
+      "description": "Forma giuridica",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "EBITDA margin (%)",
+      "field_type": "str",
+      "description": "EBITDA margin (%)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Trend fatturato triennio",
+      "field_type": "str",
+      "description": "Trend fatturato triennio",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Quota offerta (%)",
+      "field_type": "str",
+      "description": "Quota offerta (%)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Motivazione cessione",
+      "field_type": "str",
+      "description": "Motivazione cessione",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Concentrazione clienti top 3 (%)",
+      "field_type": "str",
+      "description": "Concentrazione clienti top 3 (%)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Brevetti/marchi",
+      "field_type": "str",
+      "description": "Brevetti/marchi",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie stabilimento (mq)",
+      "field_type": "float",
+      "description": "Superficie stabilimento (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Numero stabilimenti",
+      "field_type": "int",
+      "description": "Numero stabilimenti",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Capacità produttiva",
+      "field_type": "str",
+      "description": "Capacità produttiva",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Grado automazione",
+      "field_type": "str",
+      "description": "Grado automazione",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Certificazioni qualità",
+      "field_type": "str",
+      "description": "Certificazioni qualità",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "R&D interna (Sì/No)",
+      "field_type": "bool",
+      "description": "R&D interna (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Mezzi di proprietà (n.)",
+      "field_type": "int",
+      "description": "Mezzi di proprietà (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Magazzini/hub (mq)",
+      "field_type": "float",
+      "description": "Magazzini/hub (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Licenze di trasporto",
+      "field_type": "str",
+      "description": "Licenze di trasporto",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Copertura geografica",
+      "field_type": "str",
+      "description": "Copertura geografica",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Spedizioni/anno",
+      "field_type": "str",
+      "description": "Spedizioni/anno",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Cantieri attivi (n.)",
+      "field_type": "int",
+      "description": "Cantieri attivi (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Backlog ordini (€)",
+      "field_type": "float",
+      "description": "Backlog ordini (€)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Specializzazione",
+      "field_type": "str",
+      "description": "Specializzazione",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Attestazione SOA",
+      "field_type": "str",
+      "description": "Attestazione SOA",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "General contractor (Sì/No)",
+      "field_type": "bool",
+      "description": "General contractor (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Potenza installata (MW)",
+      "field_type": "str",
+      "description": "Potenza installata (MW)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia impianti",
+      "field_type": "str",
+      "description": "Tipologia impianti",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Produzione annua (MWh)",
+      "field_type": "str",
+      "description": "Produzione annua (MWh)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Incentivi GSE (Sì/No)",
+      "field_type": "bool",
+      "description": "Incentivi GSE (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Terreni agricoli (ha)",
+      "field_type": "float",
+      "description": "Terreni agricoli (ha)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Denominazioni (DOP/DOC/IGP/BIO)",
+      "field_type": "str",
+      "description": "Denominazioni (DOP/DOC/IGP/BIO)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Canali distributivi",
+      "field_type": "str",
+      "description": "Canali distributivi",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Biologico certificato (Sì/No)",
+      "field_type": "bool",
+      "description": "Biologico certificato (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Punti vendita (n.)",
+      "field_type": "int",
+      "description": "Punti vendita (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie vendita totale (mq)",
+      "field_type": "float",
+      "description": "Superficie vendita totale (mq)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "E-commerce attivo (Sì/No)",
+      "field_type": "bool",
+      "description": "E-commerce attivo (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "% fatturato online",
+      "field_type": "str",
+      "description": "% fatturato online",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Database clienti (n.)",
+      "field_type": "int",
+      "description": "Database clienti (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Strutture ricettive (n.)",
+      "field_type": "int",
+      "description": "Strutture ricettive (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Camere totali (n.)",
+      "field_type": "int",
+      "description": "Camere totali (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "RevPAR medio (€)",
+      "field_type": "float",
+      "description": "RevPAR medio (€)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Modello gestione",
+      "field_type": "str",
+      "description": "Modello gestione",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Sedi/ambulatori (n.)",
+      "field_type": "int",
+      "description": "Sedi/ambulatori (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Posti letto",
+      "field_type": "int",
+      "description": "Posti letto",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "% fatturato da SSN",
+      "field_type": "str",
+      "description": "% fatturato da SSN",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Specializzazioni offerte",
+      "field_type": "str",
+      "description": "Specializzazioni offerte",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia (SaaS/servizi IT/hardware)",
+      "field_type": "str",
+      "description": "Tipologia (SaaS/servizi IT/hardware)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "MRR/ARR (€)",
+      "field_type": "float",
+      "description": "MRR/ARR (€)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Churn rate (%)",
+      "field_type": "str",
+      "description": "Churn rate (%)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Utenti/clienti attivi (n.)",
+      "field_type": "int",
+      "description": "Utenti/clienti attivi (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "IP proprietaria (Sì/No)",
+      "field_type": "bool",
+      "description": "IP proprietaria (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Certificazioni (ISO 27001/SOC2)",
+      "field_type": "str",
+      "description": "Certificazioni (ISO 27001/SOC2)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia servizio",
+      "field_type": "str",
+      "description": "Tipologia servizio",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Contratti lungo termine (% fatturato)",
+      "field_type": "str",
+      "description": "Contratti lungo termine (% fatturato)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Clienti in portafoglio (n.)",
+      "field_type": "int",
+      "description": "Clienti in portafoglio (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Professionisti/tecnici (n.)",
+      "field_type": "int",
+      "description": "Professionisti/tecnici (n.)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Autorizzazioni ambientali",
+      "field_type": "str",
+      "description": "Autorizzazioni ambientali",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Albo Gestori Ambientali",
+      "field_type": "str",
+      "description": "Albo Gestori Ambientali",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tonnellate trattate/anno",
+      "field_type": "str",
+      "description": "Tonnellate trattate/anno",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia rifiuti",
+      "field_type": "str",
+      "description": "Tipologia rifiuti",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Descrizione attività",
+      "field_type": "str",
+      "description": "Descrizione attività",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Licenze/concessioni speciali",
+      "field_type": "str",
+      "description": "Licenze/concessioni speciali",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Barriere all'ingresso",
+      "field_type": "str",
+      "description": "Barriere all'ingresso",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Regolamentazione settoriale (Sì/No)",
+      "field_type": "bool",
+      "description": "Regolamentazione settoriale (Sì/No)",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Zona",
+      "field_type": "str",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia attività",
+      "field_type": "str",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Flusso pedonale zona",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Canone locazione annuo (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Durata residua contratto locazione (anni)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Proprietà mura (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Anni di attività",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Avviamento storico",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Potenziale di sviluppo",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie sala/pubblico (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Licenza somministrazione (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Posti a sedere interni (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Dehors/posti esterni (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Licenza tabacchi (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Scontrino medio (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie sala (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Posti a sedere (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Laboratorio pasticceria (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie cucina (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Coperti esterni (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia cucina",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Delivery/asporto (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Coperti interni (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Forno (tipo)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Asporto/delivery (%)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Attrezzature incluse (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Coperti (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Dehors/giardino (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Licenza preparazione/vendita alimenti (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Laboratorio/cucina (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Produzione propria (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Laboratorio produzione (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Produzione artigianale propria (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Laboratorio (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Gusti medi offerti (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Stagionalità (%)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Etichette in catalogo (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Spine birra (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Cucina/food (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Aggio tabacchi annuo (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Aggio gioco annuo (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Bar annesso (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia (chiosco/negozio)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Cartoleria annessa (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Segmento",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Marchi in portafoglio (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "E-commerce (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Valore magazzino (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Target",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Postazioni lavoro (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Trattamenti estetici (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Clienti/giorno medio (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Cabine trattamento (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Trattamenti offerti",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Apparecchiature laser (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Clienti/settimana (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Valore attrezzature (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia (self-service/tradizionale/mista)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Lavatrici industriali (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Ritiro/consegna domicilio (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Autorizzazione provinciale (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Veicoli scuola guida (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Patenti rilasciate/anno (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Pratiche auto (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Aule (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Lingue insegnate",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Iscritti attivi (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Titolarità farmacia (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Laboratorio galenico (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Fatturato SSN annuo (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Ricette/giorno medio (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Farmacista abilitato (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Convenzioni ASL/INAIL (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Officina ortopedica (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Sale trattamento (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Palestra riabilitativa (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Convenzione SSN (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Operatori (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Ambulatori (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Specializzazioni mediche",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Convenzioni SSN/fondi",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Medici collaboratori (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Mandati attivi (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Agenti (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Portafoglio premi annui (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Polizze in portafoglio (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tasso retention (%)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Pratiche annue (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Servizi offerti",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Convenzione sindacale (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Mandanti/convenzioni (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Iscrizione OAM (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Volume erogato annuo (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Macchine/postazioni (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Aggio annuo gioco (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Postazioni/terminali (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Provvigioni annue (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Parcheggio (n. posti)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Stanze/esperienze (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Prezzo medio per persona (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Sessioni/giorno medio (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Booking online (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Camere (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "SCIA/autorizzazione regionale (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Posti letto (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Colazione inclusa (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "ADR medio (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "SCIA/autorizzazione (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Camere/dormitori (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Cucina comune (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tariffa media posto letto (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Superficie officina (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Ponti sollevatori (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Centro revisioni (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Gommista (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Piazzale esposizione (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Officina interna (mq)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Veicoli in stock (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Valore stock (€)",
+      "field_type": "float",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Cabina verniciatura (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": true,
+      "name_embedding": []
+    },
+    {
+      "name": "Convenzioni assicurative (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Soccorso stradale (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Deposito pneumatici (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Flotte/clienti business (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Tipologia (manuale/automatico/self-service/misto)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Piste lavaggio (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Servizio detailing (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Lavaggi/giorno medio (n.)",
+      "field_type": "int",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Caveau/cassaforte (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Laboratorio ottico (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Convenzioni ASL (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Laboratorio orafo (Sì/No)",
+      "field_type": "bool",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Produzione ingrosso (% fatturato)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    },
+    {
+      "name": "Forno professionale (tipo)",
+      "field_type": "str",
+      "description": "",
+      "mandatory": false,
+      "name_embedding": []
+    }
+  ],
+  "triples_belongs_to": [
+    {
+      "source": "Castello",
+      "target": "Immobili"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Immobili"
+    },
+    {
+      "source": "Villa",
+      "target": "Immobili"
+    },
+    {
+      "source": "Casale",
+      "target": "Immobili"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Immobili"
+    },
+    {
+      "source": "Attico",
+      "target": "Immobili"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Immobili"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Immobili"
+    },
+    {
+      "source": "Capannone artigianale",
+      "target": "Immobili"
+    },
+    {
+      "source": "Laboratorio",
+      "target": "Immobili"
+    },
+    {
+      "source": "Magazzino",
+      "target": "Immobili"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Immobili"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Immobili"
+    },
+    {
+      "source": "Negozio",
+      "target": "Immobili"
+    },
+    {
+      "source": "Capannone commerciale",
+      "target": "Immobili"
+    },
+    {
+      "source": "Retail Park",
+      "target": "Immobili"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "Immobili"
+    },
+    {
+      "source": "Outlet Park",
+      "target": "Immobili"
+    },
+    {
+      "source": "Hotel",
+      "target": "Immobili"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Immobili"
+    },
+    {
+      "source": "Residence",
+      "target": "Immobili"
+    },
+    {
+      "source": "Azienda agricola",
+      "target": "Immobili"
+    },
+    {
+      "source": "Senior living",
+      "target": "Immobili"
+    },
+    {
+      "source": "Student housing",
+      "target": "Immobili"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Immobili"
+    },
+    {
+      "source": "Convento",
+      "target": "Immobili"
+    },
+    {
+      "source": "Caserma",
+      "target": "Immobili"
+    },
+    {
+      "source": "Sportello bancario",
+      "target": "Immobili"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Immobili"
+    },
+    {
+      "source": "Ufficio pubblico",
+      "target": "Immobili"
+    },
+    {
+      "source": "Complesso sportivo",
+      "target": "Immobili"
+    },
+    {
+      "source": "Autorimessa",
+      "target": "Immobili"
+    },
+    {
+      "source": "Industria e Manifattura",
+      "target": "Aziende"
+    },
+    {
+      "source": "Logistica e Trasporti",
+      "target": "Aziende"
+    },
+    {
+      "source": "Costruzioni e Infrastrutture",
+      "target": "Aziende"
+    },
+    {
+      "source": "Energia e Utilities",
+      "target": "Aziende"
+    },
+    {
+      "source": "Agroindustria e Food",
+      "target": "Aziende"
+    },
+    {
+      "source": "Retail e Distribuzione (Azienda)",
+      "target": "Aziende"
+    },
+    {
+      "source": "Hospitality e Turismo (Azienda)",
+      "target": "Aziende"
+    },
+    {
+      "source": "Sanità e Servizi alla Persona (Azienda)",
+      "target": "Aziende"
+    },
+    {
+      "source": "ICT Media e Tecnologia",
+      "target": "Aziende"
+    },
+    {
+      "source": "Servizi alle Imprese",
+      "target": "Aziende"
+    },
+    {
+      "source": "Ambiente Economia Circolare ESG",
+      "target": "Aziende"
+    },
+    {
+      "source": "Settori Speciali Altro",
+      "target": "Aziende"
+    },
+    {
+      "source": "Bar",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Caffetteria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Trattoria Osteria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Gastronomia",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Panificio Pasticceria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Gelateria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Enoteca Wine bar",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Pub Birreria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Tabaccheria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Edicola",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Profumeria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Abbigliamento",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Calzature",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Ottica",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Gioielleria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Telefonia",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Elettronica di consumo",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Articoli per la casa",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Parrucchiere",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Estetica",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Centro unghie",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Lavanderia",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Scuola guida",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Scuola di lingue",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Farmacia",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Parafarmacia",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Sanitaria ortopedia",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Centro fisioterapico",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Palestra fitness",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Centro medico polispecialistico",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Agenzia immobiliare",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Agenzia assicurativa",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "CAF Patronato",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Servizi finanziari al dettaglio",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Sala giochi",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Centro scommesse",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Bowling",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Escape room",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "B&B",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Affittacamere",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Ostello",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Autofficina",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Carrozzeria",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Gommista",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Autolavaggio",
+      "target": "Attività Commerciali"
+    },
+    {
+      "source": "Concessionaria",
+      "target": "Attività Commerciali"
+    }
+  ],
+  "triples_requires_l1": [
+    {
+      "source": "Immobili",
+      "target": "Regione"
+    },
+    {
+      "source": "Immobili",
+      "target": "Provincia"
+    },
+    {
+      "source": "Immobili",
+      "target": "Comune"
+    },
+    {
+      "source": "Immobili",
+      "target": "Prezzo richiesto (€)"
+    },
+    {
+      "source": "Immobili",
+      "target": "Stato di occupazione"
+    },
+    {
+      "source": "Immobili",
+      "target": "Stato di conservazione"
+    },
+    {
+      "source": "Immobili",
+      "target": "Zona/Quartiere"
+    },
+    {
+      "source": "Immobili",
+      "target": "Anno di costruzione"
+    },
+    {
+      "source": "Immobili",
+      "target": "Classe energetica (APE)"
+    },
+    {
+      "source": "Immobili",
+      "target": "Vincoli"
+    },
+    {
+      "source": "Immobili",
+      "target": "Destinazione d'uso attuale"
+    },
+    {
+      "source": "Immobili",
+      "target": "Destinazione d'uso potenziale"
+    },
+    {
+      "source": "Aziende",
+      "target": "Regione sede legale"
+    },
+    {
+      "source": "Aziende",
+      "target": "Provincia sede legale"
+    },
+    {
+      "source": "Aziende",
+      "target": "Macro-settore"
+    },
+    {
+      "source": "Aziende",
+      "target": "Settore operativo"
+    },
+    {
+      "source": "Aziende",
+      "target": "Dimensione azienda"
+    },
+    {
+      "source": "Aziende",
+      "target": "Fatturato ultimo esercizio (€)"
+    },
+    {
+      "source": "Aziende",
+      "target": "EBITDA (€)"
+    },
+    {
+      "source": "Aziende",
+      "target": "Prezzo richiesto / Valutazione (€)"
+    },
+    {
+      "source": "Aziende",
+      "target": "Tipologia operazione"
+    },
+    {
+      "source": "Aziende",
+      "target": "Numero dipendenti"
+    },
+    {
+      "source": "Aziende",
+      "target": "Modello di business"
+    },
+    {
+      "source": "Aziende",
+      "target": "Mercato geografico"
+    },
+    {
+      "source": "Aziende",
+      "target": "Comune sede legale"
+    },
+    {
+      "source": "Aziende",
+      "target": "Anno di costituzione"
+    },
+    {
+      "source": "Aziende",
+      "target": "Forma giuridica"
+    },
+    {
+      "source": "Aziende",
+      "target": "EBITDA margin (%)"
+    },
+    {
+      "source": "Aziende",
+      "target": "Trend fatturato triennio"
+    },
+    {
+      "source": "Aziende",
+      "target": "Quota offerta (%)"
+    },
+    {
+      "source": "Aziende",
+      "target": "Motivazione cessione"
+    },
+    {
+      "source": "Aziende",
+      "target": "Concentrazione clienti top 3 (%)"
+    },
+    {
+      "source": "Aziende",
+      "target": "Brevetti/marchi"
+    },
+    {
+      "source": "Aziende",
+      "target": "Certificazioni"
+    },
+    {
+      "source": "Attività Commerciali",
+      "target": "Regione"
+    },
+    {
+      "source": "Attività Commerciali",
+      "target": "Provincia"
+    },
+    {
+      "source": "Attività Commerciali",
+      "target": "Comune"
+    },
+    {
+      "source": "Attività Commerciali",
+      "target": "Zona"
+    },
+    {
+      "source": "Attività Commerciali",
+      "target": "Tipologia attività"
+    },
+    {
+      "source": "Attività Commerciali",
+      "target": "Prezzo richiesto (€)"
+    },
+    {
+      "source": "Attività Commerciali",
+      "target": "Fatturato annuo (€)"
+    }
+  ],
+  "triples_requires_l2": [
+    {
+      "source": "Castello",
+      "target": "Superficie coperta totale (mq)"
+    },
+    {
+      "source": "Castello",
+      "target": "Superficie terreno/parco (ha)"
+    },
+    {
+      "source": "Castello",
+      "target": "Vincolo monumentale (Sì/No)"
+    },
+    {
+      "source": "Castello",
+      "target": "Numero camere/vani"
+    },
+    {
+      "source": "Castello",
+      "target": "Numero bagni"
+    },
+    {
+      "source": "Castello",
+      "target": "Epoca storica"
+    },
+    {
+      "source": "Castello",
+      "target": "Torre/torrione (Sì/No)"
+    },
+    {
+      "source": "Castello",
+      "target": "Mura di cinta (Sì/No)"
+    },
+    {
+      "source": "Castello",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Castello",
+      "target": "Terreno agricolo annesso (ha)"
+    },
+    {
+      "source": "Castello",
+      "target": "Idoneità hospitality (Sì/No)"
+    },
+    {
+      "source": "Castello",
+      "target": "Idoneità eventi (Sì/No)"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Superficie coperta totale (mq)"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Numero piani"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Vincolo monumentale (Sì/No)"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Numero unità immobiliari"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Numero vani complessivi"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Epoca storica"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Piano nobile (Sì/No)"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Cortile interno (Sì/No)"
+    },
+    {
+      "source": "Palazzo",
+      "target": "Reddito locativo annuo (€)"
+    },
+    {
+      "source": "Villa",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Villa",
+      "target": "Superficie terreno (mq)"
+    },
+    {
+      "source": "Villa",
+      "target": "Numero camere da letto"
+    },
+    {
+      "source": "Villa",
+      "target": "Numero bagni"
+    },
+    {
+      "source": "Villa",
+      "target": "Numero piani"
+    },
+    {
+      "source": "Villa",
+      "target": "Livello finiture"
+    },
+    {
+      "source": "Villa",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Villa",
+      "target": "Giardino (mq)"
+    },
+    {
+      "source": "Villa",
+      "target": "Vista"
+    },
+    {
+      "source": "Villa",
+      "target": "Dependance (mq)"
+    },
+    {
+      "source": "Casale",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Casale",
+      "target": "Superficie terreno (ha)"
+    },
+    {
+      "source": "Casale",
+      "target": "Stato ristrutturazione"
+    },
+    {
+      "source": "Casale",
+      "target": "Numero camere"
+    },
+    {
+      "source": "Casale",
+      "target": "Numero bagni"
+    },
+    {
+      "source": "Casale",
+      "target": "Oliveto (ha)"
+    },
+    {
+      "source": "Casale",
+      "target": "Vigneto (ha)"
+    },
+    {
+      "source": "Casale",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Casale",
+      "target": "Idoneità agrituristica (Sì/No)"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Superficie commerciale (mq)"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Numero vani"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Numero camere da letto"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Piano"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Numero bagni"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Balcone/terrazzo (mq)"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Livello finiture"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Ascensore (Sì/No)"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Posto auto/garage"
+    },
+    {
+      "source": "Appartamento",
+      "target": "Spese condominiali annue (€)"
+    },
+    {
+      "source": "Attico",
+      "target": "Superficie commerciale (mq)"
+    },
+    {
+      "source": "Attico",
+      "target": "Numero vani"
+    },
+    {
+      "source": "Attico",
+      "target": "Numero camere da letto"
+    },
+    {
+      "source": "Attico",
+      "target": "Superficie terrazzo/lastrico solare (mq)"
+    },
+    {
+      "source": "Attico",
+      "target": "Numero bagni"
+    },
+    {
+      "source": "Attico",
+      "target": "Vista panoramica"
+    },
+    {
+      "source": "Attico",
+      "target": "Livello finiture"
+    },
+    {
+      "source": "Attico",
+      "target": "Domotica (Sì/No)"
+    },
+    {
+      "source": "Attico",
+      "target": "Posto auto/garage (n.)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Altezza sottotrave (m)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Accesso TIR/bilici (Sì/No)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Area scoperta/piazzale (mq)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Potenza elettrica (kW)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Carroponte (Sì/No)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Baie di carico (n.)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Distanza casello autostradale (km)"
+    },
+    {
+      "source": "Capannone industriale",
+      "target": "Impianto fotovoltaico (kWp)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Altezza sottotrave (m)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Baie di carico (n.)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Accesso TIR/bilici (Sì/No)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Cross-docking (Sì/No)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Temperatura controllata (Sì/No)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Cella frigorifera (Sì/No)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Parcheggi TIR (n.)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Distanza casello autostradale (km)"
+    },
+    {
+      "source": "Capannone logistico",
+      "target": "Certificazioni"
+    },
+    {
+      "source": "Capannone artigianale",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Capannone artigianale",
+      "target": "Altezza interna (m)"
+    },
+    {
+      "source": "Capannone artigianale",
+      "target": "Area esterna (mq)"
+    },
+    {
+      "source": "Capannone artigianale",
+      "target": "Ufficio annesso (mq)"
+    },
+    {
+      "source": "Capannone artigianale",
+      "target": "Potenza elettrica (kW)"
+    },
+    {
+      "source": "Capannone artigianale",
+      "target": "Accesso veicolare (tipo)"
+    },
+    {
+      "source": "Laboratorio",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Laboratorio",
+      "target": "Altezza interna (m)"
+    },
+    {
+      "source": "Laboratorio",
+      "target": "Impianti specialistici"
+    },
+    {
+      "source": "Laboratorio",
+      "target": "Temperatura controllata (Sì/No)"
+    },
+    {
+      "source": "Laboratorio",
+      "target": "Potenza elettrica (kW)"
+    },
+    {
+      "source": "Magazzino",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Magazzino",
+      "target": "Altezza interna (m)"
+    },
+    {
+      "source": "Magazzino",
+      "target": "Area esterna (mq)"
+    },
+    {
+      "source": "Magazzino",
+      "target": "Scaffalature (Sì/No)"
+    },
+    {
+      "source": "Magazzino",
+      "target": "Temperatura controllata (Sì/No)"
+    },
+    {
+      "source": "Magazzino",
+      "target": "Baie di carico (n.)"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Piano/i"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Layout (open space/suddiviso/misto)"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Sala riunioni (n.)"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Climatizzazione (Sì/No)"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Ascensore (Sì/No)"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Parcheggi (n.)"
+    },
+    {
+      "source": "Ufficio",
+      "target": "Certificazioni"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Superficie totale (mq)"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Numero piani"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Numero unità/piani indipendenti"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Sala conferenze (Sì/No)"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Parcheggi (n.)"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Reddito locativo annuo (€)"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Palazzina direzionale",
+      "target": "Certificazioni"
+    },
+    {
+      "source": "Negozio",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Negozio",
+      "target": "Zona commerciale"
+    },
+    {
+      "source": "Negozio",
+      "target": "Fronte vetrina (ml)"
+    },
+    {
+      "source": "Negozio",
+      "target": "Flusso pedonale"
+    },
+    {
+      "source": "Negozio",
+      "target": "Canna fumaria (Sì/No)"
+    },
+    {
+      "source": "Negozio",
+      "target": "Destinazione merceologica attuale"
+    },
+    {
+      "source": "Capannone commerciale",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Capannone commerciale",
+      "target": "Altezza interna (m)"
+    },
+    {
+      "source": "Capannone commerciale",
+      "target": "Parcheggi clienti (n.)"
+    },
+    {
+      "source": "Capannone commerciale",
+      "target": "Visibilità da strada (Sì/No)"
+    },
+    {
+      "source": "Retail Park",
+      "target": "GLA – Gross Leasable Area (mq)"
+    },
+    {
+      "source": "Retail Park",
+      "target": "Numero unità commerciali"
+    },
+    {
+      "source": "Retail Park",
+      "target": "Ancora alimentare (Sì/No)"
+    },
+    {
+      "source": "Retail Park",
+      "target": "Tenant mix"
+    },
+    {
+      "source": "Retail Park",
+      "target": "Reddito locativo annuo (€)"
+    },
+    {
+      "source": "Retail Park",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Retail Park",
+      "target": "Parcheggi (n.)"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "GLA totale (mq)"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "Numero negozi/unità"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "Ancora alimentare (Sì/No)"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "Food court (Sì/No)"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "Reddito locativo annuo (€)"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Centro commerciale",
+      "target": "Parcheggi (n.)"
+    },
+    {
+      "source": "Outlet Park",
+      "target": "GLA totale (mq)"
+    },
+    {
+      "source": "Outlet Park",
+      "target": "Numero unità/brand"
+    },
+    {
+      "source": "Outlet Park",
+      "target": "Segmento di mercato"
+    },
+    {
+      "source": "Outlet Park",
+      "target": "Visitatori/anno"
+    },
+    {
+      "source": "Outlet Park",
+      "target": "Reddito locativo annuo (€)"
+    },
+    {
+      "source": "Outlet Park",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Hotel",
+      "target": "Numero camere"
+    },
+    {
+      "source": "Hotel",
+      "target": "Classificazione stelle (1-5)"
+    },
+    {
+      "source": "Hotel",
+      "target": "Numero posti letto"
+    },
+    {
+      "source": "Hotel",
+      "target": "Ristorante (Sì/No)"
+    },
+    {
+      "source": "Hotel",
+      "target": "SPA/wellness (Sì/No)"
+    },
+    {
+      "source": "Hotel",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Hotel",
+      "target": "RevPAR (€)"
+    },
+    {
+      "source": "Hotel",
+      "target": "Occupancy rate medio"
+    },
+    {
+      "source": "Hotel",
+      "target": "Fatturato annuo (€)"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Numero camere/unità abitative"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Superficie terreno (ha)"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Ristorazione (Sì/No)"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Colture principali"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Certificazioni biologiche (Sì/No)"
+    },
+    {
+      "source": "Agriturismo",
+      "target": "Fatturato annuo (€)"
+    },
+    {
+      "source": "Residence",
+      "target": "Numero unità abitative"
+    },
+    {
+      "source": "Residence",
+      "target": "Target (business/turistico/misto)"
+    },
+    {
+      "source": "Residence",
+      "target": "Servizi comuni"
+    },
+    {
+      "source": "Residence",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Residence",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Residence",
+      "target": "Reddito annuo (€)"
+    },
+    {
+      "source": "Azienda agricola",
+      "target": "Superficie totale (ha)"
+    },
+    {
+      "source": "Azienda agricola",
+      "target": "Coltura/e principale/i"
+    },
+    {
+      "source": "Azienda agricola",
+      "target": "Fatturato annuo (€)"
+    },
+    {
+      "source": "Azienda agricola",
+      "target": "Denominazioni (DOC/DOP/IGP)"
+    },
+    {
+      "source": "Azienda agricola",
+      "target": "Certificazioni biologiche (Sì/No)"
+    },
+    {
+      "source": "Azienda agricola",
+      "target": "Agriturismo annesso (Sì/No)"
+    },
+    {
+      "source": "Senior living",
+      "target": "Posti letto/unità abitative"
+    },
+    {
+      "source": "Senior living",
+      "target": "Autorizzazione sanitaria (Sì/No)"
+    },
+    {
+      "source": "Senior living",
+      "target": "Tipologia struttura"
+    },
+    {
+      "source": "Senior living",
+      "target": "Spazi comuni (mq)"
+    },
+    {
+      "source": "Senior living",
+      "target": "Servizi sanitari interni"
+    },
+    {
+      "source": "Senior living",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Senior living",
+      "target": "Fatturato (€)"
+    },
+    {
+      "source": "Student housing",
+      "target": "Posti letto"
+    },
+    {
+      "source": "Student housing",
+      "target": "Distanza da università/polo (km)"
+    },
+    {
+      "source": "Student housing",
+      "target": "Spazi comuni"
+    },
+    {
+      "source": "Student housing",
+      "target": "Trasporto pubblico verso ateneo (Sì/No)"
+    },
+    {
+      "source": "Student housing",
+      "target": "Canone medio per posto letto (€/mese)"
+    },
+    {
+      "source": "Student housing",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Posti letto"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Autorizzazione sanitaria (Sì/No)"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Accreditamento SSN/SSR (Sì/No)"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Specializzazioni"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Sale operatorie (n.)"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Fatturato annuo (€)"
+    },
+    {
+      "source": "Casa di cura",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Convento",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Convento",
+      "target": "Vincolo monumentale (Sì/No)"
+    },
+    {
+      "source": "Convento",
+      "target": "Superficie terreno (ha)"
+    },
+    {
+      "source": "Convento",
+      "target": "Chiostro (Sì/No)"
+    },
+    {
+      "source": "Convento",
+      "target": "Destinazione d'uso potenziale"
+    },
+    {
+      "source": "Convento",
+      "target": "Idoneità ricettiva (Sì/No)"
+    },
+    {
+      "source": "Caserma",
+      "target": "Superficie coperta (mq)"
+    },
+    {
+      "source": "Caserma",
+      "target": "Destinazione urbanistica vigente"
+    },
+    {
+      "source": "Caserma",
+      "target": "Necessità bonifica (Sì/No)"
+    },
+    {
+      "source": "Caserma",
+      "target": "Destinazione d'uso potenziale"
+    },
+    {
+      "source": "Caserma",
+      "target": "Volumetria esistente (mc)"
+    },
+    {
+      "source": "Sportello bancario",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Sportello bancario",
+      "target": "Zona commerciale"
+    },
+    {
+      "source": "Sportello bancario",
+      "target": "Caveau (Sì/No)"
+    },
+    {
+      "source": "Sportello bancario",
+      "target": "Contratto locazione residuo (anni)"
+    },
+    {
+      "source": "Sportello bancario",
+      "target": "Canone locazione annuo (€)"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Fronte mare (ml)"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Superficie concessione (mq)"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Scadenza concessione demaniale"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Cabine (n.)"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Bar/ristorante (Sì/No)"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Fatturato annuo (€)"
+    },
+    {
+      "source": "Stabilimento balneare",
+      "target": "Stagionalità (mesi)"
+    },
+    {
+      "source": "Ufficio pubblico",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Ufficio pubblico",
+      "target": "Numero piani"
+    },
+    {
+      "source": "Ufficio pubblico",
+      "target": "Conduttore PA (tipologia ente)"
+    },
+    {
+      "source": "Ufficio pubblico",
+      "target": "Contratto residuo (anni)"
+    },
+    {
+      "source": "Ufficio pubblico",
+      "target": "Canone locazione annuo (€)"
+    },
+    {
+      "source": "Complesso sportivo",
+      "target": "Superficie complessiva (mq o ha)"
+    },
+    {
+      "source": "Complesso sportivo",
+      "target": "Discipline sportive presenti"
+    },
+    {
+      "source": "Complesso sportivo",
+      "target": "Tribune/posti a sedere (n.)"
+    },
+    {
+      "source": "Complesso sportivo",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Complesso sportivo",
+      "target": "Fatturato annuo (€)"
+    },
+    {
+      "source": "Complesso sportivo",
+      "target": "Concessione comunale (scadenza)"
+    },
+    {
+      "source": "Autorimessa",
+      "target": "Numero posti auto"
+    },
+    {
+      "source": "Autorimessa",
+      "target": "Superficie complessiva (mq)"
+    },
+    {
+      "source": "Autorimessa",
+      "target": "Numero piani"
+    },
+    {
+      "source": "Autorimessa",
+      "target": "Colonnine ricarica elettrica (n.)"
+    },
+    {
+      "source": "Autorimessa",
+      "target": "Reddito annuo (€)"
+    },
+    {
+      "source": "Autorimessa",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Industria e Manifattura",
+      "target": "Superficie stabilimento (mq)"
+    },
+    {
+      "source": "Industria e Manifattura",
+      "target": "Numero stabilimenti"
+    },
+    {
+      "source": "Industria e Manifattura",
+      "target": "Capacità produttiva"
+    },
+    {
+      "source": "Industria e Manifattura",
+      "target": "Grado automazione"
+    },
+    {
+      "source": "Industria e Manifattura",
+      "target": "Certificazioni qualità"
+    },
+    {
+      "source": "Industria e Manifattura",
+      "target": "R&D interna (Sì/No)"
+    },
+    {
+      "source": "Logistica e Trasporti",
+      "target": "Mezzi di proprietà (n.)"
+    },
+    {
+      "source": "Logistica e Trasporti",
+      "target": "Magazzini/hub (mq)"
+    },
+    {
+      "source": "Logistica e Trasporti",
+      "target": "Licenze di trasporto"
+    },
+    {
+      "source": "Logistica e Trasporti",
+      "target": "Copertura geografica"
+    },
+    {
+      "source": "Logistica e Trasporti",
+      "target": "Spedizioni/anno"
+    },
+    {
+      "source": "Costruzioni e Infrastrutture",
+      "target": "Cantieri attivi (n.)"
+    },
+    {
+      "source": "Costruzioni e Infrastrutture",
+      "target": "Backlog ordini (€)"
+    },
+    {
+      "source": "Costruzioni e Infrastrutture",
+      "target": "Specializzazione"
+    },
+    {
+      "source": "Costruzioni e Infrastrutture",
+      "target": "Attestazione SOA"
+    },
+    {
+      "source": "Costruzioni e Infrastrutture",
+      "target": "General contractor (Sì/No)"
+    },
+    {
+      "source": "Energia e Utilities",
+      "target": "Potenza installata (MW)"
+    },
+    {
+      "source": "Energia e Utilities",
+      "target": "Tipologia impianti"
+    },
+    {
+      "source": "Energia e Utilities",
+      "target": "Produzione annua (MWh)"
+    },
+    {
+      "source": "Energia e Utilities",
+      "target": "Incentivi GSE (Sì/No)"
+    },
+    {
+      "source": "Agroindustria e Food",
+      "target": "Terreni agricoli (ha)"
+    },
+    {
+      "source": "Agroindustria e Food",
+      "target": "Denominazioni (DOP/DOC/IGP/BIO)"
+    },
+    {
+      "source": "Agroindustria e Food",
+      "target": "Capacità produttiva"
+    },
+    {
+      "source": "Agroindustria e Food",
+      "target": "Canali distributivi"
+    },
+    {
+      "source": "Agroindustria e Food",
+      "target": "Biologico certificato (Sì/No)"
+    },
+    {
+      "source": "Retail e Distribuzione (Azienda)",
+      "target": "Punti vendita (n.)"
+    },
+    {
+      "source": "Retail e Distribuzione (Azienda)",
+      "target": "Superficie vendita totale (mq)"
+    },
+    {
+      "source": "Retail e Distribuzione (Azienda)",
+      "target": "E-commerce attivo (Sì/No)"
+    },
+    {
+      "source": "Retail e Distribuzione (Azienda)",
+      "target": "% fatturato online"
+    },
+    {
+      "source": "Retail e Distribuzione (Azienda)",
+      "target": "Database clienti (n.)"
+    },
+    {
+      "source": "Hospitality e Turismo (Azienda)",
+      "target": "Strutture ricettive (n.)"
+    },
+    {
+      "source": "Hospitality e Turismo (Azienda)",
+      "target": "Camere totali (n.)"
+    },
+    {
+      "source": "Hospitality e Turismo (Azienda)",
+      "target": "RevPAR medio (€)"
+    },
+    {
+      "source": "Hospitality e Turismo (Azienda)",
+      "target": "Occupancy rate medio"
+    },
+    {
+      "source": "Hospitality e Turismo (Azienda)",
+      "target": "Modello gestione"
+    },
+    {
+      "source": "Sanità e Servizi alla Persona (Azienda)",
+      "target": "Sedi/ambulatori (n.)"
+    },
+    {
+      "source": "Sanità e Servizi alla Persona (Azienda)",
+      "target": "Posti letto"
+    },
+    {
+      "source": "Sanità e Servizi alla Persona (Azienda)",
+      "target": "Accreditamento SSN/SSR (Sì/No)"
+    },
+    {
+      "source": "Sanità e Servizi alla Persona (Azienda)",
+      "target": "% fatturato da SSN"
+    },
+    {
+      "source": "Sanità e Servizi alla Persona (Azienda)",
+      "target": "Specializzazioni offerte"
+    },
+    {
+      "source": "ICT Media e Tecnologia",
+      "target": "Tipologia (SaaS/servizi IT/hardware)"
+    },
+    {
+      "source": "ICT Media e Tecnologia",
+      "target": "MRR/ARR (€)"
+    },
+    {
+      "source": "ICT Media e Tecnologia",
+      "target": "Churn rate (%)"
+    },
+    {
+      "source": "ICT Media e Tecnologia",
+      "target": "Utenti/clienti attivi (n.)"
+    },
+    {
+      "source": "ICT Media e Tecnologia",
+      "target": "IP proprietaria (Sì/No)"
+    },
+    {
+      "source": "ICT Media e Tecnologia",
+      "target": "Certificazioni (ISO 27001/SOC2)"
+    },
+    {
+      "source": "Servizi alle Imprese",
+      "target": "Tipologia servizio"
+    },
+    {
+      "source": "Servizi alle Imprese",
+      "target": "Contratti lungo termine (% fatturato)"
+    },
+    {
+      "source": "Servizi alle Imprese",
+      "target": "Clienti in portafoglio (n.)"
+    },
+    {
+      "source": "Servizi alle Imprese",
+      "target": "Professionisti/tecnici (n.)"
+    },
+    {
+      "source": "Ambiente Economia Circolare ESG",
+      "target": "Autorizzazioni ambientali"
+    },
+    {
+      "source": "Ambiente Economia Circolare ESG",
+      "target": "Albo Gestori Ambientali"
+    },
+    {
+      "source": "Ambiente Economia Circolare ESG",
+      "target": "Tonnellate trattate/anno"
+    },
+    {
+      "source": "Ambiente Economia Circolare ESG",
+      "target": "Tipologia rifiuti"
+    },
+    {
+      "source": "Settori Speciali Altro",
+      "target": "Descrizione attività"
+    },
+    {
+      "source": "Settori Speciali Altro",
+      "target": "Licenze/concessioni speciali"
+    },
+    {
+      "source": "Settori Speciali Altro",
+      "target": "Barriere all'ingresso"
+    },
+    {
+      "source": "Settori Speciali Altro",
+      "target": "Regolamentazione settoriale (Sì/No)"
+    },
+    {
+      "source": "Bar",
+      "target": "Superficie sala/pubblico (mq)"
+    },
+    {
+      "source": "Bar",
+      "target": "Licenza somministrazione (Sì/No)"
+    },
+    {
+      "source": "Bar",
+      "target": "Posti a sedere interni (n.)"
+    },
+    {
+      "source": "Bar",
+      "target": "Dehors/posti esterni (n.)"
+    },
+    {
+      "source": "Bar",
+      "target": "Canna fumaria (Sì/No)"
+    },
+    {
+      "source": "Bar",
+      "target": "Licenza tabacchi (Sì/No)"
+    },
+    {
+      "source": "Bar",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Caffetteria",
+      "target": "Superficie sala (mq)"
+    },
+    {
+      "source": "Caffetteria",
+      "target": "Licenza somministrazione (Sì/No)"
+    },
+    {
+      "source": "Caffetteria",
+      "target": "Posti a sedere (n.)"
+    },
+    {
+      "source": "Caffetteria",
+      "target": "Laboratorio pasticceria (Sì/No)"
+    },
+    {
+      "source": "Caffetteria",
+      "target": "Canna fumaria (Sì/No)"
+    },
+    {
+      "source": "Caffetteria",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Superficie sala (mq)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Coperti interni (n.)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Canna fumaria (Sì/No)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Licenza somministrazione (Sì/No)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Superficie cucina (mq)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Coperti esterni (n.)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Tipologia cucina"
+    },
+    {
+      "source": "Ristorante",
+      "target": "Delivery/asporto (Sì/No)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Superficie sala (mq)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Coperti interni (n.)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Canna fumaria (Sì/No)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Licenza somministrazione (Sì/No)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Forno (tipo)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Asporto/delivery (%)"
+    },
+    {
+      "source": "Pizzeria",
+      "target": "Attrezzature incluse (Sì/No)"
+    },
+    {
+      "source": "Trattoria Osteria",
+      "target": "Superficie sala (mq)"
+    },
+    {
+      "source": "Trattoria Osteria",
+      "target": "Coperti (n.)"
+    },
+    {
+      "source": "Trattoria Osteria",
+      "target": "Canna fumaria (Sì/No)"
+    },
+    {
+      "source": "Trattoria Osteria",
+      "target": "Dehors/giardino (Sì/No)"
+    },
+    {
+      "source": "Trattoria Osteria",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Trattoria Osteria",
+      "target": "Attrezzature incluse (Sì/No)"
+    },
+    {
+      "source": "Gastronomia",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Gastronomia",
+      "target": "Licenza preparazione/vendita alimenti (Sì/No)"
+    },
+    {
+      "source": "Gastronomia",
+      "target": "Laboratorio/cucina (mq)"
+    },
+    {
+      "source": "Gastronomia",
+      "target": "Canna fumaria (Sì/No)"
+    },
+    {
+      "source": "Gastronomia",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Gastronomia",
+      "target": "Catering/delivery (Sì/No)"
+    },
+    {
+      "source": "Panificio Pasticceria",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Panificio Pasticceria",
+      "target": "Laboratorio produzione (mq)"
+    },
+    {
+      "source": "Panificio Pasticceria",
+      "target": "Produzione propria (Sì/No)"
+    },
+    {
+      "source": "Panificio Pasticceria",
+      "target": "Forno professionale (tipo)"
+    },
+    {
+      "source": "Panificio Pasticceria",
+      "target": "Vendita ingrosso (% fatturato)"
+    },
+    {
+      "source": "Panificio Pasticceria",
+      "target": "Attrezzature incluse (Sì/No)"
+    },
+    {
+      "source": "Gelateria",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Gelateria",
+      "target": "Produzione artigianale propria (Sì/No)"
+    },
+    {
+      "source": "Gelateria",
+      "target": "Laboratorio (mq)"
+    },
+    {
+      "source": "Gelateria",
+      "target": "Posti a sedere (n.)"
+    },
+    {
+      "source": "Gelateria",
+      "target": "Gusti medi offerti (n.)"
+    },
+    {
+      "source": "Gelateria",
+      "target": "Stagionalità (%)"
+    },
+    {
+      "source": "Enoteca Wine bar",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Enoteca Wine bar",
+      "target": "Licenza somministrazione (Sì/No)"
+    },
+    {
+      "source": "Enoteca Wine bar",
+      "target": "Posti a sedere (n.)"
+    },
+    {
+      "source": "Enoteca Wine bar",
+      "target": "Etichette in catalogo (n.)"
+    },
+    {
+      "source": "Enoteca Wine bar",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Pub Birreria",
+      "target": "Superficie sala (mq)"
+    },
+    {
+      "source": "Pub Birreria",
+      "target": "Licenza somministrazione (Sì/No)"
+    },
+    {
+      "source": "Pub Birreria",
+      "target": "Posti a sedere (n.)"
+    },
+    {
+      "source": "Pub Birreria",
+      "target": "Spine birra (n.)"
+    },
+    {
+      "source": "Pub Birreria",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Pub Birreria",
+      "target": "Cucina/food (Sì/No)"
+    },
+    {
+      "source": "Tabaccheria",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Tabaccheria",
+      "target": "Licenza tabacchi (Sì/No)"
+    },
+    {
+      "source": "Tabaccheria",
+      "target": "Aggio tabacchi annuo (€)"
+    },
+    {
+      "source": "Tabaccheria",
+      "target": "Aggio gioco annuo (€)"
+    },
+    {
+      "source": "Tabaccheria",
+      "target": "Bar annesso (Sì/No)"
+    },
+    {
+      "source": "Edicola",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Edicola",
+      "target": "Tipologia (chiosco/negozio)"
+    },
+    {
+      "source": "Edicola",
+      "target": "Flusso pedonale"
+    },
+    {
+      "source": "Edicola",
+      "target": "Cartoleria annessa (Sì/No)"
+    },
+    {
+      "source": "Profumeria",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Profumeria",
+      "target": "Segmento"
+    },
+    {
+      "source": "Profumeria",
+      "target": "Marchi in portafoglio (n.)"
+    },
+    {
+      "source": "Profumeria",
+      "target": "E-commerce (Sì/No)"
+    },
+    {
+      "source": "Profumeria",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Abbigliamento",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Abbigliamento",
+      "target": "Segmento"
+    },
+    {
+      "source": "Abbigliamento",
+      "target": "Target"
+    },
+    {
+      "source": "Abbigliamento",
+      "target": "E-commerce (Sì/No)"
+    },
+    {
+      "source": "Abbigliamento",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Calzature",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Calzature",
+      "target": "Segmento"
+    },
+    {
+      "source": "Calzature",
+      "target": "Target"
+    },
+    {
+      "source": "Calzature",
+      "target": "E-commerce (Sì/No)"
+    },
+    {
+      "source": "Calzature",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Ottica",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Ottica",
+      "target": "Laboratorio ottico (Sì/No)"
+    },
+    {
+      "source": "Ottica",
+      "target": "Convenzioni ASL (Sì/No)"
+    },
+    {
+      "source": "Ottica",
+      "target": "Segmento"
+    },
+    {
+      "source": "Ottica",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Gioielleria",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Gioielleria",
+      "target": "Caveau/cassaforte (Sì/No)"
+    },
+    {
+      "source": "Gioielleria",
+      "target": "Segmento"
+    },
+    {
+      "source": "Gioielleria",
+      "target": "Laboratorio orafo (Sì/No)"
+    },
+    {
+      "source": "Gioielleria",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Telefonia",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Telefonia",
+      "target": "Dealer operatore"
+    },
+    {
+      "source": "Telefonia",
+      "target": "Riparazione/assistenza (Sì/No)"
+    },
+    {
+      "source": "Telefonia",
+      "target": "Provvigioni incluse (Sì/No)"
+    },
+    {
+      "source": "Elettronica di consumo",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Elettronica di consumo",
+      "target": "Categorie merceologiche"
+    },
+    {
+      "source": "Elettronica di consumo",
+      "target": "Assistenza tecnica (Sì/No)"
+    },
+    {
+      "source": "Elettronica di consumo",
+      "target": "E-commerce (Sì/No)"
+    },
+    {
+      "source": "Elettronica di consumo",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Articoli per la casa",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Articoli per la casa",
+      "target": "Categorie merceologiche"
+    },
+    {
+      "source": "Articoli per la casa",
+      "target": "E-commerce (Sì/No)"
+    },
+    {
+      "source": "Articoli per la casa",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Parrucchiere",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Parrucchiere",
+      "target": "Postazioni lavoro (n.)"
+    },
+    {
+      "source": "Parrucchiere",
+      "target": "Target"
+    },
+    {
+      "source": "Parrucchiere",
+      "target": "Trattamenti estetici (Sì/No)"
+    },
+    {
+      "source": "Parrucchiere",
+      "target": "Clienti/giorno medio (n.)"
+    },
+    {
+      "source": "Parrucchiere",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Estetica",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Estetica",
+      "target": "Cabine trattamento (n.)"
+    },
+    {
+      "source": "Estetica",
+      "target": "Trattamenti offerti"
+    },
+    {
+      "source": "Estetica",
+      "target": "Apparecchiature laser (Sì/No)"
+    },
+    {
+      "source": "Estetica",
+      "target": "Clienti/settimana (n.)"
+    },
+    {
+      "source": "Estetica",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Centro unghie",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Centro unghie",
+      "target": "Postazioni lavoro (n.)"
+    },
+    {
+      "source": "Centro unghie",
+      "target": "Trattamenti offerti"
+    },
+    {
+      "source": "Centro unghie",
+      "target": "Clienti/settimana (n.)"
+    },
+    {
+      "source": "Centro unghie",
+      "target": "Scontrino medio (€)"
+    },
+    {
+      "source": "Lavanderia",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Lavanderia",
+      "target": "Tipologia (self-service/tradizionale/mista)"
+    },
+    {
+      "source": "Lavanderia",
+      "target": "Lavatrici industriali (n.)"
+    },
+    {
+      "source": "Lavanderia",
+      "target": "Ritiro/consegna domicilio (Sì/No)"
+    },
+    {
+      "source": "Lavanderia",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Scuola guida",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Scuola guida",
+      "target": "Autorizzazione provinciale (Sì/No)"
+    },
+    {
+      "source": "Scuola guida",
+      "target": "Veicoli scuola guida (n.)"
+    },
+    {
+      "source": "Scuola guida",
+      "target": "Patenti rilasciate/anno (n.)"
+    },
+    {
+      "source": "Scuola guida",
+      "target": "Pratiche auto (Sì/No)"
+    },
+    {
+      "source": "Scuola di lingue",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Scuola di lingue",
+      "target": "Aule (n.)"
+    },
+    {
+      "source": "Scuola di lingue",
+      "target": "Lingue insegnate"
+    },
+    {
+      "source": "Scuola di lingue",
+      "target": "Iscritti attivi (n.)"
+    },
+    {
+      "source": "Farmacia",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Farmacia",
+      "target": "Titolarità farmacia (Sì/No)"
+    },
+    {
+      "source": "Farmacia",
+      "target": "Laboratorio galenico (Sì/No)"
+    },
+    {
+      "source": "Farmacia",
+      "target": "Fatturato SSN annuo (€)"
+    },
+    {
+      "source": "Farmacia",
+      "target": "Ricette/giorno medio (n.)"
+    },
+    {
+      "source": "Farmacia",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Parafarmacia",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Parafarmacia",
+      "target": "Farmacista abilitato (Sì/No)"
+    },
+    {
+      "source": "Parafarmacia",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Sanitaria ortopedia",
+      "target": "Superficie vendita (mq)"
+    },
+    {
+      "source": "Sanitaria ortopedia",
+      "target": "Convenzioni ASL/INAIL (Sì/No)"
+    },
+    {
+      "source": "Sanitaria ortopedia",
+      "target": "Officina ortopedica (Sì/No)"
+    },
+    {
+      "source": "Sanitaria ortopedia",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Centro fisioterapico",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Centro fisioterapico",
+      "target": "Sale trattamento (n.)"
+    },
+    {
+      "source": "Centro fisioterapico",
+      "target": "Palestra riabilitativa (Sì/No)"
+    },
+    {
+      "source": "Centro fisioterapico",
+      "target": "Convenzione SSN (Sì/No)"
+    },
+    {
+      "source": "Centro fisioterapico",
+      "target": "Operatori (n.)"
+    },
+    {
+      "source": "Centro fisioterapico",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Palestra fitness",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Palestra fitness",
+      "target": "Piscina (Sì/No)"
+    },
+    {
+      "source": "Palestra fitness",
+      "target": "Area wellness (Sì/No)"
+    },
+    {
+      "source": "Palestra fitness",
+      "target": "Abbonati attivi (n.)"
+    },
+    {
+      "source": "Palestra fitness",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Centro medico polispecialistico",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Centro medico polispecialistico",
+      "target": "Ambulatori (n.)"
+    },
+    {
+      "source": "Centro medico polispecialistico",
+      "target": "Specializzazioni mediche"
+    },
+    {
+      "source": "Centro medico polispecialistico",
+      "target": "Convenzioni SSN/fondi"
+    },
+    {
+      "source": "Centro medico polispecialistico",
+      "target": "Medici collaboratori (n.)"
+    },
+    {
+      "source": "Centro medico polispecialistico",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Agenzia immobiliare",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Agenzia immobiliare",
+      "target": "Mandati attivi (n.)"
+    },
+    {
+      "source": "Agenzia immobiliare",
+      "target": "Segmento"
+    },
+    {
+      "source": "Agenzia immobiliare",
+      "target": "Agenti (n.)"
+    },
+    {
+      "source": "Agenzia immobiliare",
+      "target": "Database clienti (n.)"
+    },
+    {
+      "source": "Agenzia assicurativa",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Agenzia assicurativa",
+      "target": "Portafoglio premi annui (€)"
+    },
+    {
+      "source": "Agenzia assicurativa",
+      "target": "Polizze in portafoglio (n.)"
+    },
+    {
+      "source": "Agenzia assicurativa",
+      "target": "Tasso retention (%)"
+    },
+    {
+      "source": "CAF Patronato",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "CAF Patronato",
+      "target": "Pratiche annue (n.)"
+    },
+    {
+      "source": "CAF Patronato",
+      "target": "Servizi offerti"
+    },
+    {
+      "source": "CAF Patronato",
+      "target": "Convenzione sindacale (Sì/No)"
+    },
+    {
+      "source": "Servizi finanziari al dettaglio",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Servizi finanziari al dettaglio",
+      "target": "Mandanti/convenzioni (n.)"
+    },
+    {
+      "source": "Servizi finanziari al dettaglio",
+      "target": "Iscrizione OAM (Sì/No)"
+    },
+    {
+      "source": "Servizi finanziari al dettaglio",
+      "target": "Volume erogato annuo (€)"
+    },
+    {
+      "source": "Sala giochi",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Sala giochi",
+      "target": "Licenza AAMS/ADM (Sì/No)"
+    },
+    {
+      "source": "Sala giochi",
+      "target": "Macchine/postazioni (n.)"
+    },
+    {
+      "source": "Sala giochi",
+      "target": "Aggio annuo gioco (€)"
+    },
+    {
+      "source": "Centro scommesse",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Centro scommesse",
+      "target": "Licenza ADM scommesse (Sì/No)"
+    },
+    {
+      "source": "Centro scommesse",
+      "target": "Postazioni/terminali (n.)"
+    },
+    {
+      "source": "Centro scommesse",
+      "target": "Provvigioni annue (€)"
+    },
+    {
+      "source": "Bowling",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Bowling",
+      "target": "Piste (n.)"
+    },
+    {
+      "source": "Bowling",
+      "target": "Bar/ristorazione (Sì/No)"
+    },
+    {
+      "source": "Bowling",
+      "target": "Parcheggio (n. posti)"
+    },
+    {
+      "source": "Bowling",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Escape room",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Escape room",
+      "target": "Stanze/esperienze (n.)"
+    },
+    {
+      "source": "Escape room",
+      "target": "Prezzo medio per persona (€)"
+    },
+    {
+      "source": "Escape room",
+      "target": "Sessioni/giorno medio (n.)"
+    },
+    {
+      "source": "Escape room",
+      "target": "Booking online (Sì/No)"
+    },
+    {
+      "source": "B&B",
+      "target": "Camere (n.)"
+    },
+    {
+      "source": "B&B",
+      "target": "SCIA/autorizzazione regionale (Sì/No)"
+    },
+    {
+      "source": "B&B",
+      "target": "Posti letto (n.)"
+    },
+    {
+      "source": "B&B",
+      "target": "Colazione inclusa (Sì/No)"
+    },
+    {
+      "source": "B&B",
+      "target": "Occupancy rate medio"
+    },
+    {
+      "source": "B&B",
+      "target": "ADR medio (€)"
+    },
+    {
+      "source": "Affittacamere",
+      "target": "Camere (n.)"
+    },
+    {
+      "source": "Affittacamere",
+      "target": "SCIA/autorizzazione regionale (Sì/No)"
+    },
+    {
+      "source": "Affittacamere",
+      "target": "Posti letto (n.)"
+    },
+    {
+      "source": "Affittacamere",
+      "target": "Occupancy rate medio"
+    },
+    {
+      "source": "Affittacamere",
+      "target": "ADR medio (€)"
+    },
+    {
+      "source": "Ostello",
+      "target": "Posti letto (n.)"
+    },
+    {
+      "source": "Ostello",
+      "target": "SCIA/autorizzazione (Sì/No)"
+    },
+    {
+      "source": "Ostello",
+      "target": "Camere/dormitori (n.)"
+    },
+    {
+      "source": "Ostello",
+      "target": "Cucina comune (Sì/No)"
+    },
+    {
+      "source": "Ostello",
+      "target": "Occupancy rate"
+    },
+    {
+      "source": "Ostello",
+      "target": "Tariffa media posto letto (€)"
+    },
+    {
+      "source": "Autofficina",
+      "target": "Superficie officina (mq)"
+    },
+    {
+      "source": "Autofficina",
+      "target": "Ponti sollevatori (n.)"
+    },
+    {
+      "source": "Autofficina",
+      "target": "Specializzazione"
+    },
+    {
+      "source": "Autofficina",
+      "target": "Centro revisioni (Sì/No)"
+    },
+    {
+      "source": "Autofficina",
+      "target": "Gommista (Sì/No)"
+    },
+    {
+      "source": "Autofficina",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Carrozzeria",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Carrozzeria",
+      "target": "Cabina verniciatura (Sì/No)"
+    },
+    {
+      "source": "Carrozzeria",
+      "target": "Convenzioni assicurative (Sì/No)"
+    },
+    {
+      "source": "Carrozzeria",
+      "target": "Soccorso stradale (Sì/No)"
+    },
+    {
+      "source": "Carrozzeria",
+      "target": "Valore attrezzature (€)"
+    },
+    {
+      "source": "Gommista",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Gommista",
+      "target": "Deposito pneumatici (Sì/No)"
+    },
+    {
+      "source": "Gommista",
+      "target": "Flotte/clienti business (Sì/No)"
+    },
+    {
+      "source": "Gommista",
+      "target": "Valore magazzino (€)"
+    },
+    {
+      "source": "Autolavaggio",
+      "target": "Superficie (mq)"
+    },
+    {
+      "source": "Autolavaggio",
+      "target": "Tipologia (manuale/automatico/self-service/misto)"
+    },
+    {
+      "source": "Autolavaggio",
+      "target": "Piste lavaggio (n.)"
+    },
+    {
+      "source": "Autolavaggio",
+      "target": "Servizio detailing (Sì/No)"
+    },
+    {
+      "source": "Autolavaggio",
+      "target": "Lavaggi/giorno medio (n.)"
+    },
+    {
+      "source": "Concessionaria",
+      "target": "Superficie showroom (mq)"
+    },
+    {
+      "source": "Concessionaria",
+      "target": "Mandato casa madre nuovo (Sì/No)"
+    },
+    {
+      "source": "Concessionaria",
+      "target": "Piazzale esposizione (mq)"
+    },
+    {
+      "source": "Concessionaria",
+      "target": "Officina interna (mq)"
+    },
+    {
+      "source": "Concessionaria",
+      "target": "Veicoli in stock (n.)"
+    },
+    {
+      "source": "Concessionaria",
+      "target": "Valore stock (€)"
+    }
+  ]
+}

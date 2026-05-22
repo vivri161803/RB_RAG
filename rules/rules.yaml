@@ -1,0 +1,2401 @@
+# ============================================================================
+# rules.yaml — Regole di validazione per il Dynamic Gatekeeper
+# Basato su: Tassonomia Dometria Connect (Immobili, Aziende, Attività Commerciali)
+# ============================================================================
+# IMP (Imprescindibile) → [MANDATORY] — blocca il flusso se assente
+# AGG (Aggiuntivo)      → [OPTIONAL]  — arricchisce ma non blocca
+#
+# STRUTTURA:
+#   - macro_categories: attributi comuni a tutte le tipologie (Sezione 3 doc)
+#   - sub_categories.intake: campi specifici per sotto-tipologia (Sezione 4 doc)
+#   - sub_categories.query: criteri di ricerca per sotto-tipologia
+#
+# PER AGGIUNGERE UNA TIPOLOGIA:
+#   1. Aggiungi un blocco in sub_categories.intake.<MacroId>
+#   2. Aggiungi il corrispondente blocco in sub_categories.query.<MacroId>
+#   3. Il campo "description" serve per il matching semantico (embedding)
+# ============================================================================
+
+score_threshold: 0.30
+
+fallbacks:
+  intake: "Estrai quanti più dettagli pertinenti sull'asset (immobile, azienda o attività) citati dall'utente."
+  query: "Estrai preferenze generali sull'asset e budget se presenti."
+
+# --------------------------------------------------------------------------
+# MACRO-CATEGORIA: Immobili
+# Attributi comuni a TUTTE le tipologie (Sezione 3 del documento)
+# --------------------------------------------------------------------------
+macro_categories:
+  - id: Immobili
+    description: >
+      immobile, proprietà, acquisto, vendita, affitto, investimento immobiliare,
+      real estate, castello, palazzo, villa, casale, appartamento, attico,
+      capannone, ufficio, negozio, hotel, albergo, agriturismo, terreno,
+      magazzino, logistica, retail, centro commerciale, residence
+    rule: >
+      [MANDATORY] Regione, Provincia, Comune, Prezzo richiesto (€),
+      Stato di occupazione (Libero/Occupato/Locato),
+      Stato di conservazione (Da ristrutturare/Buono/Ottimo/Nuovo).
+      [OPTIONAL] Zona/Quartiere, Indirizzo, Coordinate GPS,
+      Prezzo trattabile (Sì/No), Anno di costruzione, Classe energetica (APE),
+      Vincoli urbanistici/paesaggistici/monumentali,
+      Destinazione d'uso attuale, Destinazione d'uso potenziale.
+    mandatory_fields:
+      - Regione
+      - Provincia
+      - Comune
+      - Prezzo richiesto (€)
+      - Stato di occupazione
+      - Stato di conservazione
+    optional_fields:
+      - Zona/Quartiere
+      - Anno di costruzione
+      - Classe energetica (APE)
+      - Vincoli
+      - Destinazione d'uso attuale
+      - Destinazione d'uso potenziale
+
+  # --------------------------------------------------------------------------
+  # MACRO-CATEGORIA: Aziende & Operazioni Straordinarie
+  # Attributi comuni (Sezione 2 del documento Aziende)
+  # --------------------------------------------------------------------------
+  - id: Aziende
+    description: >
+      azienda, impresa, società, cessione azienda, acquisizione azienda,
+      share deal, operazione straordinaria, M&A, fusione, scissione,
+      ramo d'azienda, passaggio generazionale, startup, PMI,
+      manifattura, logistica, trasporti, costruzioni, energia, agroindustria,
+      food, retail, distribuzione, hospitality, sanità, ICT, tecnologia,
+      servizi imprese, ambiente, economia circolare, ESG
+    rule: >
+      [MANDATORY] Regione sede legale, Provincia sede legale,
+      Macro-settore, Settore operativo,
+      Dimensione azienda (Micro/PMI/Mid-cap/Corporate/Gruppo),
+      Fatturato ultimo esercizio (€), EBITDA (€),
+      Prezzo richiesto / Valutazione (€),
+      Tipologia operazione (Share deal/Cessione ramo/Asset deal/ecc.),
+      Numero dipendenti,
+      Modello di business (B2B/B2C/B2B2C/Ricorrente/ecc.),
+      Mercato geografico (Locale/Regionale/Nazionale/Internazionale).
+      [OPTIONAL] Comune sede legale, Sedi operative (regioni),
+      ATECO primario, Anno di costituzione, Forma giuridica,
+      EBITDA margin (%), Utile netto (€), Trend fatturato triennio,
+      PFN (€), Patrimonio netto (€), Quota offerta (%),
+      Motivazione cessione, Management chiave (n.),
+      Disponibilità permanenza management,
+      % export, Concentrazione clienti top 3 (%),
+      Contratti ricorrenti (% fatturato), Numero clienti attivi,
+      Immobili di proprietà, Brevetti/marchi, Certificazioni.
+    mandatory_fields:
+      - Regione sede legale
+      - Provincia sede legale
+      - Macro-settore
+      - Settore operativo
+      - Dimensione azienda
+      - Fatturato ultimo esercizio (€)
+      - EBITDA (€)
+      - Prezzo richiesto / Valutazione (€)
+      - Tipologia operazione
+      - Numero dipendenti
+      - Modello di business
+      - Mercato geografico
+    optional_fields:
+      - Comune sede legale
+      - Anno di costituzione
+      - Forma giuridica
+      - EBITDA margin (%)
+      - Trend fatturato triennio
+      - Quota offerta (%)
+      - Motivazione cessione
+      - Concentrazione clienti top 3 (%)
+      - Brevetti/marchi
+      - Certificazioni
+
+  # --------------------------------------------------------------------------
+  # MACRO-CATEGORIA: Attività Commerciali
+  # Attributi comuni (Sezione 2 del documento Attività Commerciali)
+  # --------------------------------------------------------------------------
+  - id: Attività Commerciali
+    description: >
+      attività commerciale, negozio, bar, ristorante, pizzeria, gelateria,
+      panificio, pasticceria, parrucchiere, estetica, farmacia, tabaccheria,
+      edicola, lavanderia, palestra, fitness, autofficina, carrozzeria,
+      concessionaria, agenzia immobiliare, agenzia assicurativa, B&B,
+      affittacamere, ostello, bowling, escape room, sala giochi,
+      cessione attività, avviamento commerciale, licenza commerciale
+    rule: >
+      [MANDATORY] Regione, Provincia, Comune,
+      Zona (centro storico/commerciale/residenziale/periferia),
+      Tipologia attività, Prezzo richiesto (€), Fatturato annuo (€).
+      [OPTIONAL] Indirizzo/via, Flusso pedonale zona (Alto/Medio/Basso),
+      Vicinanza trasporti (Sì/No), Parcheggio zona (Sì/No),
+      Canone locazione annuo (€), Durata residua contratto locazione (anni),
+      Proprietà mura (Sì/No), Superficie totale (mq),
+      Trend fatturato (crescita/stabile/calo), Modello di ricavo,
+      Forma giuridica, Numero dipendenti, Anni di attività,
+      Avviamento storico (Alto/Medio/Basso),
+      Potenziale di sviluppo (Alto/Medio/Basso).
+    mandatory_fields:
+      - Regione
+      - Provincia
+      - Comune
+      - Zona
+      - Tipologia attività
+      - Prezzo richiesto (€)
+      - Fatturato annuo (€)
+    optional_fields:
+      - Flusso pedonale zona
+      - Canone locazione annuo (€)
+      - Durata residua contratto locazione (anni)
+      - Proprietà mura (Sì/No)
+      - Numero dipendenti
+      - Anni di attività
+      - Avviamento storico
+      - Potenziale di sviluppo
+
+# --------------------------------------------------------------------------
+# SOTTO-CATEGORIE — INTAKE
+# I campi qui si SOMMANO a quelli della macro-categoria Immobili.
+# --------------------------------------------------------------------------
+sub_categories:
+  intake:
+    Immobili:
+
+      # ── RESIDENZIALE STORICO / PREGIO ──────────────────────────────────
+
+      - id: Castello
+        description: "castello, maniero, torre, fortezza, residenza storica feudale"
+        rule: >
+          [MANDATORY] Superficie coperta totale (mq), Superficie terreno/parco (ha),
+          Vincolo monumentale D.Lgs. 42/2004 (Sì/No).
+          [OPTIONAL] Numero piani fuori terra, Numero piani interrati,
+          Numero camere/vani, Numero bagni, Numero unità autonome,
+          Epoca storica, Torre/torrione (Sì/No), Mura di cinta (Sì/No),
+          Cappella/chiesa (Sì/No), Affreschi di pregio (Sì/No),
+          Parco/giardino storico (ha), Dipendenze/annessi (mq),
+          Piscina (Sì/No), Terreno agricolo annesso (ha),
+          Distanza da centro abitato (km), Accesso stradale (asfaltato/sterrato),
+          Distanza da aeroporto (km), Idoneità hospitality/ricettiva (Sì/No),
+          Idoneità eventi/cerimonie (Sì/No), Restauri recenti (Sì/No).
+        mandatory_fields:
+          - Superficie coperta totale (mq)
+          - Superficie terreno/parco (ha)
+          - Vincolo monumentale (Sì/No)
+        optional_fields:
+          - Numero camere/vani
+          - Numero bagni
+          - Epoca storica
+          - Torre/torrione (Sì/No)
+          - Mura di cinta (Sì/No)
+          - Piscina (Sì/No)
+          - Terreno agricolo annesso (ha)
+          - Idoneità hospitality (Sì/No)
+          - Idoneità eventi (Sì/No)
+
+      - id: Palazzo
+        description: "palazzo storico, palazzo d'epoca, palazzetto, palazzo nobiliare, palazzo monumentale"
+        rule: >
+          [MANDATORY] Superficie coperta totale (mq), Numero piani,
+          Vincolo monumentale D.Lgs. 42/2004 (Sì/No).
+          [OPTIONAL] Numero unità immobiliari, Superficie terreno/corte (mq),
+          Numero vani complessivi, Epoca storica, Piano nobile (Sì/No),
+          Affreschi/soffitti decorati (Sì/No), Cortile interno (Sì/No),
+          Scalone monumentale (Sì/No), Garage/posto auto (n.),
+          Cantine/depositi (mq), Giardino/terrazza (mq),
+          Reddito locativo annuo (€), Occupancy rate, Contratti in essere (n.).
+        mandatory_fields:
+          - Superficie coperta totale (mq)
+          - Numero piani
+          - Vincolo monumentale (Sì/No)
+        optional_fields:
+          - Numero unità immobiliari
+          - Numero vani complessivi
+          - Epoca storica
+          - Piano nobile (Sì/No)
+          - Cortile interno (Sì/No)
+          - Reddito locativo annuo (€)
+
+      # ── RESIDENZIALE PREMIUM / PRIVATO ─────────────────────────────────
+
+      - id: Villa
+        description: "villa, villa singola, villa bifamiliare, villa di lusso, villa con parco, residenza con giardino"
+        rule: >
+          [MANDATORY] Superficie coperta (mq), Superficie terreno (mq),
+          Numero camere da letto.
+          [OPTIONAL] Numero bagni, Numero piani, Livello finiture
+          (Standard/Buono/Lusso), Domotica/smart home (Sì/No),
+          Impianto riscaldamento (tipo), Climatizzazione (Sì/No),
+          Piscina (Sì/No), Giardino (mq), Dependance (mq),
+          Garage/posto auto (n.), Taverna/cantina (Sì/No),
+          Vista (mare/lago/montagna/collina/altro),
+          Esposizione prevalente, Privacy/isolamento (Alto/Medio/Basso).
+        mandatory_fields:
+          - Superficie coperta (mq)
+          - Superficie terreno (mq)
+          - Numero camere da letto
+        optional_fields:
+          - Numero bagni
+          - Numero piani
+          - Livello finiture
+          - Piscina (Sì/No)
+          - Giardino (mq)
+          - Vista
+          - Dependance (mq)
+
+      - id: Casale
+        description: "casale, rustico, cascina, casale rurale, casolare, casale ristrutturato, casale di campagna"
+        rule: >
+          [MANDATORY] Superficie coperta (mq), Superficie terreno (ha),
+          Stato ristrutturazione (Ristrutturato/Parziale/Da ristrutturare).
+          [OPTIONAL] Numero camere, Numero bagni,
+          Annessi agricoli (mq), Oliveto (n. piante o ha),
+          Vigneto (ha), Seminativi (ha), Bosco (ha),
+          Livello finiture (Standard/Buono/Lusso), Piscina (Sì/No),
+          Distanza da centro abitato (km), Accesso stradale (asfaltato/sterrato),
+          Vista panoramica (Sì/No), Idoneità agrituristica (Sì/No),
+          Idoneità ricettiva (Sì/No).
+        mandatory_fields:
+          - Superficie coperta (mq)
+          - Superficie terreno (ha)
+          - Stato ristrutturazione
+        optional_fields:
+          - Numero camere
+          - Numero bagni
+          - Oliveto (ha)
+          - Vigneto (ha)
+          - Piscina (Sì/No)
+          - Idoneità agrituristica (Sì/No)
+
+      - id: Appartamento
+        description: "appartamento, bilocale, trilocale, quadrilocale, monolocale, unità abitativa, flat, alloggio"
+        rule: >
+          [MANDATORY] Superficie commerciale (mq), Numero vani,
+          Numero camere da letto, Piano.
+          [OPTIONAL] Numero bagni, Balcone/terrazzo (mq),
+          Esposizione (doppia/singola), Vista (interna/esterna/panoramica),
+          Luminosità (Alta/Media/Bassa), Livello finiture,
+          Riscaldamento (Autonomo/Centralizzato), Climatizzazione (Sì/No),
+          Cantina (mq), Posto auto/garage, Soffitta/sottotetto (Sì/No),
+          Ascensore (Sì/No), Portineria/reception (Sì/No),
+          Spese condominiali annue (€), Anno costruzione edificio.
+        mandatory_fields:
+          - Superficie commerciale (mq)
+          - Numero vani
+          - Numero camere da letto
+          - Piano
+        optional_fields:
+          - Numero bagni
+          - Balcone/terrazzo (mq)
+          - Livello finiture
+          - Ascensore (Sì/No)
+          - Posto auto/garage
+          - Spese condominiali annue (€)
+
+      - id: Attico
+        description: "attico, superattico, attico con terrazzo, penthouse, lastrico solare, attico panoramico"
+        rule: >
+          [MANDATORY] Superficie commerciale (mq), Numero vani,
+          Numero camere da letto, Superficie terrazzo/lastrico solare (mq).
+          [OPTIONAL] Numero bagni, Vista panoramica (tipologia),
+          Doppia/tripla esposizione (Sì/No), Livello finiture (Standard/Buono/Lusso),
+          Domotica (Sì/No), Climatizzazione (Sì/No),
+          Posto auto/garage (n.), Cantina (Sì/No),
+          Ascensore (Sì/No), Portineria (Sì/No),
+          Piscina condominiale (Sì/No).
+        mandatory_fields:
+          - Superficie commerciale (mq)
+          - Numero vani
+          - Numero camere da letto
+          - Superficie terrazzo/lastrico solare (mq)
+        optional_fields:
+          - Numero bagni
+          - Vista panoramica
+          - Livello finiture
+          - Domotica (Sì/No)
+          - Posto auto/garage (n.)
+
+      # ── INDUSTRIALE / PRODUTTIVO ────────────────────────────────────────
+
+      - id: Capannone industriale
+        description: "capannone industriale, stabilimento produttivo, polo industriale, sito produttivo, impianto industriale"
+        rule: >
+          [MANDATORY] Superficie coperta (mq), Altezza sottotrave (m),
+          Accesso TIR/bilici (Sì/No).
+          [OPTIONAL] Area scoperta/piazzale (mq), Superficie uffici annessi (mq),
+          Numero campate, Struttura portante (Prefabbricato/Acciaio/c.a./Misto),
+          Potenza elettrica installata (kW), Cabina MT/BT (Sì/No),
+          Carroponte (Sì/No + portata t), Impianto antincendio (tipo),
+          CPI (Sì/No), Baie di carico (n.), Area di manovra mezzi (mq),
+          Distanza casello autostradale (km), Tipo pavimentazione,
+          Portata pavimento (kg/mq), Parcheggi (n.),
+          Impianto fotovoltaico (kWp), Certificazioni ambientali.
+        mandatory_fields:
+          - Superficie coperta (mq)
+          - Altezza sottotrave (m)
+          - Accesso TIR/bilici (Sì/No)
+        optional_fields:
+          - Area scoperta/piazzale (mq)
+          - Potenza elettrica (kW)
+          - Carroponte (Sì/No)
+          - Baie di carico (n.)
+          - Distanza casello autostradale (km)
+          - Impianto fotovoltaico (kWp)
+
+      - id: Capannone logistico
+        description: "capannone logistico, hub logistico, magazzino logistico, centro distribuzione, distribution center, polo logistico"
+        rule: >
+          [MANDATORY] Superficie coperta (mq), Altezza sottotrave (m),
+          Baie di carico (n.), Accesso TIR/bilici (Sì/No).
+          [OPTIONAL] Area scoperta/piazzale (mq), Uffici annessi (mq),
+          Cross-docking (Sì/No), Scaffalature (tipo),
+          Magazzino verticale automatizzato (Sì/No),
+          Temperatura controllata (Sì/No), Cella frigorifera (Sì/No),
+          Impianto antincendio/sprinkler (Sì/No), Videosorveglianza (Sì/No),
+          Potenza elettrica (kW), Impianto fotovoltaico (kWp),
+          Area manovra TIR (mq), Parcheggi TIR (n.),
+          Distanza casello autostradale (km),
+          Distanza interporto/hub logistico (km),
+          Certificazioni (BREEAM/LEED/altro).
+        mandatory_fields:
+          - Superficie coperta (mq)
+          - Altezza sottotrave (m)
+          - Baie di carico (n.)
+          - Accesso TIR/bilici (Sì/No)
+        optional_fields:
+          - Cross-docking (Sì/No)
+          - Temperatura controllata (Sì/No)
+          - Cella frigorifera (Sì/No)
+          - Parcheggi TIR (n.)
+          - Distanza casello autostradale (km)
+          - Certificazioni
+
+      - id: Capannone artigianale
+        description: "capannone artigianale, laboratorio artigianale, officina, bottega artigiana, spazio produttivo artigianale"
+        rule: >
+          [MANDATORY] Superficie coperta (mq), Altezza interna (m).
+          [OPTIONAL] Area esterna (mq), Ufficio annesso (mq),
+          Potenza elettrica (kW), Scarichi industriali (Sì/No),
+          Impianto aspirazione (Sì/No), Riscaldamento (Sì/No),
+          Accesso veicolare (tipo: furgone/camion/TIR),
+          Portone industriale (dimensioni), Parcheggi (n.).
+        mandatory_fields:
+          - Superficie coperta (mq)
+          - Altezza interna (m)
+        optional_fields:
+          - Area esterna (mq)
+          - Ufficio annesso (mq)
+          - Potenza elettrica (kW)
+          - Accesso veicolare (tipo)
+
+      - id: Laboratorio
+        description: "laboratorio, laboratorio scientifico, laboratorio farmaceutico, clean room, laboratorio chimico, laboratorio R&D"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Altezza interna (m), Uffici (mq),
+          Potenza elettrica (kW), Impianti specialistici (descrizione),
+          Portata pavimento (kg/mq), Climatizzazione/temperatura controllata (Sì/No),
+          Accesso mezzi (tipo), Parcheggi (n.).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Altezza interna (m)
+          - Impianti specialistici
+          - Temperatura controllata (Sì/No)
+          - Potenza elettrica (kW)
+
+      - id: Magazzino
+        description: "magazzino, deposito, stoccaggio, storage, magazzino commerciale"
+        rule: >
+          [MANDATORY] Superficie (mq), Altezza interna (m).
+          [OPTIONAL] Area esterna (mq), Scaffalature (Sì/No),
+          Temperatura controllata (Sì/No), Impianto antincendio (Sì/No),
+          Impianto antintrusione/vigilanza (Sì/No),
+          Accesso veicolare (tipo), Baie di carico (n.), Parcheggi (n.).
+        mandatory_fields:
+          - Superficie (mq)
+          - Altezza interna (m)
+        optional_fields:
+          - Area esterna (mq)
+          - Scaffalature (Sì/No)
+          - Temperatura controllata (Sì/No)
+          - Baie di carico (n.)
+
+      # ── DIREZIONALE / UFFICI ────────────────────────────────────────────
+
+      - id: Ufficio
+        description: "ufficio, spazio ufficio, open space, coworking, studio professionale, ufficio singolo, suite direzionale"
+        rule: >
+          [MANDATORY] Superficie (mq), Piano/i.
+          [OPTIONAL] Numero postazioni stimabili, Layout (open space/suddiviso/misto),
+          Sala riunioni (n.), Reception/ingresso dedicato (Sì/No),
+          Cablaggio strutturato/fibra (Sì/No), Climatizzazione (Sì/No),
+          Controsoffitto (Sì/No), Pavimento sopraelevato (Sì/No),
+          Ascensore (Sì/No), Parcheggi (n.), Portineria/vigilanza (Sì/No),
+          Accessibilità disabili (Sì/No), Servizi (bar/mensa/palestra),
+          Certificazioni (LEED/WELL/altro),
+          Spese di gestione/service charge (€/mq).
+        mandatory_fields:
+          - Superficie (mq)
+          - Piano/i
+        optional_fields:
+          - Layout (open space/suddiviso/misto)
+          - Sala riunioni (n.)
+          - Climatizzazione (Sì/No)
+          - Ascensore (Sì/No)
+          - Parcheggi (n.)
+          - Certificazioni
+
+      - id: Palazzina direzionale
+        description: "palazzina uffici, edificio direzionale, business center, palazzo uffici, torre uffici, centro direzionale"
+        rule: >
+          [MANDATORY] Superficie totale (mq), Numero piani.
+          [OPTIONAL] Numero unità/piani indipendenti, Superficie singolo piano (mq),
+          Reception/hall (Sì/No), Sala conferenze/auditorium (Sì/No),
+          Ascensori (n.), Climatizzazione centralizzata (Sì/No),
+          Gruppo elettrogeno (Sì/No), Parcheggi (n.),
+          Area esterna/giardino (Sì/No), Certificazioni (LEED/BREEAM),
+          Reddito locativo annuo (€), Occupancy rate, WAULT (anni).
+        mandatory_fields:
+          - Superficie totale (mq)
+          - Numero piani
+        optional_fields:
+          - Numero unità/piani indipendenti
+          - Sala conferenze (Sì/No)
+          - Parcheggi (n.)
+          - Reddito locativo annuo (€)
+          - Occupancy rate
+          - Certificazioni
+
+      # ── COMMERCIALE / RETAIL ────────────────────────────────────────────
+
+      - id: Negozio
+        description: "negozio, locale commerciale, esercizio commerciale, bottega, showroom, retail, punto vendita"
+        rule: >
+          [MANDATORY] Superficie vendita (mq), Zona commerciale (centro/semicentro/periferia).
+          [OPTIONAL] Superficie magazzino/retro (mq), Altezza interna (m),
+          Fronte vetrina (ml), Numero vetrine, Flusso pedonale (Alto/Medio/Basso),
+          Vicinanza trasporti pubblici (Sì/No), Canna fumaria (Sì/No),
+          Passo carraio (Sì/No), Climatizzazione (Sì/No),
+          Servizi igienici (n.), Destinazione merceologica attuale.
+        mandatory_fields:
+          - Superficie vendita (mq)
+          - Zona commerciale
+        optional_fields:
+          - Fronte vetrina (ml)
+          - Flusso pedonale
+          - Canna fumaria (Sì/No)
+          - Destinazione merceologica attuale
+
+      - id: Capannone commerciale
+        description: "capannone commerciale, showroom industriale, spazio espositivo commerciale, grande superficie commerciale"
+        rule: >
+          [MANDATORY] Superficie coperta (mq).
+          [OPTIONAL] Altezza interna (m), Area esterna/parcheggi (mq),
+          Visibilità da strada principale (Sì/No), Insegna/totem (Sì/No),
+          Parcheggi clienti (n.), Vetrine/showroom (mq),
+          Baie di carico (n.), Climatizzazione (Sì/No).
+        mandatory_fields:
+          - Superficie coperta (mq)
+        optional_fields:
+          - Altezza interna (m)
+          - Parcheggi clienti (n.)
+          - Visibilità da strada (Sì/No)
+
+      - id: Retail Park
+        description: "retail park, parco commerciale, villaggio commerciale, shopping park, outlet commerciale open air"
+        rule: >
+          [MANDATORY] GLA – Gross Leasable Area (mq), Numero unità commerciali.
+          [OPTIONAL] Superficie lotto (mq), Ancora alimentare (Sì/No),
+          Tenant mix (tipologie), Bacino d'utenza stimato (abitanti),
+          Reddito locativo annuo (€), Occupancy rate, WAULT (anni),
+          Anno apertura/ultima ristrutturazione, Parcheggi (n.),
+          Visibilità da arteria principale (Sì/No).
+        mandatory_fields:
+          - GLA – Gross Leasable Area (mq)
+          - Numero unità commerciali
+        optional_fields:
+          - Ancora alimentare (Sì/No)
+          - Tenant mix
+          - Reddito locativo annuo (€)
+          - Occupancy rate
+          - Parcheggi (n.)
+
+      - id: Centro commerciale
+        description: "centro commerciale, galleria commerciale, mall, shopping center, shopping mall, grande centro commerciale"
+        rule: >
+          [MANDATORY] GLA totale (mq), Numero negozi/unità.
+          [OPTIONAL] Numero piani commerciali, Ancora alimentare (Sì/No),
+          Ancora non food (Sì/No), Food court/ristorazione (Sì/No),
+          Cinema/intrattenimento (Sì/No), Tenant mix, Visitatori/anno,
+          Fatturato/mq (€), Reddito locativo annuo (€), Occupancy rate,
+          WAULT (anni), Parcheggi (n.), Anno apertura,
+          Anno ultima ristrutturazione, Certificazioni (BREEAM/altro).
+        mandatory_fields:
+          - GLA totale (mq)
+          - Numero negozi/unità
+        optional_fields:
+          - Ancora alimentare (Sì/No)
+          - Food court (Sì/No)
+          - Reddito locativo annuo (€)
+          - Occupancy rate
+          - Parcheggi (n.)
+
+      - id: Outlet Park
+        description: "outlet, outlet village, factory outlet, village outlet, outlet di lusso, outlet premium"
+        rule: >
+          [MANDATORY] GLA totale (mq), Numero unità/brand.
+          [OPTIONAL] Segmento (lusso/premium/mass market), Ristorazione (Sì/No),
+          Bacino d'utenza (abitanti), Visitatori/anno,
+          Reddito locativo annuo (€), Occupancy rate,
+          Parcheggi (n.), Accessibilità (autostrada/ferrovia).
+        mandatory_fields:
+          - GLA totale (mq)
+          - Numero unità/brand
+        optional_fields:
+          - Segmento di mercato
+          - Visitatori/anno
+          - Reddito locativo annuo (€)
+          - Occupancy rate
+
+      # ── HOSPITALITY & TURISMO ───────────────────────────────────────────
+
+      - id: Hotel
+        description: "hotel, albergo, struttura ricettiva, locanda, boutique hotel, resort, grande albergo"
+        rule: >
+          [MANDATORY] Numero camere, Classificazione stelle (1-5).
+          [OPTIONAL] Superficie complessiva (mq), Numero piani, Numero posti letto,
+          Ristorante (n. coperti), Bar (Sì/No), Sala meeting/conferenze (Sì/No),
+          SPA/wellness (Sì/No), Piscina (Sì/No), Parcheggio (n. posti),
+          Palestra/fitness (Sì/No), RevPAR (€), ADR – Average Daily Rate (€),
+          Occupancy rate medio, Fatturato annuo (€),
+          Stagionalità (annuale/stagionale), Numero dipendenti,
+          Gestione (proprietà/management/franchising), Brand/catena (Sì/No),
+          Anno ultima ristrutturazione.
+        mandatory_fields:
+          - Numero camere
+          - Classificazione stelle (1-5)
+        optional_fields:
+          - Numero posti letto
+          - Ristorante (Sì/No)
+          - SPA/wellness (Sì/No)
+          - Piscina (Sì/No)
+          - RevPAR (€)
+          - Occupancy rate medio
+          - Fatturato annuo (€)
+
+      - id: Agriturismo
+        description: "agriturismo, fattoria, agriturismo con vigneto, agriturismo con piscina, azienda agrituristica, bed and breakfast rurale"
+        rule: >
+          [MANDATORY] Numero camere/unità abitative, Superficie terreno (ha).
+          [OPTIONAL] Numero posti letto, Superficie costruita (mq),
+          Ristorazione (n. coperti), Piscina (Sì/No),
+          Attività sportive/esperienziali (Sì/No), Fattoria didattica (Sì/No),
+          Colture principali (es. oliveto/vigneto), Certificazioni biologiche (Sì/No),
+          Vendita diretta prodotti (Sì/No), Fatturato annuo (€),
+          Stagionalità (annuale/stagionale), Occupancy rate medio.
+        mandatory_fields:
+          - Numero camere/unità abitative
+          - Superficie terreno (ha)
+        optional_fields:
+          - Ristorazione (Sì/No)
+          - Piscina (Sì/No)
+          - Colture principali
+          - Certificazioni biologiche (Sì/No)
+          - Fatturato annuo (€)
+
+      - id: Residence
+        description: "residence, aparthotel, suite hotel, extended stay, appartamenti serviti, residenze turistiche"
+        rule: >
+          [MANDATORY] Numero unità abitative.
+          [OPTIONAL] Superficie complessiva (mq),
+          Target (business/turistico/misto), Servizi comuni,
+          Piscina (Sì/No), Parcheggi (n.),
+          Occupancy rate, Reddito annuo (€).
+        mandatory_fields:
+          - Numero unità abitative
+        optional_fields:
+          - Target (business/turistico/misto)
+          - Servizi comuni
+          - Piscina (Sì/No)
+          - Occupancy rate
+          - Reddito annuo (€)
+
+      - id: Azienda agricola
+        description: "azienda agricola, podere, tenuta agricola, azienda vitivinicola, azienda olivicola, masseria, fattoria produttiva"
+        rule: >
+          [MANDATORY] Superficie totale (ha), Coltura/e principale/i.
+          [OPTIONAL] Superficie costruita (mq), Fatturato annuo (€),
+          Denominazioni (DOC/DOP/IGP), Certificazioni biologiche (Sì/No),
+          Vendita diretta/e-commerce (Sì/No),
+          Cantina/frantoio/stabilimento (mq), Macchinari inclusi (Sì/No),
+          Agriturismo annesso (Sì/No), Dipendenti (n.).
+        mandatory_fields:
+          - Superficie totale (ha)
+          - Coltura/e principale/i
+        optional_fields:
+          - Fatturato annuo (€)
+          - Denominazioni (DOC/DOP/IGP)
+          - Certificazioni biologiche (Sì/No)
+          - Agriturismo annesso (Sì/No)
+
+      # ── HEALTHCARE / SOCIALE ────────────────────────────────────────────
+
+      - id: Senior living
+        description: "senior living, RSA, casa di riposo, residenza anziani, assisted living, casa protetta"
+        rule: >
+          [MANDATORY] Posti letto/unità abitative, Autorizzazione sanitaria/accreditamento (Sì/No),
+          Tipologia (RSA/casa di riposo/assisted living).
+          [OPTIONAL] Superficie complessiva (mq), Servizi sanitari interni,
+          Spazi comuni (mq), Giardino/area esterna (Sì/No),
+          Occupancy rate, Reddito annuo/fatturato (€), Personale (n.).
+        mandatory_fields:
+          - Posti letto/unità abitative
+          - Autorizzazione sanitaria (Sì/No)
+          - Tipologia struttura
+        optional_fields:
+          - Spazi comuni (mq)
+          - Servizi sanitari interni
+          - Occupancy rate
+          - Fatturato (€)
+
+      - id: Student housing
+        description: "student housing, alloggi universitari, residenza universitaria, residence studenti, campus housing"
+        rule: >
+          [MANDATORY] Posti letto, Distanza da università/polo (km).
+          [OPTIONAL] Superficie complessiva (mq),
+          Trasporto pubblico verso ateneo (Sì/No),
+          Spazi comuni (studio/lavanderia/cucina), Connessione internet (Sì/No),
+          Canone medio per posto letto (€/mese), Occupancy rate.
+        mandatory_fields:
+          - Posti letto
+          - Distanza da università/polo (km)
+        optional_fields:
+          - Spazi comuni
+          - Trasporto pubblico verso ateneo (Sì/No)
+          - Canone medio per posto letto (€/mese)
+          - Occupancy rate
+
+      - id: Casa di cura
+        description: "casa di cura, clinica privata, poliambulatorio, struttura sanitaria privata, clinica riabilitazione"
+        rule: >
+          [MANDATORY] Posti letto, Autorizzazione sanitaria (Sì/No),
+          Accreditamento SSN/SSR (Sì/No).
+          [OPTIONAL] Superficie complessiva (mq), Specializzazioni,
+          Sale operatorie (n.), Diagnostica per immagini (Sì/No),
+          Laboratorio analisi (Sì/No), Fatturato annuo (€),
+          Personale (n.), Occupancy rate.
+        mandatory_fields:
+          - Posti letto
+          - Autorizzazione sanitaria (Sì/No)
+          - Accreditamento SSN/SSR (Sì/No)
+        optional_fields:
+          - Specializzazioni
+          - Sale operatorie (n.)
+          - Fatturato annuo (€)
+          - Occupancy rate
+
+      # ── SPECIALE / ISTITUZIONALE ────────────────────────────────────────
+
+      - id: Convento
+        description: "convento, monastero, abbazia, eremo, complesso conventuale, certosa"
+        rule: >
+          [MANDATORY] Superficie coperta (mq), Vincolo monumentale D.Lgs. 42/2004 (Sì/No).
+          [OPTIONAL] Superficie terreno (ha), Numero piani,
+          Chiostro (Sì/No), Chiesa/cappella (Sì/No),
+          Affreschi/elementi di pregio (Sì/No),
+          Destinazione d'uso potenziale (hospitality/residenziale/culturale),
+          Idoneità ricettiva (Sì/No).
+        mandatory_fields:
+          - Superficie coperta (mq)
+          - Vincolo monumentale (Sì/No)
+        optional_fields:
+          - Superficie terreno (ha)
+          - Chiostro (Sì/No)
+          - Destinazione d'uso potenziale
+          - Idoneità ricettiva (Sì/No)
+
+      - id: Caserma
+        description: "caserma, ex caserma, edificio militare dismesso, immobile ex militare, complesso militare"
+        rule: >
+          [MANDATORY] Superficie coperta (mq), Destinazione urbanistica vigente.
+          [OPTIONAL] Superficie terreno (mq o ha),
+          Necessità bonifica ambientale (Sì/No),
+          Vincoli paesaggistici/monumentali (Sì/No),
+          Destinazione d'uso potenziale (residenziale/misto/terziario),
+          Volumetria esistente (mc).
+        mandatory_fields:
+          - Superficie coperta (mq)
+          - Destinazione urbanistica vigente
+        optional_fields:
+          - Necessità bonifica (Sì/No)
+          - Destinazione d'uso potenziale
+          - Volumetria esistente (mc)
+
+      - id: Sportello bancario
+        description: "sportello bancario, filiale bancaria, agenzia bancaria, locale ex banca, immobile bancario"
+        rule: >
+          [MANDATORY] Superficie (mq), Zona commerciale (centro/semicentro/periferia).
+          [OPTIONAL] Caveau (Sì/No), Vetrine/visibilità su strada (Sì/No),
+          Parcheggio (Sì/No), Accessibilità disabili (Sì/No),
+          Contratto locazione residuo (anni), Canone locazione annuo (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Zona commerciale
+        optional_fields:
+          - Caveau (Sì/No)
+          - Contratto locazione residuo (anni)
+          - Canone locazione annuo (€)
+
+      - id: Stabilimento balneare
+        description: "stabilimento balneare, bagno, lido, stabilimento mare, concessione demaniale marittima"
+        rule: >
+          [MANDATORY] Fronte mare (ml), Superficie concessione (mq),
+          Scadenza concessione demaniale.
+          [OPTIONAL] Cabine (n.), Ombrelloni (n.),
+          Bar/ristorante (Sì/No), Piscina (Sì/No), Parcheggio (n. posti),
+          Canone concessione annuo (€), Fatturato annuo (€),
+          Stagionalità (mesi apertura).
+        mandatory_fields:
+          - Fronte mare (ml)
+          - Superficie concessione (mq)
+          - Scadenza concessione demaniale
+        optional_fields:
+          - Cabine (n.)
+          - Bar/ristorante (Sì/No)
+          - Fatturato annuo (€)
+          - Stagionalità (mesi)
+
+      - id: Ufficio pubblico
+        description: "ufficio pubblico, immobile PA, edificio pubblico, sede ente pubblico, ufficio comunale, sede ministeriale"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Numero piani, Parcheggi (n.),
+          Accessibilità disabili (Sì/No), Ascensore (Sì/No),
+          Conduttore PA (tipologia ente), Contratto residuo (anni),
+          Canone locazione annuo (€).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Numero piani
+          - Conduttore PA (tipologia ente)
+          - Contratto residuo (anni)
+          - Canone locazione annuo (€)
+
+      - id: Complesso sportivo
+        description: "complesso sportivo, impianto sportivo, stadio, palazzetto, campo sportivo, tensostruttura sportiva"
+        rule: >
+          [MANDATORY] Superficie complessiva (mq o ha), Discipline sportive presenti.
+          [OPTIONAL] Campi/impianti (n. e tipo), Spogliatoi (n.),
+          Tribune/posti a sedere (n.), Palestra/fitness (Sì/No),
+          Piscina (Sì/No), Bar/ristoro (Sì/No), Parcheggi (n.),
+          Concessione comunale (scadenza), Fatturato annuo (€),
+          Abbonati/tesserati (n.).
+        mandatory_fields:
+          - Superficie complessiva (mq o ha)
+          - Discipline sportive presenti
+        optional_fields:
+          - Tribune/posti a sedere (n.)
+          - Piscina (Sì/No)
+          - Fatturato annuo (€)
+          - Concessione comunale (scadenza)
+
+      - id: Autorimessa
+        description: "autorimessa, parcheggio multipiano, garage multipiano, parking, parcheggio coperto, rimessa auto"
+        rule: >
+          [MANDATORY] Numero posti auto, Superficie complessiva (mq).
+          [OPTIONAL] Numero piani, Altezza utile (m), Rampe/accessi veicoli (n.),
+          Posti moto/bici (n.), Colonnine ricarica elettrica (n.),
+          Impianto antincendio (Sì/No), Videosorveglianza (Sì/No),
+          Autolavaggio (Sì/No), Reddito annuo (€), Occupancy rate,
+          Tariffa media oraria/mensile (€).
+        mandatory_fields:
+          - Numero posti auto
+          - Superficie complessiva (mq)
+        optional_fields:
+          - Numero piani
+          - Colonnine ricarica elettrica (n.)
+          - Reddito annuo (€)
+          - Occupancy rate
+
+    # ========================================================================
+    # SOTTO-CATEGORIE INTAKE — AZIENDE
+    # ========================================================================
+    Aziende:
+
+      - id: Industria e Manifattura
+        description: "industria, manifattura, stabilimento produttivo, fabbrica, produzione industriale, manifatturiero"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro-categoria).
+          [OPTIONAL] Superficie stabilimento (mq), Numero stabilimenti,
+          Capacità produttiva, Utilizzo capacità (%), Turni di lavoro,
+          Grado automazione, Concentrazione fornitori, Materie prime critiche (Sì/No),
+          Magazzino medio (€), Certificazioni qualità (ISO 9001),
+          Certificazioni settoriali, R&D interna (Sì/No), Investimento R&D (% fatturato).
+        mandatory_fields: []
+        optional_fields:
+          - Superficie stabilimento (mq)
+          - Numero stabilimenti
+          - Capacità produttiva
+          - Grado automazione
+          - Certificazioni qualità
+          - R&D interna (Sì/No)
+
+      - id: Logistica e Trasporti
+        description: "logistica, trasporti, spedizioni, corriere, distribuzione merci, autotrasporto, magazzinaggio"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Mezzi di proprietà (n.), Magazzini/hub (mq totali),
+          Licenze di trasporto, Copertura geografica,
+          Spedizioni/anno, Tipologia merci, Last mile/e-commerce (Sì/No),
+          WMS/TMS (Sì/No).
+        mandatory_fields: []
+        optional_fields:
+          - Mezzi di proprietà (n.)
+          - Magazzini/hub (mq)
+          - Licenze di trasporto
+          - Copertura geografica
+          - Spedizioni/anno
+
+      - id: Costruzioni e Infrastrutture
+        description: "costruzioni, edilizia, infrastrutture, impresa edile, general contractor, cantieristica"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Cantieri attivi (n.), Backlog ordini (€),
+          Specializzazione (civile/industriale/infrastrutture/restauro),
+          Attestazione SOA (categorie), Parco mezzi (€),
+          Laboratorio materiali (Sì/No), Lavori pubblici (% fatturato),
+          General contractor (Sì/No).
+        mandatory_fields: []
+        optional_fields:
+          - Cantieri attivi (n.)
+          - Backlog ordini (€)
+          - Specializzazione
+          - Attestazione SOA
+          - General contractor (Sì/No)
+
+      - id: Energia e Utilities
+        description: "energia, utilities, rinnovabili, fotovoltaico, eolico, gas, distribuzione energia, utility"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Potenza installata (MW), Tipologia impianti,
+          Autorizzazioni/concessioni, Incentivi GSE (Sì/No),
+          Produzione annua (MWh), Utenti/clienti serviti,
+          Contratti fornitura lungo termine (Sì/No).
+        mandatory_fields: []
+        optional_fields:
+          - Potenza installata (MW)
+          - Tipologia impianti
+          - Produzione annua (MWh)
+          - Incentivi GSE (Sì/No)
+
+      - id: Agroindustria e Food
+        description: "agroindustria, food, agroalimentare, industria alimentare, trasformazione alimentare, bevande"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Terreni agricoli (ha), Stabilimento trasformazione (mq),
+          Denominazioni (DOP/DOC/IGP/BIO), Capacità produttiva (ton/hl/anno),
+          Canali distributivi, Private label (%), Marchi propri (n.),
+          Certificazioni HACCP/BRC/IFS, Biologico certificato (Sì/No).
+        mandatory_fields: []
+        optional_fields:
+          - Terreni agricoli (ha)
+          - Denominazioni (DOP/DOC/IGP/BIO)
+          - Capacità produttiva
+          - Canali distributivi
+          - Biologico certificato (Sì/No)
+
+      - id: Retail e Distribuzione (Azienda)
+        description: "retail, distribuzione, catena negozi, GDO, grande distribuzione, rete vendita"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Punti vendita (n.), Superficie vendita totale (mq),
+          Punti vendita proprietà vs locazione, Magazzini/centri distribuzione (n.),
+          E-commerce attivo (Sì/No), % fatturato online,
+          Valore magazzino medio (€), Database clienti (n.).
+        mandatory_fields: []
+        optional_fields:
+          - Punti vendita (n.)
+          - Superficie vendita totale (mq)
+          - E-commerce attivo (Sì/No)
+          - "% fatturato online"
+          - Database clienti (n.)
+
+      - id: Hospitality e Turismo (Azienda)
+        description: "hospitality azienda, catena alberghiera, gruppo turistico, gestione hotel, management alberghiero"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Strutture ricettive (n.), Camere totali (n.),
+          Classificazione media (stelle), Brand/catena (Sì/No),
+          RevPAR medio (€), Occupancy rate medio,
+          Stagionalità, Modello gestione (proprietà/management/franchising),
+          Piattaforme OTA (% prenotazioni).
+        mandatory_fields: []
+        optional_fields:
+          - Strutture ricettive (n.)
+          - Camere totali (n.)
+          - RevPAR medio (€)
+          - Occupancy rate medio
+          - Modello gestione
+
+      - id: Sanità e Servizi alla Persona (Azienda)
+        description: "sanità azienda, clinica, gruppo sanitario, servizi sanitari, RSA gestione, poliambulatorio"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Sedi/ambulatori (n.), Posti letto,
+          Autorizzazione sanitaria (Sì/No), Accreditamento SSN/SSR (Sì/No),
+          % fatturato da SSN, Medici/specialisti (n.),
+          Attrezzature medicali (€), Specializzazioni offerte.
+        mandatory_fields: []
+        optional_fields:
+          - Sedi/ambulatori (n.)
+          - Posti letto
+          - Accreditamento SSN/SSR (Sì/No)
+          - "% fatturato da SSN"
+          - Specializzazioni offerte
+
+      - id: ICT Media e Tecnologia
+        description: "ICT, tecnologia, software, SaaS, servizi IT, media, digital, startup tech, informatica"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Tipologia (SaaS/servizi IT/hardware/consulenza/media),
+          MRR/ARR (€), Churn rate (%), Utenti/clienti attivi (n.),
+          IP proprietaria (Sì/No), Stack tecnologico proprietario (Sì/No),
+          Team sviluppo interno (n.), Investimento R&D (% fatturato),
+          Infrastruttura (cloud/on-premise), Certificazioni (ISO 27001/SOC2).
+        mandatory_fields: []
+        optional_fields:
+          - Tipologia (SaaS/servizi IT/hardware)
+          - MRR/ARR (€)
+          - Churn rate (%)
+          - Utenti/clienti attivi (n.)
+          - IP proprietaria (Sì/No)
+          - Certificazioni (ISO 27001/SOC2)
+
+      - id: Servizi alle Imprese
+        description: "servizi imprese, consulenza, engineering, facility management, outsourcing, BPO"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Tipologia servizio, Contratti lungo termine (% fatturato),
+          Clienti in portafoglio (n.), Professionisti/tecnici (n.),
+          Certificazioni professionali, Sedi operative (n.).
+        mandatory_fields: []
+        optional_fields:
+          - Tipologia servizio
+          - Contratti lungo termine (% fatturato)
+          - Clienti in portafoglio (n.)
+          - Professionisti/tecnici (n.)
+
+      - id: Ambiente Economia Circolare ESG
+        description: "ambiente, economia circolare, ESG, rifiuti, riciclo, gestione ambientale, smaltimento, sostenibilità"
+        rule: >
+          [MANDATORY] (nessun campo aggiuntivo specifico oltre alla macro).
+          [OPTIONAL] Autorizzazioni ambientali (AIA/AUA),
+          Albo Gestori Ambientali (categorie),
+          Impianti trattamento (n. e tipologia), Tonnellate trattate/anno,
+          Tipologia rifiuti, Mezzi raccolta/trasporto (n.),
+          Contratti PA/privati.
+        mandatory_fields: []
+        optional_fields:
+          - Autorizzazioni ambientali
+          - Albo Gestori Ambientali
+          - Tonnellate trattate/anno
+          - Tipologia rifiuti
+
+      - id: Settori Speciali Altro
+        description: "settore speciale, attività di nicchia, settore regolamentato, concessione speciale"
+        rule: >
+          [MANDATORY] Descrizione attività.
+          [OPTIONAL] Licenze/concessioni speciali, Barriere all'ingresso (Alte/Medie/Basse),
+          Regolamentazione settoriale (Sì/No).
+        mandatory_fields:
+          - Descrizione attività
+        optional_fields:
+          - Licenze/concessioni speciali
+          - Barriere all'ingresso
+          - Regolamentazione settoriale (Sì/No)
+
+    # ========================================================================
+    # SOTTO-CATEGORIE INTAKE — ATTIVITÀ COMMERCIALI
+    # ========================================================================
+    Attività Commerciali:
+
+      # ── FOOD & BEVERAGE ────────────────────────────────────────────────
+
+      - id: Bar
+        description: "bar, caffè, bar tabacchi, bar sport, bar diurno, bar serale"
+        rule: >
+          [MANDATORY] Superficie sala/pubblico (mq), Licenza somministrazione (Sì/No).
+          [OPTIONAL] Superficie retro (mq), Vetrine (n.),
+          Posti a sedere interni (n.), Dehors/posti esterni (n.),
+          Canna fumaria (Sì/No), Licenza tabacchi (Sì/No),
+          Slot/VLT (Sì/No), Scontrino medio (€), Scontrini/giorno medio.
+        mandatory_fields:
+          - Superficie sala/pubblico (mq)
+          - Licenza somministrazione (Sì/No)
+        optional_fields:
+          - Posti a sedere interni (n.)
+          - Dehors/posti esterni (n.)
+          - Canna fumaria (Sì/No)
+          - Licenza tabacchi (Sì/No)
+          - Scontrino medio (€)
+
+      - id: Caffetteria
+        description: "caffetteria, coffee shop, specialty coffee, caffetteria pasticceria"
+        rule: >
+          [MANDATORY] Superficie sala (mq), Licenza somministrazione (Sì/No).
+          [OPTIONAL] Posti a sedere (n.), Dehors (n.),
+          Laboratorio pasticceria (Sì/No), Canna fumaria (Sì/No),
+          Scontrino medio (€), Attrezzature incluse (Sì/No).
+        mandatory_fields:
+          - Superficie sala (mq)
+          - Licenza somministrazione (Sì/No)
+        optional_fields:
+          - Posti a sedere (n.)
+          - Laboratorio pasticceria (Sì/No)
+          - Canna fumaria (Sì/No)
+          - Scontrino medio (€)
+
+      - id: Ristorante
+        description: "ristorante, trattoria di lusso, ristorante gourmet, ristorante etnico, steakhouse"
+        rule: >
+          [MANDATORY] Superficie sala (mq), Coperti interni (n.),
+          Canna fumaria (Sì/No), Licenza somministrazione (Sì/No).
+          [OPTIONAL] Superficie cucina (mq), Coperti esterni/dehors (n.),
+          Sale private (n.), Scontrino medio (€), Tipologia cucina,
+          Delivery/asporto (Sì/No), Recensioni (Alto/Medio/Basso),
+          Parcheggio clienti (Sì/No), Attrezzature incluse (Sì/No).
+        mandatory_fields:
+          - Superficie sala (mq)
+          - Coperti interni (n.)
+          - Canna fumaria (Sì/No)
+          - Licenza somministrazione (Sì/No)
+        optional_fields:
+          - Superficie cucina (mq)
+          - Coperti esterni (n.)
+          - Scontrino medio (€)
+          - Tipologia cucina
+          - Delivery/asporto (Sì/No)
+
+      - id: Pizzeria
+        description: "pizzeria, pizzeria al taglio, pizza al metro, pizzeria d'asporto, pizzeria ristorante"
+        rule: >
+          [MANDATORY] Superficie sala (mq), Coperti interni (n.),
+          Canna fumaria (Sì/No), Licenza somministrazione (Sì/No).
+          [OPTIONAL] Coperti esterni (n.), Forno (legna/elettrico/gas),
+          Scontrino medio (€), Asporto/delivery (% incidenza),
+          Attrezzature incluse (Sì/No).
+        mandatory_fields:
+          - Superficie sala (mq)
+          - Coperti interni (n.)
+          - Canna fumaria (Sì/No)
+          - Licenza somministrazione (Sì/No)
+        optional_fields:
+          - Forno (tipo)
+          - Scontrino medio (€)
+          - Asporto/delivery (%)
+          - Attrezzature incluse (Sì/No)
+
+      - id: Trattoria Osteria
+        description: "trattoria, osteria, locanda, trattoria tipica, osteria con cucina"
+        rule: >
+          [MANDATORY] Superficie sala (mq), Coperti (n.),
+          Canna fumaria (Sì/No).
+          [OPTIONAL] Dehors/giardino (Sì/No), Parcheggio (Sì/No),
+          Scontrino medio (€), Cucina professionale (Sì/No),
+          Attrezzature incluse (Sì/No).
+        mandatory_fields:
+          - Superficie sala (mq)
+          - Coperti (n.)
+          - Canna fumaria (Sì/No)
+        optional_fields:
+          - Dehors/giardino (Sì/No)
+          - Scontrino medio (€)
+          - Attrezzature incluse (Sì/No)
+
+      - id: Gastronomia
+        description: "gastronomia, gastronomia da asporto, tavola calda, rosticceria, gastronomia artigianale"
+        rule: >
+          [MANDATORY] Superficie vendita (mq), Licenza preparazione/vendita alimenti (Sì/No).
+          [OPTIONAL] Laboratorio/cucina (mq), Banco refrigerato (ml),
+          Canna fumaria (Sì/No), Licenza somministrazione (Sì/No),
+          Scontrino medio (€), Catering/delivery (Sì/No).
+        mandatory_fields:
+          - Superficie vendita (mq)
+          - Licenza preparazione/vendita alimenti (Sì/No)
+        optional_fields:
+          - Laboratorio/cucina (mq)
+          - Canna fumaria (Sì/No)
+          - Scontrino medio (€)
+          - Catering/delivery (Sì/No)
+
+      - id: Panificio Pasticceria
+        description: "panificio, pasticceria, forno, panetteria, pasticceria artigianale, laboratorio dolci"
+        rule: >
+          [MANDATORY] Superficie vendita (mq), Laboratorio produzione (mq),
+          Produzione propria (Sì/No).
+          [OPTIONAL] Canna fumaria (Sì/No), Forno professionale (tipo),
+          Vendita ingrosso (% fatturato), Punti vendita collegati (n.),
+          Attrezzature produzione incluse (Sì/No), Veicoli consegna inclusi (Sì/No).
+        mandatory_fields:
+          - Superficie vendita (mq)
+          - Laboratorio produzione (mq)
+          - Produzione propria (Sì/No)
+        optional_fields:
+          - Forno professionale (tipo)
+          - Vendita ingrosso (% fatturato)
+          - Attrezzature incluse (Sì/No)
+
+      - id: Gelateria
+        description: "gelateria, gelateria artigianale, gelato artigianale, yogurteria"
+        rule: >
+          [MANDATORY] Superficie vendita (mq), Produzione artigianale propria (Sì/No).
+          [OPTIONAL] Laboratorio (mq), Banco/vetrine (ml),
+          Posti a sedere (n.), Dehors (Sì/No),
+          Gusti medi offerti (n.), Stagionalità (incidenza estiva %),
+          Mantecatore/pastorizzatore inclusi (Sì/No).
+        mandatory_fields:
+          - Superficie vendita (mq)
+          - Produzione artigianale propria (Sì/No)
+        optional_fields:
+          - Laboratorio (mq)
+          - Posti a sedere (n.)
+          - Gusti medi offerti (n.)
+          - Stagionalità (%)
+
+      - id: Enoteca Wine bar
+        description: "enoteca, wine bar, vineria, degustazione vini, bar vini"
+        rule: >
+          [MANDATORY] Superficie (mq), Licenza somministrazione (Sì/No).
+          [OPTIONAL] Posti a sedere (n.), Cantina/esposizione (mq),
+          Etichette in catalogo (n.), Scontrino medio (€),
+          Somministrazione food (Sì/No), E-commerce (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+          - Licenza somministrazione (Sì/No)
+        optional_fields:
+          - Posti a sedere (n.)
+          - Etichette in catalogo (n.)
+          - Scontrino medio (€)
+
+      - id: Pub Birreria
+        description: "pub, birreria, birreria artigianale, brew pub, irish pub"
+        rule: >
+          [MANDATORY] Superficie sala (mq), Licenza somministrazione (Sì/No).
+          [OPTIONAL] Posti a sedere (n.), Dehors (n.),
+          Spine birra (n.), Produzione artigianale (Sì/No),
+          Scontrino medio (€), Cucina/food (Sì/No),
+          Intrattenimento/musica (Sì/No).
+        mandatory_fields:
+          - Superficie sala (mq)
+          - Licenza somministrazione (Sì/No)
+        optional_fields:
+          - Posti a sedere (n.)
+          - Spine birra (n.)
+          - Scontrino medio (€)
+          - Cucina/food (Sì/No)
+
+      # ── COMMERCIO AL DETTAGLIO ────────────────────────────────────────
+
+      - id: Tabaccheria
+        description: "tabaccheria, tabacchi, rivendita tabacchi, tabacchino, tabaccheria ricevitoria"
+        rule: >
+          [MANDATORY] Superficie (mq), Licenza tabacchi (Sì/No).
+          [OPTIONAL] Aggio tabacchi annuo (€), Aggio gioco annuo (€),
+          Bar annesso (Sì/No), Pagamento bollettini/servizi (Sì/No),
+          Edicola annessa (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+          - Licenza tabacchi (Sì/No)
+        optional_fields:
+          - Aggio tabacchi annuo (€)
+          - Aggio gioco annuo (€)
+          - Bar annesso (Sì/No)
+
+      - id: Edicola
+        description: "edicola, chiosco giornali, edicola cartoleria, punto stampa"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Tipologia (chiosco/negozio), Flusso pedonale (Alto/Medio/Basso),
+          Cartoleria/cancelleria (Sì/No), Punto Amazon/Poste (Sì/No),
+          Incidenza riviste su fatturato (%).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Tipologia (chiosco/negozio)
+          - Flusso pedonale
+          - Cartoleria annessa (Sì/No)
+
+      - id: Profumeria
+        description: "profumeria, profumeria di nicchia, profumeria artistica, cosmetica"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Vetrine (n.), Segmento (lusso/commerciale/nicchia),
+          Marchi in portafoglio (n.), Cabina estetica (Sì/No),
+          E-commerce (Sì/No), Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Segmento
+          - Marchi in portafoglio (n.)
+          - E-commerce (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Abbigliamento
+        description: "abbigliamento, boutique, negozio moda, fashion retail, abbigliamento uomo donna"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Vetrine (n.), Segmento (lusso/premium/mass market),
+          Target (uomo/donna/bambino/unisex), Multimarca/monomarca,
+          E-commerce (Sì/No), Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Segmento
+          - Target
+          - E-commerce (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Calzature
+        description: "calzature, negozio scarpe, calzoleria, scarpe uomo donna, shoe store"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Vetrine (n.), Segmento (lusso/premium/mass market),
+          Target (uomo/donna/bambino/unisex), E-commerce (Sì/No),
+          Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Segmento
+          - Target
+          - E-commerce (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Ottica
+        description: "ottica, negozio occhiali, ottico, centro ottico, lenti"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Laboratorio ottico interno (Sì/No), Sala refrazione (Sì/No),
+          Convenzioni ASL/fondi (Sì/No), Segmento (lusso/commerciale),
+          Marchi in portafoglio (n.), Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Laboratorio ottico (Sì/No)
+          - Convenzioni ASL (Sì/No)
+          - Segmento
+          - Valore magazzino (€)
+
+      - id: Gioielleria
+        description: "gioielleria, oreficeria, gioielli, orafo, gioielleria di lusso"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Vetrine blindate (n.), Caveau/cassaforte (Sì/No),
+          Impianto antintrusione (Sì/No), Segmento (alta gioielleria/commerciale),
+          Laboratorio orafo (Sì/No), Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Caveau/cassaforte (Sì/No)
+          - Segmento
+          - Laboratorio orafo (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Telefonia
+        description: "telefonia, negozio telefonia, centro telefonia, dealer telefonia, riparazione smartphone"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Dealer operatore (tipo), Riparazione/assistenza (Sì/No),
+          Accessori/usato (Sì/No), Provvigioni operatori incluse (Sì/No).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Dealer operatore
+          - Riparazione/assistenza (Sì/No)
+          - Provvigioni incluse (Sì/No)
+
+      - id: Elettronica di consumo
+        description: "elettronica, negozio elettronica, hi-fi, informatica, elettrodomestici"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Magazzino (mq), Categorie merceologiche,
+          Assistenza tecnica (Sì/No), E-commerce (Sì/No),
+          Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Categorie merceologiche
+          - Assistenza tecnica (Sì/No)
+          - E-commerce (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Articoli per la casa
+        description: "articoli casa, casalinghi, arredamento, ferramenta, brico, utensileria"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Magazzino (mq), Categorie merceologiche,
+          E-commerce (Sì/No), Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Categorie merceologiche
+          - E-commerce (Sì/No)
+          - Valore magazzino (€)
+
+      # ── CURA DELLA PERSONA ────────────────────────────────────────────
+
+      - id: Parrucchiere
+        description: "parrucchiere, salone bellezza, hair stylist, barbiere, barber shop"
+        rule: >
+          [MANDATORY] Superficie (mq), Postazioni lavoro (n.).
+          [OPTIONAL] Lavateste (n.), Target (uomo/donna/unisex),
+          Trattamenti estetici (Sì/No), Vendita prodotti (Sì/No),
+          Clienti/giorno medio (n.), Scontrino medio (€), Attrezzature incluse (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+          - Postazioni lavoro (n.)
+        optional_fields:
+          - Target
+          - Trattamenti estetici (Sì/No)
+          - Clienti/giorno medio (n.)
+          - Scontrino medio (€)
+
+      - id: Estetica
+        description: "centro estetico, estetica, beauty center, trattamenti estetici, solarium"
+        rule: >
+          [MANDATORY] Superficie (mq), Cabine trattamento (n.).
+          [OPTIONAL] Trattamenti offerti, Apparecchiature laser/medicali (Sì/No),
+          Vendita prodotti (Sì/No), Clienti/settimana (n.),
+          Scontrino medio (€), Valore attrezzature (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Cabine trattamento (n.)
+        optional_fields:
+          - Trattamenti offerti
+          - Apparecchiature laser (Sì/No)
+          - Clienti/settimana (n.)
+          - Valore attrezzature (€)
+
+      - id: Centro unghie
+        description: "centro unghie, nail bar, nail salon, manicure pedicure, ricostruzione unghie"
+        rule: >
+          [MANDATORY] Superficie (mq), Postazioni lavoro (n.).
+          [OPTIONAL] Trattamenti offerti, Clienti/settimana (n.), Scontrino medio (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Postazioni lavoro (n.)
+        optional_fields:
+          - Trattamenti offerti
+          - Clienti/settimana (n.)
+          - Scontrino medio (€)
+
+      - id: Lavanderia
+        description: "lavanderia, lavanderia self-service, lavanderia a secco, lavanderia industriale, tintoria"
+        rule: >
+          [MANDATORY] Superficie (mq), Tipologia (self-service/tradizionale/mista).
+          [OPTIONAL] Lavatrici industriali (n.), Asciugatrici (n.),
+          Ferro stiro industriale (Sì/No), Ritiro/consegna a domicilio (Sì/No),
+          Clienti business/hotel (Sì/No), Valore attrezzature (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Tipologia (self-service/tradizionale/mista)
+        optional_fields:
+          - Lavatrici industriali (n.)
+          - Ritiro/consegna domicilio (Sì/No)
+          - Valore attrezzature (€)
+
+      # ── FORMAZIONE ────────────────────────────────────────────────────
+
+      - id: Scuola guida
+        description: "scuola guida, autoscuola, patente, agenzia pratiche auto"
+        rule: >
+          [MANDATORY] Superficie (mq), Autorizzazione provinciale (Sì/No).
+          [OPTIONAL] Aule (n.), Veicoli scuola guida (n.),
+          Patenti rilasciate/anno (n.), Simulatore guida (Sì/No),
+          Pratiche auto (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+          - Autorizzazione provinciale (Sì/No)
+        optional_fields:
+          - Veicoli scuola guida (n.)
+          - Patenti rilasciate/anno (n.)
+          - Pratiche auto (Sì/No)
+
+      - id: Scuola di lingue
+        description: "scuola lingue, centro linguistico, corso lingue, language school"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Aule (n.), Lingue insegnate,
+          Certificazioni rilasciate, Iscritti attivi (n.), Docenti (n.).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Aule (n.)
+          - Lingue insegnate
+          - Iscritti attivi (n.)
+
+      # ── SALUTE & BENESSERE ────────────────────────────────────────────
+
+      - id: Farmacia
+        description: "farmacia, farmacia comunale, farmacia urbana, farmacia rurale"
+        rule: >
+          [MANDATORY] Superficie vendita (mq), Titolarità farmacia (pianta organica Sì/No).
+          [OPTIONAL] Magazzino/retro (mq), Laboratorio galenico (Sì/No),
+          Sede/succursale, Turni notturni/festivi (Sì/No),
+          Fatturato SSN annuo (€), Fatturato commerciale (€),
+          Ricette/giorno medio (n.), Cosmesi/dermocosmesi (Sì/No),
+          Servizi diagnostici (Sì/No), Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+          - Titolarità farmacia (Sì/No)
+        optional_fields:
+          - Laboratorio galenico (Sì/No)
+          - Fatturato SSN annuo (€)
+          - Ricette/giorno medio (n.)
+          - Valore magazzino (€)
+
+      - id: Parafarmacia
+        description: "parafarmacia, erboristeria, integratori, cosmetica farmaceutica"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Categorie (integratori/cosmesi/dispositivi medici),
+          Farmacista abilitato (Sì/No), Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Farmacista abilitato (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Sanitaria ortopedia
+        description: "sanitaria, ortopedia, ausili sanitari, noleggio ausili, officina ortopedica"
+        rule: >
+          [MANDATORY] Superficie vendita (mq).
+          [OPTIONAL] Convenzioni ASL/INAIL (Sì/No), Officina ortopedica (Sì/No),
+          Noleggio ausili (Sì/No), Incidenza convenzioni (% fatturato),
+          Valore magazzino (€).
+        mandatory_fields:
+          - Superficie vendita (mq)
+        optional_fields:
+          - Convenzioni ASL/INAIL (Sì/No)
+          - Officina ortopedica (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Centro fisioterapico
+        description: "centro fisioterapico, fisioterapia, riabilitazione, studio fisioterapico"
+        rule: >
+          [MANDATORY] Superficie (mq), Sale trattamento (n.).
+          [OPTIONAL] Palestra riabilitativa (Sì/No), Specializzazioni,
+          Convenzione SSN (Sì/No), Operatori/fisioterapisti (n.),
+          Apparecchiature elettromedicali (Sì/No), Valore attrezzature (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Sale trattamento (n.)
+        optional_fields:
+          - Palestra riabilitativa (Sì/No)
+          - Convenzione SSN (Sì/No)
+          - Operatori (n.)
+          - Valore attrezzature (€)
+
+      - id: Palestra fitness
+        description: "palestra, fitness, centro fitness, crossfit, centro sportivo, gym"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Sale (n.), Piscina (Sì/No), Area wellness/sauna (Sì/No),
+          Discipline offerte, Personal trainer (Sì/No),
+          Abbonati attivi (n.), Abbonamento medio annuo (€),
+          Valore attrezzature (€).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Piscina (Sì/No)
+          - Area wellness (Sì/No)
+          - Abbonati attivi (n.)
+          - Valore attrezzature (€)
+
+      - id: Centro medico polispecialistico
+        description: "centro medico, poliambulatorio, ambulatorio, studio medico, centro diagnostico"
+        rule: >
+          [MANDATORY] Superficie (mq), Ambulatori (n.).
+          [OPTIONAL] Specializzazioni mediche, Diagnostica (ecografia/RX/ecc.),
+          Convenzioni SSN/fondi/assicurazioni, Medici collaboratori (n.),
+          Valore attrezzature medicali (€), Parcheggio (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+          - Ambulatori (n.)
+        optional_fields:
+          - Specializzazioni mediche
+          - Convenzioni SSN/fondi
+          - Medici collaboratori (n.)
+          - Valore attrezzature (€)
+
+      # ── SERVIZI PROFESSIONALI AL PUBBLICO ─────────────────────────────
+
+      - id: Agenzia immobiliare
+        description: "agenzia immobiliare, studio immobiliare, franchising immobiliare, intermediazione immobiliare"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Network/franchising (Sì/No), Mandati attivi (n.),
+          Zona operatività (raggio km), Segmento (residenziale/commerciale/misto),
+          Agenti (n.), Database clienti (n.).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Mandati attivi (n.)
+          - Segmento
+          - Agenti (n.)
+          - Database clienti (n.)
+
+      - id: Agenzia assicurativa
+        description: "agenzia assicurativa, broker assicurativo, subagente, franchising assicurazioni"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Mono/plurimandataria, Ramo (danni/vita/misto),
+          Portafoglio premi annui (€), Polizze in portafoglio (n.),
+          Subagenti (n.), Tasso retention clienti (%).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Portafoglio premi annui (€)
+          - Polizze in portafoglio (n.)
+          - Tasso retention (%)
+
+      - id: CAF Patronato
+        description: "CAF, patronato, centro assistenza fiscale, consulenza fiscale, 730, ISEE"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Postazioni operative (n.), Servizi offerti,
+          Pratiche annue (n.), Convenzione sindacale/ente (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Pratiche annue (n.)
+          - Servizi offerti
+          - Convenzione sindacale (Sì/No)
+
+      - id: Servizi finanziari al dettaglio
+        description: "servizi finanziari, cessione quinto, prestiti, mutui, mediazione creditizia, agenzia finanziaria"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Servizi offerti, Mandanti/convenzioni (n.),
+          Iscrizione OAM/albi (Sì/No), Volume erogato annuo (€).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Mandanti/convenzioni (n.)
+          - Iscrizione OAM (Sì/No)
+          - Volume erogato annuo (€)
+
+      # ── INTRATTENIMENTO & TEMPO LIBERO ──────────────────────────────
+
+      - id: Sala giochi
+        description: "sala giochi, sala slot, sala VLT, gaming, amusement"
+        rule: >
+          [MANDATORY] Superficie (mq), Licenza AAMS/ADM (Sì/No).
+          [OPTIONAL] Macchine/postazioni (n.), Slot/VLT (n.),
+          Aggio annuo gioco (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Licenza AAMS/ADM (Sì/No)
+        optional_fields:
+          - Macchine/postazioni (n.)
+          - Aggio annuo gioco (€)
+
+      - id: Centro scommesse
+        description: "centro scommesse, agenzia scommesse, betting, punto scommesse"
+        rule: >
+          [MANDATORY] Superficie (mq), Licenza ADM scommesse (Sì/No).
+          [OPTIONAL] Postazioni/terminali (n.), VLT (n.),
+          Concessionario di riferimento, Provvigioni annue (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Licenza ADM scommesse (Sì/No)
+        optional_fields:
+          - Postazioni/terminali (n.)
+          - Provvigioni annue (€)
+
+      - id: Bowling
+        description: "bowling, bowling center, pista bowling, intrattenimento bowling"
+        rule: >
+          [MANDATORY] Superficie (mq), Piste (n.).
+          [OPTIONAL] Bar/ristorazione (Sì/No), Sala giochi/biliardi (Sì/No),
+          Parcheggio (n. posti), Valore attrezzature (€).
+        mandatory_fields:
+          - Superficie (mq)
+          - Piste (n.)
+        optional_fields:
+          - Bar/ristorazione (Sì/No)
+          - Parcheggio (n. posti)
+          - Valore attrezzature (€)
+
+      - id: Escape room
+        description: "escape room, gioco di fuga, esperienza immersiva, room escape"
+        rule: >
+          [MANDATORY] Superficie (mq), Stanze/esperienze (n.).
+          [OPTIONAL] Capienza per sessione (persone), Sessioni/giorno medio (n.),
+          Prezzo medio per persona (€), Booking online (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+          - Stanze/esperienze (n.)
+        optional_fields:
+          - Prezzo medio per persona (€)
+          - Sessioni/giorno medio (n.)
+          - Booking online (Sì/No)
+
+      # ── TURISMO & RICETTIVITÀ LEGGERA ─────────────────────────────────
+
+      - id: B&B
+        description: "bed and breakfast, B&B, B and B, casa vacanze con colazione"
+        rule: >
+          [MANDATORY] Camere (n.), SCIA/autorizzazione regionale (Sì/No).
+          [OPTIONAL] Posti letto (n.), Superficie complessiva (mq),
+          Colazione inclusa (Sì/No), Giardino/terrazza (Sì/No),
+          Parcheggio (Sì/No), Occupancy rate medio,
+          ADR medio (€), Recensioni (Alto/Medio/Basso).
+        mandatory_fields:
+          - Camere (n.)
+          - SCIA/autorizzazione regionale (Sì/No)
+        optional_fields:
+          - Posti letto (n.)
+          - Colazione inclusa (Sì/No)
+          - Occupancy rate medio
+          - ADR medio (€)
+
+      - id: Affittacamere
+        description: "affittacamere, guest house, pensione, camera in affitto"
+        rule: >
+          [MANDATORY] Camere (n.), SCIA/autorizzazione regionale (Sì/No).
+          [OPTIONAL] Posti letto (n.), Superficie (mq),
+          Colazione inclusa (Sì/No), Parcheggio (Sì/No),
+          Occupancy rate medio, ADR medio (€).
+        mandatory_fields:
+          - Camere (n.)
+          - SCIA/autorizzazione regionale (Sì/No)
+        optional_fields:
+          - Posti letto (n.)
+          - Occupancy rate medio
+          - ADR medio (€)
+
+      - id: Ostello
+        description: "ostello, hostel, ostello della gioventù, backpacker hostel"
+        rule: >
+          [MANDATORY] Posti letto (n.), SCIA/autorizzazione (Sì/No).
+          [OPTIONAL] Camere/dormitori (n.), Superficie (mq),
+          Cucina comune (Sì/No), Bar/reception (Sì/No),
+          Lavanderia (Sì/No), Occupancy rate, Tariffa media posto letto (€).
+        mandatory_fields:
+          - Posti letto (n.)
+          - SCIA/autorizzazione (Sì/No)
+        optional_fields:
+          - Camere/dormitori (n.)
+          - Cucina comune (Sì/No)
+          - Occupancy rate
+          - Tariffa media posto letto (€)
+
+      # ── MOBILITÀ & SERVIZI AUTOMOTIVE ─────────────────────────────────
+
+      - id: Autofficina
+        description: "autofficina, officina meccanica, meccanico auto, centro revisioni, elettrauto"
+        rule: >
+          [MANDATORY] Superficie officina (mq), Ponti sollevatori (n.).
+          [OPTIONAL] Area esterna/piazzale (mq), Specializzazione (multimarca/monomarca),
+          Servizi offerti, Centro revisioni autorizzato (Sì/No),
+          Gommista (Sì/No), Valore attrezzature (€), Ordini lavoro/giorno medio (n.).
+        mandatory_fields:
+          - Superficie officina (mq)
+          - Ponti sollevatori (n.)
+        optional_fields:
+          - Specializzazione
+          - Centro revisioni (Sì/No)
+          - Gommista (Sì/No)
+          - Valore attrezzature (€)
+
+      - id: Carrozzeria
+        description: "carrozzeria, riparazione auto, verniciatura auto, centro riparazione sinistri"
+        rule: >
+          [MANDATORY] Superficie (mq), Cabina verniciatura (Sì/No).
+          [OPTIONAL] Area esterna (mq), Convenzioni assicurative (Sì/No),
+          Auto sostitutiva (Sì/No), Soccorso stradale (Sì/No),
+          Valore attrezzature (€), Autorizzazioni ambientali (Sì/No).
+        mandatory_fields:
+          - Superficie (mq)
+          - Cabina verniciatura (Sì/No)
+        optional_fields:
+          - Convenzioni assicurative (Sì/No)
+          - Soccorso stradale (Sì/No)
+          - Valore attrezzature (€)
+
+      - id: Gommista
+        description: "gommista, centro pneumatici, cambio gomme, deposito gomme"
+        rule: >
+          [MANDATORY] Superficie (mq).
+          [OPTIONAL] Ponti/macchine smonta-gomme (n.),
+          Deposito pneumatici custodia (Sì/No), Flotte/clienti business (Sì/No),
+          Valore magazzino pneumatici (€).
+        mandatory_fields:
+          - Superficie (mq)
+        optional_fields:
+          - Deposito pneumatici (Sì/No)
+          - Flotte/clienti business (Sì/No)
+          - Valore magazzino (€)
+
+      - id: Autolavaggio
+        description: "autolavaggio, car wash, lavaggio auto, autolavaggio self-service"
+        rule: >
+          [MANDATORY] Superficie (mq), Tipologia (manuale/automatico/self-service/misto).
+          [OPTIONAL] Piste lavaggio (n.), Servizio detailing/interni (Sì/No),
+          Autorizzazioni scarichi idrici (Sì/No), Lavaggi/giorno medio (n.).
+        mandatory_fields:
+          - Superficie (mq)
+          - Tipologia (manuale/automatico/self-service/misto)
+        optional_fields:
+          - Piste lavaggio (n.)
+          - Servizio detailing (Sì/No)
+          - Lavaggi/giorno medio (n.)
+
+      - id: Concessionaria
+        description: "concessionaria auto, concessionaria moto, autosalone, vendita veicoli"
+        rule: >
+          [MANDATORY] Superficie showroom (mq), Mandato casa madre nuovo (Sì/No).
+          [OPTIONAL] Piazzale esposizione (mq), Officina interna (mq),
+          Multimarca usato (Sì/No), Veicoli in stock (n.),
+          Valore stock (€), Vendite/anno (n.),
+          Incidenza post-vendita su fatturato (%).
+        mandatory_fields:
+          - Superficie showroom (mq)
+          - Mandato casa madre nuovo (Sì/No)
+        optional_fields:
+          - Piazzale esposizione (mq)
+          - Officina interna (mq)
+          - Veicoli in stock (n.)
+          - Valore stock (€)
+
+
+  # --------------------------------------------------------------------------
+  # SOTTO-CATEGORIE — QUERY (ricerca immobile)
+  # I campi qui sono i CRITERI DI RICERCA, non le caratteristiche fisiche.
+  # --------------------------------------------------------------------------
+  query:
+    Immobili:
+
+      - id: Castello
+        description: "castello, maniero, fortezza storica, residenza storica, torre medievale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area geografica).
+          [OPTIONAL] superficie_minima (mq), presenza_vincolo_monumentale (Sì/No),
+          destinazione_uso (residenziale/hospitality/eventi), presenza_parco (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, destinazione_uso, presenza_parco]
+
+      - id: Palazzo
+        description: "palazzo storico, palazzo d'epoca, palazzo nobiliare, palazzo monumentale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area geografica).
+          [OPTIONAL] superficie_minima (mq), numero_piani_minimo,
+          presenza_vincolo_monumentale (Sì/No), destinazione_uso.
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, numero_piani_minimo, destinazione_uso]
+
+      - id: Villa
+        description: "villa, villa singola, villa di lusso, villa con parco, villa con piscina"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area/comune),
+          numero_camere_minimo.
+          [OPTIONAL] superficie_coperta_minima (mq), superficie_terreno_minima (mq),
+          piscina (Sì/No), vista (mare/lago/montagna/collina), livello_finiture.
+        mandatory_fields: [budget, localizzazione, numero_camere_minimo]
+        optional_fields: [superficie_coperta_minima, piscina, vista, livello_finiture]
+
+      - id: Casale
+        description: "casale, rustico, cascina, casale rurale, casolare di campagna"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area geografica).
+          [OPTIONAL] superficie_terreno_minima (ha), stato_ristrutturazione,
+          colture_presenti (oliveto/vigneto/ecc.), piscina (Sì/No),
+          idoneita_agrituristica (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_terreno_minima, stato_ristrutturazione, colture_presenti, piscina]
+
+      - id: Appartamento
+        description: "appartamento, bilocale, trilocale, quadrilocale, monolocale, flat"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (comune/area),
+          numero_camere_minimo, superficie_minima (mq).
+          [OPTIONAL] piano_preferito, presenza_ascensore (Sì/No),
+          presenza_posto_auto (Sì/No), livello_finiture, stato_conservazione.
+        mandatory_fields: [budget, localizzazione, numero_camere_minimo, superficie_minima]
+        optional_fields: [piano_preferito, presenza_ascensore, presenza_posto_auto, livello_finiture]
+
+      - id: Attico
+        description: "attico, superattico, penthouse, attico panoramico, attico con terrazzo"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (comune/area),
+          superficie_terrazzo_minima (mq).
+          [OPTIONAL] numero_camere_minimo, vista_panoramica (Sì/No),
+          livello_finiture, presenza_piscina_condominiale (Sì/No).
+        mandatory_fields: [budget, localizzazione, superficie_terrazzo_minima]
+        optional_fields: [numero_camere_minimo, vista_panoramica, livello_finiture]
+
+      - id: Capannone industriale
+        description: "capannone industriale, stabilimento produttivo, polo industriale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (regione/area/distretto industriale),
+          superficie_minima (mq).
+          [OPTIONAL] altezza_sottotrave_minima (m), accesso_tir (Sì/No),
+          potenza_elettrica_minima (kW), presenza_carroponte (Sì/No).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [altezza_sottotrave_minima, accesso_tir, potenza_elettrica_minima]
+
+      - id: Capannone logistico
+        description: "capannone logistico, hub logistico, distribution center, polo logistico"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (regione/area/vicinanza autostrada),
+          superficie_minima (mq), baie_di_carico_minimo (n.).
+          [OPTIONAL] altezza_sottotrave_minima (m), temperatura_controllata (Sì/No),
+          certificazioni (BREEAM/LEED/ecc.), distanza_casello_max (km).
+        mandatory_fields: [budget, localizzazione, superficie_minima, baie_di_carico_minimo]
+        optional_fields: [altezza_sottotrave_minima, temperatura_controllata, certificazioni]
+
+      - id: Capannone artigianale
+        description: "capannone artigianale, officina, laboratorio artigianale, spazio produttivo artigianale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (comune/area),
+          superficie_minima (mq).
+          [OPTIONAL] altezza_minima (m), accesso_veicolare (tipo), potenza_elettrica_minima (kW).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [altezza_minima, accesso_veicolare, potenza_elettrica_minima]
+
+      - id: Laboratorio
+        description: "laboratorio scientifico, laboratorio farmaceutico, clean room, laboratorio R&D"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (comune/area),
+          superficie_minima (mq).
+          [OPTIONAL] impianti_specialistici_richiesti, temperatura_controllata (Sì/No),
+          potenza_elettrica_minima (kW).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [impianti_specialistici_richiesti, temperatura_controllata]
+
+      - id: Magazzino
+        description: "magazzino, deposito, stoccaggio, storage"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (comune/area),
+          superficie_minima (mq).
+          [OPTIONAL] altezza_minima (m), temperatura_controllata (Sì/No),
+          baie_di_carico_minimo (n.).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [altezza_minima, temperatura_controllata, baie_di_carico_minimo]
+
+      - id: Ufficio
+        description: "ufficio, spazio ufficio, open space, coworking, studio professionale"
+        rule: >
+          [MANDATORY] budget (fascia canone €/mq o totale), localizzazione (comune/area/quartiere),
+          superficie_minima (mq).
+          [OPTIONAL] layout_preferito (open space/suddiviso/misto),
+          piano_preferito, presenza_parcheggi (Sì/No), certificazioni.
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [layout_preferito, piano_preferito, presenza_parcheggi, certificazioni]
+
+      - id: Palazzina direzionale
+        description: "palazzina uffici, edificio direzionale, business center, torre uffici"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (comune/area),
+          superficie_minima (mq).
+          [OPTIONAL] numero_piani_minimo, presenza_parcheggi (Sì/No),
+          asset_a_reddito (Sì/No), wault_minimo (anni).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [numero_piani_minimo, presenza_parcheggi, asset_a_reddito]
+
+      - id: Negozio
+        description: "negozio, locale commerciale, retail, punto vendita, esercizio commerciale"
+        rule: >
+          [MANDATORY] budget (fascia canone o prezzo in €), localizzazione (comune/zona commerciale),
+          superficie_minima (mq).
+          [OPTIONAL] zona_commerciale (centro/semicentro/periferia),
+          fronte_vetrina_minimo (ml), canna_fumaria (Sì/No).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [zona_commerciale, fronte_vetrina_minimo, canna_fumaria]
+
+      - id: Capannone commerciale
+        description: "capannone commerciale, showroom commerciale, grande superficie commerciale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (comune/area),
+          superficie_minima (mq).
+          [OPTIONAL] visibilita_strada (Sì/No), parcheggi_clienti_minimo (n.).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [visibilita_strada, parcheggi_clienti_minimo]
+
+      - id: Retail Park
+        description: "retail park, parco commerciale, shopping park"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area),
+          gla_minima (mq).
+          [OPTIONAL] numero_unita_minimo, occupancy_rate_minimo, wault_minimo (anni),
+          ancora_alimentare (Sì/No).
+        mandatory_fields: [budget, localizzazione, gla_minima]
+        optional_fields: [occupancy_rate_minimo, ancora_alimentare, wault_minimo]
+
+      - id: Centro commerciale
+        description: "centro commerciale, shopping center, mall, galleria commerciale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area),
+          gla_minima (mq).
+          [OPTIONAL] numero_unita_minimo, occupancy_rate_minimo, wault_minimo (anni),
+          visitatori_anno_minimo, food_court (Sì/No).
+        mandatory_fields: [budget, localizzazione, gla_minima]
+        optional_fields: [occupancy_rate_minimo, visitatori_anno_minimo, wault_minimo]
+
+      - id: Outlet Park
+        description: "outlet, outlet village, factory outlet, village outlet"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area),
+          gla_minima (mq).
+          [OPTIONAL] segmento (lusso/premium/mass market), occupancy_rate_minimo,
+          visitatori_anno_minimo.
+        mandatory_fields: [budget, localizzazione, gla_minima]
+        optional_fields: [segmento, occupancy_rate_minimo, visitatori_anno_minimo]
+
+      - id: Hotel
+        description: "hotel, albergo, struttura ricettiva, resort, boutique hotel"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area/destinazione turistica),
+          numero_camere_minimo.
+          [OPTIONAL] stelle_minimo (1-5), occupancy_rate_minimo,
+          presenza_spa (Sì/No), presenza_piscina (Sì/No), fatturato_annuo_minimo (€).
+        mandatory_fields: [budget, localizzazione, numero_camere_minimo]
+        optional_fields: [stelle_minimo, occupancy_rate_minimo, presenza_spa, presente_piscina]
+
+      - id: Agriturismo
+        description: "agriturismo, fattoria, azienda agrituristica, bed and breakfast rurale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area geografica).
+          [OPTIONAL] numero_camere_minimo, superficie_terreno_minima (ha),
+          colture_desiderate (oliveto/vigneto/ecc.), presenza_piscina (Sì/No),
+          fatturato_annuo_minimo (€).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [numero_camere_minimo, colture_desiderate, presenza_piscina, fatturato_annuo_minimo]
+
+      - id: Residence
+        description: "residence, aparthotel, appartamenti serviti, residenze turistiche"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (comune/area),
+          numero_unita_minimo.
+          [OPTIONAL] target (business/turistico/misto), occupancy_rate_minimo,
+          presenza_piscina (Sì/No).
+        mandatory_fields: [budget, localizzazione, numero_unita_minimo]
+        optional_fields: [target, occupancy_rate_minimo, presenza_piscina]
+
+      - id: Azienda agricola
+        description: "azienda agricola, podere, tenuta agricola, azienda vitivinicola, masseria produttiva"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area geografica),
+          colture_principali_desiderate.
+          [OPTIONAL] superficie_minima (ha), fatturato_annuo_minimo (€),
+          certificazioni_biologiche (Sì/No), agriturismo_annesso (Sì/No).
+        mandatory_fields: [budget, localizzazione, colture_principali_desiderate]
+        optional_fields: [superficie_minima, fatturato_annuo_minimo, certificazioni_biologiche]
+
+      - id: Senior living
+        description: "senior living, RSA, casa di riposo, residenza anziani, assisted living"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/comune),
+          posti_letto_minimo.
+          [OPTIONAL] tipologia (RSA/casa di riposo/assisted living),
+          accreditamento_ssn (Sì/No), occupancy_rate_minimo.
+        mandatory_fields: [budget, localizzazione, posti_letto_minimo]
+        optional_fields: [tipologia, accreditamento_ssn, occupancy_rate_minimo]
+
+      - id: Student housing
+        description: "student housing, alloggi universitari, residenza universitaria, campus housing"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (comune/polo universitario),
+          posti_letto_minimo.
+          [OPTIONAL] distanza_universita_max (km), occupancy_rate_minimo,
+          canone_medio_max (€/mese).
+        mandatory_fields: [budget, localizzazione, posti_letto_minimo]
+        optional_fields: [distanza_universita_max, occupancy_rate_minimo, canone_medio_max]
+
+      - id: Casa di cura
+        description: "casa di cura, clinica privata, struttura sanitaria privata, clinica riabilitazione"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/provincia),
+          posti_letto_minimo.
+          [OPTIONAL] accreditamento_ssn (Sì/No), specializzazioni_richieste,
+          occupancy_rate_minimo, fatturato_annuo_minimo (€).
+        mandatory_fields: [budget, localizzazione, posti_letto_minimo]
+        optional_fields: [accreditamento_ssn, specializzazioni_richieste, occupancy_rate_minimo]
+
+      - id: Convento
+        description: "convento, monastero, abbazia, complesso conventuale, certosa"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area geografica).
+          [OPTIONAL] superficie_minima (mq), destinazione_uso_prevista
+          (hospitality/residenziale/culturale), presenza_vincolo_monumentale (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, destinazione_uso_prevista]
+
+      - id: Caserma
+        description: "ex caserma, immobile ex militare, caserma dismessa, edificio militare"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (regione/area),
+          destinazione_uso_prevista.
+          [OPTIONAL] superficie_minima (mq), bonifica_necessaria (Sì/No).
+        mandatory_fields: [budget, localizzazione, destinazione_uso_prevista]
+        optional_fields: [superficie_minima, bonifica_necessaria]
+
+      - id: Sportello bancario
+        description: "sportello bancario, filiale bancaria, locale ex banca, immobile bancario"
+        rule: >
+          [MANDATORY] budget (fascia canone o prezzo in €), localizzazione (comune/zona commerciale).
+          [OPTIONAL] superficie_minima (mq), presenza_caveau (Sì/No),
+          contratto_residuo_minimo (anni).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, presenza_caveau, contratto_residuo_minimo]
+
+      - id: Stabilimento balneare
+        description: "stabilimento balneare, lido, bagno mare, concessione demaniale"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (comune/litorale),
+          fronte_mare_minimo (ml).
+          [OPTIONAL] scadenza_concessione_minima, fatturato_annuo_minimo (€),
+          presenza_ristorazione (Sì/No).
+        mandatory_fields: [budget, localizzazione, fronte_mare_minimo]
+        optional_fields: [scadenza_concessione_minima, fatturato_annuo_minimo, presenza_ristorazione]
+
+      - id: Complesso sportivo
+        description: "complesso sportivo, impianto sportivo, palazzetto dello sport, campo sportivo, stadio"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo in €), localizzazione (comune/area),
+          discipline_sportive_richieste.
+          [OPTIONAL] superficie_minima (mq), presenza_tribune (Sì/No),
+          presenza_piscina (Sì/No), fatturato_annuo_minimo (€).
+        mandatory_fields: [budget, localizzazione, discipline_sportive_richieste]
+        optional_fields: [presenza_tribune, presenza_piscina, fatturato_annuo_minimo]
+
+      - id: Autorimessa
+        description: "autorimessa, parcheggio multipiano, garage multipiano, parking coperto"
+        rule: >
+          [MANDATORY] budget (fascia di prezzo o canone in €), localizzazione (comune/quartiere),
+          posti_auto_minimo.
+          [OPTIONAL] presenza_colonnine_ricarica (Sì/No), occupancy_rate_minimo,
+          reddito_annuo_minimo (€).
+        mandatory_fields: [budget, localizzazione, posti_auto_minimo]
+        optional_fields: [presenza_colonnine_ricarica, occupancy_rate_minimo, reddito_annuo_minimo]
+
+      - id: Ufficio pubblico
+        description: "ufficio pubblico, edificio PA, sede ente pubblico, immobile pubblica amministrazione"
+        rule: >
+          [MANDATORY] budget (fascia canone in €), localizzazione (comune/area),
+          superficie_minima (mq).
+          [OPTIONAL] tipologia_ente_conduttore, contratto_residuo_minimo (anni),
+          canone_annuo_minimo (€).
+        mandatory_fields: [budget, localizzazione, superficie_minima]
+        optional_fields: [tipologia_ente_conduttore, contratto_residuo_minimo]
+
+
+
+    Aziende:
+
+      - id: Industria e Manifattura
+        description: "industria, manifattura, stabilimento, fabbrica, produzione industriale"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area),
+          settore_operativo.
+          [OPTIONAL] fatturato_minimo (€), ebitda_minimo (€), numero_dipendenti_minimo,
+          grado_automazione, certificazioni.
+        mandatory_fields: [budget, localizzazione, settore_operativo]
+        optional_fields: [fatturato_minimo, ebitda_minimo, grado_automazione]
+
+      - id: Logistica e Trasporti
+        description: "logistica, trasporti, spedizioni, corriere, autotrasporto"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] copertura_geografica, tipologia_merci, mezzi_minimo (n.),
+          last_mile (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [copertura_geografica, tipologia_merci, mezzi_minimo]
+
+      - id: Costruzioni e Infrastrutture
+        description: "costruzioni, edilizia, impresa edile, general contractor"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] specializzazione, attestazione_soa (Sì/No),
+          backlog_minimo (€), general_contractor (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [specializzazione, attestazione_soa, backlog_minimo]
+
+      - id: Energia e Utilities
+        description: "energia, utilities, rinnovabili, fotovoltaico, eolico, distribuzione energia"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] tipologia_impianti, potenza_minima (MW),
+          incentivi_gse (Sì/No), produzione_annua_minima (MWh).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [tipologia_impianti, potenza_minima, incentivi_gse]
+
+      - id: Agroindustria e Food
+        description: "agroindustria, food, agroalimentare, industria alimentare"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] denominazioni (DOP/DOC/IGP/BIO), canali_distributivi,
+          biologico (Sì/No), capacita_produttiva_minima.
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [denominazioni, canali_distributivi, biologico]
+
+      - id: Retail e Distribuzione (Azienda)
+        description: "retail, distribuzione, catena negozi, GDO, rete vendita"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] punti_vendita_minimo (n.), ecommerce (Sì/No),
+          fatturato_online_minimo (%).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [punti_vendita_minimo, ecommerce]
+
+      - id: Hospitality e Turismo (Azienda)
+        description: "hospitality azienda, catena alberghiera, gruppo turistico, gestione hotel"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] camere_totali_minimo (n.), stelle_minimo,
+          revpar_minimo (€), occupancy_minimo (%).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [camere_totali_minimo, stelle_minimo, occupancy_minimo]
+
+      - id: Sanità e Servizi alla Persona (Azienda)
+        description: "sanità azienda, clinica, gruppo sanitario, servizi sanitari, poliambulatorio"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] posti_letto_minimo, accreditamento_ssn (Sì/No),
+          specializzazioni_richieste.
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [posti_letto_minimo, accreditamento_ssn, specializzazioni_richieste]
+
+      - id: ICT Media e Tecnologia
+        description: "ICT, tecnologia, software, SaaS, servizi IT, media, digital"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area),
+          tipologia (SaaS/servizi IT/hardware/consulenza/media).
+          [OPTIONAL] mrr_minimo (€), churn_max (%), utenti_minimo (n.),
+          ip_proprietaria (Sì/No).
+        mandatory_fields: [budget, localizzazione, tipologia]
+        optional_fields: [mrr_minimo, churn_max, utenti_minimo, ip_proprietaria]
+
+      - id: Servizi alle Imprese
+        description: "servizi imprese, consulenza, engineering, facility management, outsourcing"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area),
+          tipologia_servizio.
+          [OPTIONAL] contratti_lungo_termine (% fatturato), clienti_minimo (n.).
+        mandatory_fields: [budget, localizzazione, tipologia_servizio]
+        optional_fields: [contratti_lungo_termine, clienti_minimo]
+
+      - id: Ambiente Economia Circolare ESG
+        description: "ambiente, economia circolare, rifiuti, riciclo, gestione ambientale"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area).
+          [OPTIONAL] tipologia_rifiuti, autorizzazioni_ambientali (Sì/No),
+          tonnellate_minimo.
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [tipologia_rifiuti, autorizzazioni_ambientali, tonnellate_minimo]
+
+      - id: Settori Speciali Altro
+        description: "settore speciale, attività di nicchia, concessione speciale"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (regione/area),
+          descrizione_attivita.
+          [OPTIONAL] licenze_speciali (Sì/No), barriere_ingresso.
+        mandatory_fields: [budget, localizzazione, descrizione_attivita]
+        optional_fields: [licenze_speciali, barriere_ingresso]
+
+    # ========================================================================
+    # SOTTO-CATEGORIE QUERY — ATTIVITÀ COMMERCIALI
+    # ========================================================================
+    Attività Commerciali:
+
+      - id: Bar
+        description: "bar, caffè, bar tabacchi, bar sport"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] superficie_minima (mq), licenza_tabacchi (Sì/No),
+          posti_sedere_minimo (n.), dehors (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, licenza_tabacchi, dehors]
+
+      - id: Caffetteria
+        description: "caffetteria, coffee shop, specialty coffee"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] superficie_minima (mq), laboratorio_pasticceria (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, laboratorio_pasticceria]
+
+      - id: Ristorante
+        description: "ristorante, ristorante gourmet, ristorante etnico"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona),
+          coperti_minimo (n.).
+          [OPTIONAL] tipologia_cucina, canna_fumaria (Sì/No),
+          dehors (Sì/No), scontrino_medio_fascia.
+        mandatory_fields: [budget, localizzazione, coperti_minimo]
+        optional_fields: [tipologia_cucina, canna_fumaria, dehors]
+
+      - id: Pizzeria
+        description: "pizzeria, pizzeria al taglio, pizzeria d'asporto"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] coperti_minimo (n.), forno_tipo (legna/elettrico/gas),
+          delivery (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [coperti_minimo, forno_tipo, delivery]
+
+      - id: Trattoria Osteria
+        description: "trattoria, osteria, locanda"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] coperti_minimo (n.), parcheggio (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [coperti_minimo, parcheggio]
+
+      - id: Gastronomia
+        description: "gastronomia, tavola calda, rosticceria"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] superficie_minima (mq), catering (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, catering]
+
+      - id: Panificio Pasticceria
+        description: "panificio, pasticceria, forno, panetteria"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] produzione_propria (Sì/No), superficie_laboratorio_minima (mq).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [produzione_propria, superficie_laboratorio_minima]
+
+      - id: Gelateria
+        description: "gelateria, gelateria artigianale, yogurteria"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] produzione_artigianale (Sì/No), dehors (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [produzione_artigianale, dehors]
+
+      - id: Enoteca Wine bar
+        description: "enoteca, wine bar, vineria"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] posti_sedere_minimo (n.), somministrazione_food (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [posti_sedere_minimo, somministrazione_food]
+
+      - id: Pub Birreria
+        description: "pub, birreria, brew pub"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] birra_artigianale (Sì/No), cucina (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [birra_artigianale, cucina]
+
+      - id: Tabaccheria
+        description: "tabaccheria, tabacchi, rivendita tabacchi"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] bar_annesso (Sì/No), aggio_minimo (€).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [bar_annesso, aggio_minimo]
+
+      - id: Farmacia
+        description: "farmacia, farmacia urbana, farmacia rurale"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] fatturato_ssn_minimo (€), laboratorio_galenico (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [fatturato_ssn_minimo, laboratorio_galenico]
+
+      - id: Parrucchiere
+        description: "parrucchiere, hair stylist, barbiere, barber shop"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] postazioni_minimo (n.), target (uomo/donna/unisex).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [postazioni_minimo, target]
+
+      - id: Estetica
+        description: "centro estetico, beauty center, trattamenti estetici"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] cabine_minimo (n.), apparecchiature_laser (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [cabine_minimo, apparecchiature_laser]
+
+      - id: Palestra fitness
+        description: "palestra, fitness, crossfit, gym"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] superficie_minima (mq), piscina (Sì/No),
+          abbonati_minimo (n.).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, piscina, abbonati_minimo]
+
+      - id: Autofficina
+        description: "autofficina, officina meccanica, centro revisioni"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] superficie_minima (mq), centro_revisioni (Sì/No),
+          ponti_minimo (n.).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, centro_revisioni, ponti_minimo]
+
+      - id: Carrozzeria
+        description: "carrozzeria, riparazione auto, verniciatura"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] superficie_minima (mq), convenzioni_assicurative (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [superficie_minima, convenzioni_assicurative]
+
+      - id: Concessionaria
+        description: "concessionaria auto, autosalone, vendita veicoli"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] mandato_casa_madre (Sì/No), showroom_minimo (mq).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [mandato_casa_madre, showroom_minimo]
+
+      - id: B&B
+        description: "bed and breakfast, B&B, casa vacanze"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] camere_minimo (n.), autorizzazione (Sì/No), occupancy_minimo.
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [camere_minimo, autorizzazione, occupancy_minimo]
+
+      - id: Affittacamere
+        description: "affittacamere, guest house, pensione"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] camere_minimo (n.), occupancy_minimo.
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [camere_minimo, occupancy_minimo]
+
+      - id: Ostello
+        description: "ostello, hostel, backpacker"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] posti_letto_minimo (n.), tariffa_media_max (€).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [posti_letto_minimo, tariffa_media_max]
+
+      - id: Bowling
+        description: "bowling, bowling center"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] piste_minimo (n.), ristorazione (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [piste_minimo, ristorazione]
+
+      - id: Escape room
+        description: "escape room, gioco di fuga"
+        rule: >
+          [MANDATORY] budget (fascia prezzo €), localizzazione (comune/zona).
+          [OPTIONAL] stanze_minimo (n.), booking_online (Sì/No).
+        mandatory_fields: [budget, localizzazione]
+        optional_fields: [stanze_minimo, booking_online]
+

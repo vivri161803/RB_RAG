@@ -1,0 +1,1360 @@
+{
+  "categories": [
+    {
+      "id": "Immobili",
+      "description": "immobile, proprietà, acquisto, vendita, affitto, investimento immobiliare, real estate, castello, palazzo, villa, casale, appartamento, attico, capannone, ufficio, negozio, hotel, albergo, agriturismo, terreno, magazzino, logistica, retail, centro commerciale, residence",
+      "mandatory_fields": [
+        "Regione",
+        "Provincia",
+        "Comune",
+        "Prezzo richiesto (€)",
+        "Stato di occupazione",
+        "Stato di conservazione"
+      ],
+      "optional_fields": [
+        "Zona/Quartiere",
+        "Anno di costruzione",
+        "Classe energetica (APE)",
+        "Vincoli",
+        "Destinazione d'uso attuale",
+        "Destinazione d'uso potenziale"
+      ],
+      "sub_categories": [
+        {
+          "id": "Castello",
+          "description": "castello, maniero, torre, fortezza, residenza storica feudale",
+          "mandatory_fields": [
+            "Superficie coperta totale (mq)",
+            "Superficie terreno/parco (ha)",
+            "Vincolo monumentale (Sì/No)"
+          ],
+          "optional_fields": [
+            "Numero camere/vani",
+            "Numero bagni",
+            "Epoca storica",
+            "Torre/torrione (Sì/No)",
+            "Mura di cinta (Sì/No)",
+            "Piscina (Sì/No)",
+            "Terreno agricolo annesso (ha)",
+            "Idoneità hospitality (Sì/No)",
+            "Idoneità eventi (Sì/No)"
+          ]
+        },
+        {
+          "id": "Palazzo",
+          "description": "palazzo storico, palazzo d'epoca, palazzetto, palazzo nobiliare, palazzo monumentale",
+          "mandatory_fields": [
+            "Superficie coperta totale (mq)",
+            "Numero piani",
+            "Vincolo monumentale (Sì/No)"
+          ],
+          "optional_fields": [
+            "Numero unità immobiliari",
+            "Numero vani complessivi",
+            "Epoca storica",
+            "Piano nobile (Sì/No)",
+            "Cortile interno (Sì/No)",
+            "Reddito locativo annuo (€)"
+          ]
+        },
+        {
+          "id": "Villa",
+          "description": "villa, villa singola, villa bifamiliare, villa di lusso, villa con parco, residenza con giardino",
+          "mandatory_fields": [
+            "Superficie coperta (mq)",
+            "Superficie terreno (mq)",
+            "Numero camere da letto"
+          ],
+          "optional_fields": [
+            "Numero bagni",
+            "Numero piani",
+            "Livello finiture",
+            "Piscina (Sì/No)",
+            "Giardino (mq)",
+            "Vista",
+            "Dependance (mq)"
+          ]
+        },
+        {
+          "id": "Casale",
+          "description": "casale, rustico, cascina, casale rurale, casolare, casale ristrutturato, casale di campagna",
+          "mandatory_fields": [
+            "Superficie coperta (mq)",
+            "Superficie terreno (ha)",
+            "Stato ristrutturazione"
+          ],
+          "optional_fields": [
+            "Numero camere",
+            "Numero bagni",
+            "Oliveto (ha)",
+            "Vigneto (ha)",
+            "Piscina (Sì/No)",
+            "Idoneità agrituristica (Sì/No)"
+          ]
+        },
+        {
+          "id": "Appartamento",
+          "description": "appartamento, bilocale, trilocale, quadrilocale, monolocale, unità abitativa, flat, alloggio",
+          "mandatory_fields": [
+            "Superficie commerciale (mq)",
+            "Numero vani",
+            "Numero camere da letto",
+            "Piano"
+          ],
+          "optional_fields": [
+            "Numero bagni",
+            "Balcone/terrazzo (mq)",
+            "Livello finiture",
+            "Ascensore (Sì/No)",
+            "Posto auto/garage",
+            "Spese condominiali annue (€)"
+          ]
+        },
+        {
+          "id": "Attico",
+          "description": "attico, superattico, attico con terrazzo, penthouse, lastrico solare, attico panoramico",
+          "mandatory_fields": [
+            "Superficie commerciale (mq)",
+            "Numero vani",
+            "Numero camere da letto",
+            "Superficie terrazzo/lastrico solare (mq)"
+          ],
+          "optional_fields": [
+            "Numero bagni",
+            "Vista panoramica",
+            "Livello finiture",
+            "Domotica (Sì/No)",
+            "Posto auto/garage (n.)"
+          ]
+        },
+        {
+          "id": "Capannone industriale",
+          "description": "capannone industriale, stabilimento produttivo, polo industriale, sito produttivo, impianto industriale",
+          "mandatory_fields": [
+            "Superficie coperta (mq)",
+            "Altezza sottotrave (m)",
+            "Accesso TIR/bilici (Sì/No)"
+          ],
+          "optional_fields": [
+            "Area scoperta/piazzale (mq)",
+            "Potenza elettrica (kW)",
+            "Carroponte (Sì/No)",
+            "Baie di carico (n.)",
+            "Distanza casello autostradale (km)",
+            "Impianto fotovoltaico (kWp)"
+          ]
+        },
+        {
+          "id": "Capannone logistico",
+          "description": "capannone logistico, hub logistico, magazzino logistico, centro distribuzione, distribution center, polo logistico",
+          "mandatory_fields": [
+            "Superficie coperta (mq)",
+            "Altezza sottotrave (m)",
+            "Baie di carico (n.)",
+            "Accesso TIR/bilici (Sì/No)"
+          ],
+          "optional_fields": [
+            "Cross-docking (Sì/No)",
+            "Temperatura controllata (Sì/No)",
+            "Cella frigorifera (Sì/No)",
+            "Parcheggi TIR (n.)",
+            "Distanza casello autostradale (km)",
+            "Certificazioni"
+          ]
+        },
+        {
+          "id": "Capannone artigianale",
+          "description": "capannone artigianale, laboratorio artigianale, officina, bottega artigiana, spazio produttivo artigianale",
+          "mandatory_fields": [
+            "Superficie coperta (mq)",
+            "Altezza interna (m)"
+          ],
+          "optional_fields": [
+            "Area esterna (mq)",
+            "Ufficio annesso (mq)",
+            "Potenza elettrica (kW)",
+            "Accesso veicolare (tipo)"
+          ]
+        },
+        {
+          "id": "Laboratorio",
+          "description": "laboratorio, laboratorio scientifico, laboratorio farmaceutico, clean room, laboratorio chimico, laboratorio R&D",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Altezza interna (m)",
+            "Impianti specialistici",
+            "Temperatura controllata (Sì/No)",
+            "Potenza elettrica (kW)"
+          ]
+        },
+        {
+          "id": "Magazzino",
+          "description": "magazzino, deposito, stoccaggio, storage, magazzino commerciale",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Altezza interna (m)"
+          ],
+          "optional_fields": [
+            "Area esterna (mq)",
+            "Scaffalature (Sì/No)",
+            "Temperatura controllata (Sì/No)",
+            "Baie di carico (n.)"
+          ]
+        },
+        {
+          "id": "Ufficio",
+          "description": "ufficio, spazio ufficio, open space, coworking, studio professionale, ufficio singolo, suite direzionale",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Piano/i"
+          ],
+          "optional_fields": [
+            "Layout (open space/suddiviso/misto)",
+            "Sala riunioni (n.)",
+            "Climatizzazione (Sì/No)",
+            "Ascensore (Sì/No)",
+            "Parcheggi (n.)",
+            "Certificazioni"
+          ]
+        },
+        {
+          "id": "Palazzina direzionale",
+          "description": "palazzina uffici, edificio direzionale, business center, palazzo uffici, torre uffici, centro direzionale",
+          "mandatory_fields": [
+            "Superficie totale (mq)",
+            "Numero piani"
+          ],
+          "optional_fields": [
+            "Numero unità/piani indipendenti",
+            "Sala conferenze (Sì/No)",
+            "Parcheggi (n.)",
+            "Reddito locativo annuo (€)",
+            "Occupancy rate",
+            "Certificazioni"
+          ]
+        },
+        {
+          "id": "Negozio",
+          "description": "negozio, locale commerciale, esercizio commerciale, bottega, showroom, retail, punto vendita",
+          "mandatory_fields": [
+            "Superficie vendita (mq)",
+            "Zona commerciale"
+          ],
+          "optional_fields": [
+            "Fronte vetrina (ml)",
+            "Flusso pedonale",
+            "Canna fumaria (Sì/No)",
+            "Destinazione merceologica attuale"
+          ]
+        },
+        {
+          "id": "Capannone commerciale",
+          "description": "capannone commerciale, showroom industriale, spazio espositivo commerciale, grande superficie commerciale",
+          "mandatory_fields": [
+            "Superficie coperta (mq)"
+          ],
+          "optional_fields": [
+            "Altezza interna (m)",
+            "Parcheggi clienti (n.)",
+            "Visibilità da strada (Sì/No)"
+          ]
+        },
+        {
+          "id": "Retail Park",
+          "description": "retail park, parco commerciale, villaggio commerciale, shopping park, outlet commerciale open air",
+          "mandatory_fields": [
+            "GLA – Gross Leasable Area (mq)",
+            "Numero unità commerciali"
+          ],
+          "optional_fields": [
+            "Ancora alimentare (Sì/No)",
+            "Tenant mix",
+            "Reddito locativo annuo (€)",
+            "Occupancy rate",
+            "Parcheggi (n.)"
+          ]
+        },
+        {
+          "id": "Centro commerciale",
+          "description": "centro commerciale, galleria commerciale, mall, shopping center, shopping mall, grande centro commerciale",
+          "mandatory_fields": [
+            "GLA totale (mq)",
+            "Numero negozi/unità"
+          ],
+          "optional_fields": [
+            "Ancora alimentare (Sì/No)",
+            "Food court (Sì/No)",
+            "Reddito locativo annuo (€)",
+            "Occupancy rate",
+            "Parcheggi (n.)"
+          ]
+        },
+        {
+          "id": "Outlet Park",
+          "description": "outlet, outlet village, factory outlet, village outlet, outlet di lusso, outlet premium",
+          "mandatory_fields": [
+            "GLA totale (mq)",
+            "Numero unità/brand"
+          ],
+          "optional_fields": [
+            "Segmento di mercato",
+            "Visitatori/anno",
+            "Reddito locativo annuo (€)",
+            "Occupancy rate"
+          ]
+        },
+        {
+          "id": "Hotel",
+          "description": "hotel, albergo, struttura ricettiva, locanda, boutique hotel, resort, grande albergo",
+          "mandatory_fields": [
+            "Numero camere",
+            "Classificazione stelle (1-5)"
+          ],
+          "optional_fields": [
+            "Numero posti letto",
+            "Ristorante (Sì/No)",
+            "SPA/wellness (Sì/No)",
+            "Piscina (Sì/No)",
+            "RevPAR (€)",
+            "Occupancy rate medio",
+            "Fatturato annuo (€)"
+          ]
+        },
+        {
+          "id": "Agriturismo",
+          "description": "agriturismo, fattoria, agriturismo con vigneto, agriturismo con piscina, azienda agrituristica, bed and breakfast rurale",
+          "mandatory_fields": [
+            "Numero camere/unità abitative",
+            "Superficie terreno (ha)"
+          ],
+          "optional_fields": [
+            "Ristorazione (Sì/No)",
+            "Piscina (Sì/No)",
+            "Colture principali",
+            "Certificazioni biologiche (Sì/No)",
+            "Fatturato annuo (€)"
+          ]
+        },
+        {
+          "id": "Residence",
+          "description": "residence, aparthotel, suite hotel, extended stay, appartamenti serviti, residenze turistiche",
+          "mandatory_fields": [
+            "Numero unità abitative"
+          ],
+          "optional_fields": [
+            "Target (business/turistico/misto)",
+            "Servizi comuni",
+            "Piscina (Sì/No)",
+            "Occupancy rate",
+            "Reddito annuo (€)"
+          ]
+        },
+        {
+          "id": "Azienda agricola",
+          "description": "azienda agricola, podere, tenuta agricola, azienda vitivinicola, azienda olivicola, masseria, fattoria produttiva",
+          "mandatory_fields": [
+            "Superficie totale (ha)",
+            "Coltura/e principale/i"
+          ],
+          "optional_fields": [
+            "Fatturato annuo (€)",
+            "Denominazioni (DOC/DOP/IGP)",
+            "Certificazioni biologiche (Sì/No)",
+            "Agriturismo annesso (Sì/No)"
+          ]
+        },
+        {
+          "id": "Senior living",
+          "description": "senior living, RSA, casa di riposo, residenza anziani, assisted living, casa protetta",
+          "mandatory_fields": [
+            "Posti letto/unità abitative",
+            "Autorizzazione sanitaria (Sì/No)",
+            "Tipologia struttura"
+          ],
+          "optional_fields": [
+            "Spazi comuni (mq)",
+            "Servizi sanitari interni",
+            "Occupancy rate",
+            "Fatturato (€)"
+          ]
+        },
+        {
+          "id": "Student housing",
+          "description": "student housing, alloggi universitari, residenza universitaria, residence studenti, campus housing",
+          "mandatory_fields": [
+            "Posti letto",
+            "Distanza da università/polo (km)"
+          ],
+          "optional_fields": [
+            "Spazi comuni",
+            "Trasporto pubblico verso ateneo (Sì/No)",
+            "Canone medio per posto letto (€/mese)",
+            "Occupancy rate"
+          ]
+        },
+        {
+          "id": "Casa di cura",
+          "description": "casa di cura, clinica privata, poliambulatorio, struttura sanitaria privata, clinica riabilitazione",
+          "mandatory_fields": [
+            "Posti letto",
+            "Autorizzazione sanitaria (Sì/No)",
+            "Accreditamento SSN/SSR (Sì/No)"
+          ],
+          "optional_fields": [
+            "Specializzazioni",
+            "Sale operatorie (n.)",
+            "Fatturato annuo (€)",
+            "Occupancy rate"
+          ]
+        },
+        {
+          "id": "Convento",
+          "description": "convento, monastero, abbazia, eremo, complesso conventuale, certosa",
+          "mandatory_fields": [
+            "Superficie coperta (mq)",
+            "Vincolo monumentale (Sì/No)"
+          ],
+          "optional_fields": [
+            "Superficie terreno (ha)",
+            "Chiostro (Sì/No)",
+            "Destinazione d'uso potenziale",
+            "Idoneità ricettiva (Sì/No)"
+          ]
+        },
+        {
+          "id": "Caserma",
+          "description": "caserma, ex caserma, edificio militare dismesso, immobile ex militare, complesso militare",
+          "mandatory_fields": [
+            "Superficie coperta (mq)",
+            "Destinazione urbanistica vigente"
+          ],
+          "optional_fields": [
+            "Necessità bonifica (Sì/No)",
+            "Destinazione d'uso potenziale",
+            "Volumetria esistente (mc)"
+          ]
+        },
+        {
+          "id": "Sportello bancario",
+          "description": "sportello bancario, filiale bancaria, agenzia bancaria, locale ex banca, immobile bancario",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Zona commerciale"
+          ],
+          "optional_fields": [
+            "Caveau (Sì/No)",
+            "Contratto locazione residuo (anni)",
+            "Canone locazione annuo (€)"
+          ]
+        },
+        {
+          "id": "Stabilimento balneare",
+          "description": "stabilimento balneare, bagno, lido, stabilimento mare, concessione demaniale marittima",
+          "mandatory_fields": [
+            "Fronte mare (ml)",
+            "Superficie concessione (mq)",
+            "Scadenza concessione demaniale"
+          ],
+          "optional_fields": [
+            "Cabine (n.)",
+            "Bar/ristorante (Sì/No)",
+            "Fatturato annuo (€)",
+            "Stagionalità (mesi)"
+          ]
+        },
+        {
+          "id": "Ufficio pubblico",
+          "description": "ufficio pubblico, immobile PA, edificio pubblico, sede ente pubblico, ufficio comunale, sede ministeriale",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Numero piani",
+            "Conduttore PA (tipologia ente)",
+            "Contratto residuo (anni)",
+            "Canone locazione annuo (€)"
+          ]
+        },
+        {
+          "id": "Complesso sportivo",
+          "description": "complesso sportivo, impianto sportivo, stadio, palazzetto, campo sportivo, tensostruttura sportiva",
+          "mandatory_fields": [
+            "Superficie complessiva (mq o ha)",
+            "Discipline sportive presenti"
+          ],
+          "optional_fields": [
+            "Tribune/posti a sedere (n.)",
+            "Piscina (Sì/No)",
+            "Fatturato annuo (€)",
+            "Concessione comunale (scadenza)"
+          ]
+        },
+        {
+          "id": "Autorimessa",
+          "description": "autorimessa, parcheggio multipiano, garage multipiano, parking, parcheggio coperto, rimessa auto",
+          "mandatory_fields": [
+            "Numero posti auto",
+            "Superficie complessiva (mq)"
+          ],
+          "optional_fields": [
+            "Numero piani",
+            "Colonnine ricarica elettrica (n.)",
+            "Reddito annuo (€)",
+            "Occupancy rate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Aziende",
+      "description": "azienda, impresa, società, cessione azienda, acquisizione azienda, share deal, operazione straordinaria, M&A, fusione, scissione, ramo d'azienda, passaggio generazionale, startup, PMI, manifattura, logistica, trasporti, costruzioni, energia, agroindustria, food, retail, distribuzione, hospitality, sanità, ICT, tecnologia, servizi imprese, ambiente, economia circolare, ESG",
+      "mandatory_fields": [
+        "Regione sede legale",
+        "Provincia sede legale",
+        "Macro-settore",
+        "Settore operativo",
+        "Dimensione azienda",
+        "Fatturato ultimo esercizio (€)",
+        "EBITDA (€)",
+        "Prezzo richiesto / Valutazione (€)",
+        "Tipologia operazione",
+        "Numero dipendenti",
+        "Modello di business",
+        "Mercato geografico"
+      ],
+      "optional_fields": [
+        "Comune sede legale",
+        "Anno di costituzione",
+        "Forma giuridica",
+        "EBITDA margin (%)",
+        "Trend fatturato triennio",
+        "Quota offerta (%)",
+        "Motivazione cessione",
+        "Concentrazione clienti top 3 (%)",
+        "Brevetti/marchi",
+        "Certificazioni"
+      ],
+      "sub_categories": [
+        {
+          "id": "Industria e Manifattura",
+          "description": "industria, manifattura, stabilimento produttivo, fabbrica, produzione industriale, manifatturiero",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Superficie stabilimento (mq)",
+            "Numero stabilimenti",
+            "Capacità produttiva",
+            "Grado automazione",
+            "Certificazioni qualità",
+            "R&D interna (Sì/No)"
+          ]
+        },
+        {
+          "id": "Logistica e Trasporti",
+          "description": "logistica, trasporti, spedizioni, corriere, distribuzione merci, autotrasporto, magazzinaggio",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Mezzi di proprietà (n.)",
+            "Magazzini/hub (mq)",
+            "Licenze di trasporto",
+            "Copertura geografica",
+            "Spedizioni/anno"
+          ]
+        },
+        {
+          "id": "Costruzioni e Infrastrutture",
+          "description": "costruzioni, edilizia, infrastrutture, impresa edile, general contractor, cantieristica",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Cantieri attivi (n.)",
+            "Backlog ordini (€)",
+            "Specializzazione",
+            "Attestazione SOA",
+            "General contractor (Sì/No)"
+          ]
+        },
+        {
+          "id": "Energia e Utilities",
+          "description": "energia, utilities, rinnovabili, fotovoltaico, eolico, gas, distribuzione energia, utility",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Potenza installata (MW)",
+            "Tipologia impianti",
+            "Produzione annua (MWh)",
+            "Incentivi GSE (Sì/No)"
+          ]
+        },
+        {
+          "id": "Agroindustria e Food",
+          "description": "agroindustria, food, agroalimentare, industria alimentare, trasformazione alimentare, bevande",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Terreni agricoli (ha)",
+            "Denominazioni (DOP/DOC/IGP/BIO)",
+            "Capacità produttiva",
+            "Canali distributivi",
+            "Biologico certificato (Sì/No)"
+          ]
+        },
+        {
+          "id": "Retail e Distribuzione (Azienda)",
+          "description": "retail, distribuzione, catena negozi, GDO, grande distribuzione, rete vendita",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Punti vendita (n.)",
+            "Superficie vendita totale (mq)",
+            "E-commerce attivo (Sì/No)",
+            "% fatturato online",
+            "Database clienti (n.)"
+          ]
+        },
+        {
+          "id": "Hospitality e Turismo (Azienda)",
+          "description": "hospitality azienda, catena alberghiera, gruppo turistico, gestione hotel, management alberghiero",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Strutture ricettive (n.)",
+            "Camere totali (n.)",
+            "RevPAR medio (€)",
+            "Occupancy rate medio",
+            "Modello gestione"
+          ]
+        },
+        {
+          "id": "Sanità e Servizi alla Persona (Azienda)",
+          "description": "sanità azienda, clinica, gruppo sanitario, servizi sanitari, RSA gestione, poliambulatorio",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Sedi/ambulatori (n.)",
+            "Posti letto",
+            "Accreditamento SSN/SSR (Sì/No)",
+            "% fatturato da SSN",
+            "Specializzazioni offerte"
+          ]
+        },
+        {
+          "id": "ICT Media e Tecnologia",
+          "description": "ICT, tecnologia, software, SaaS, servizi IT, media, digital, startup tech, informatica",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Tipologia (SaaS/servizi IT/hardware)",
+            "MRR/ARR (€)",
+            "Churn rate (%)",
+            "Utenti/clienti attivi (n.)",
+            "IP proprietaria (Sì/No)",
+            "Certificazioni (ISO 27001/SOC2)"
+          ]
+        },
+        {
+          "id": "Servizi alle Imprese",
+          "description": "servizi imprese, consulenza, engineering, facility management, outsourcing, BPO",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Tipologia servizio",
+            "Contratti lungo termine (% fatturato)",
+            "Clienti in portafoglio (n.)",
+            "Professionisti/tecnici (n.)"
+          ]
+        },
+        {
+          "id": "Ambiente Economia Circolare ESG",
+          "description": "ambiente, economia circolare, ESG, rifiuti, riciclo, gestione ambientale, smaltimento, sostenibilità",
+          "mandatory_fields": [],
+          "optional_fields": [
+            "Autorizzazioni ambientali",
+            "Albo Gestori Ambientali",
+            "Tonnellate trattate/anno",
+            "Tipologia rifiuti"
+          ]
+        },
+        {
+          "id": "Settori Speciali Altro",
+          "description": "settore speciale, attività di nicchia, settore regolamentato, concessione speciale",
+          "mandatory_fields": [
+            "Descrizione attività"
+          ],
+          "optional_fields": [
+            "Licenze/concessioni speciali",
+            "Barriere all'ingresso",
+            "Regolamentazione settoriale (Sì/No)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Attività Commerciali",
+      "description": "attività commerciale, negozio, bar, ristorante, pizzeria, gelateria, panificio, pasticceria, parrucchiere, estetica, farmacia, tabaccheria, edicola, lavanderia, palestra, fitness, autofficina, carrozzeria, concessionaria, agenzia immobiliare, agenzia assicurativa, B&B, affittacamere, ostello, bowling, escape room, sala giochi, cessione attività, avviamento commerciale, licenza commerciale",
+      "mandatory_fields": [
+        "Regione",
+        "Provincia",
+        "Comune",
+        "Zona",
+        "Tipologia attività",
+        "Prezzo richiesto (€)",
+        "Fatturato annuo (€)"
+      ],
+      "optional_fields": [
+        "Flusso pedonale zona",
+        "Canone locazione annuo (€)",
+        "Durata residua contratto locazione (anni)",
+        "Proprietà mura (Sì/No)",
+        "Numero dipendenti",
+        "Anni di attività",
+        "Avviamento storico",
+        "Potenziale di sviluppo"
+      ],
+      "sub_categories": [
+        {
+          "id": "Bar",
+          "description": "bar, caffè, bar tabacchi, bar sport, bar diurno, bar serale",
+          "mandatory_fields": [
+            "Superficie sala/pubblico (mq)",
+            "Licenza somministrazione (Sì/No)"
+          ],
+          "optional_fields": [
+            "Posti a sedere interni (n.)",
+            "Dehors/posti esterni (n.)",
+            "Canna fumaria (Sì/No)",
+            "Licenza tabacchi (Sì/No)",
+            "Scontrino medio (€)"
+          ]
+        },
+        {
+          "id": "Caffetteria",
+          "description": "caffetteria, coffee shop, specialty coffee, caffetteria pasticceria",
+          "mandatory_fields": [
+            "Superficie sala (mq)",
+            "Licenza somministrazione (Sì/No)"
+          ],
+          "optional_fields": [
+            "Posti a sedere (n.)",
+            "Laboratorio pasticceria (Sì/No)",
+            "Canna fumaria (Sì/No)",
+            "Scontrino medio (€)"
+          ]
+        },
+        {
+          "id": "Ristorante",
+          "description": "ristorante, trattoria di lusso, ristorante gourmet, ristorante etnico, steakhouse",
+          "mandatory_fields": [
+            "Superficie sala (mq)",
+            "Coperti interni (n.)",
+            "Canna fumaria (Sì/No)",
+            "Licenza somministrazione (Sì/No)"
+          ],
+          "optional_fields": [
+            "Superficie cucina (mq)",
+            "Coperti esterni (n.)",
+            "Scontrino medio (€)",
+            "Tipologia cucina",
+            "Delivery/asporto (Sì/No)"
+          ]
+        },
+        {
+          "id": "Pizzeria",
+          "description": "pizzeria, pizzeria al taglio, pizza al metro, pizzeria d'asporto, pizzeria ristorante",
+          "mandatory_fields": [
+            "Superficie sala (mq)",
+            "Coperti interni (n.)",
+            "Canna fumaria (Sì/No)",
+            "Licenza somministrazione (Sì/No)"
+          ],
+          "optional_fields": [
+            "Forno (tipo)",
+            "Scontrino medio (€)",
+            "Asporto/delivery (%)",
+            "Attrezzature incluse (Sì/No)"
+          ]
+        },
+        {
+          "id": "Trattoria Osteria",
+          "description": "trattoria, osteria, locanda, trattoria tipica, osteria con cucina",
+          "mandatory_fields": [
+            "Superficie sala (mq)",
+            "Coperti (n.)",
+            "Canna fumaria (Sì/No)"
+          ],
+          "optional_fields": [
+            "Dehors/giardino (Sì/No)",
+            "Scontrino medio (€)",
+            "Attrezzature incluse (Sì/No)"
+          ]
+        },
+        {
+          "id": "Gastronomia",
+          "description": "gastronomia, gastronomia da asporto, tavola calda, rosticceria, gastronomia artigianale",
+          "mandatory_fields": [
+            "Superficie vendita (mq)",
+            "Licenza preparazione/vendita alimenti (Sì/No)"
+          ],
+          "optional_fields": [
+            "Laboratorio/cucina (mq)",
+            "Canna fumaria (Sì/No)",
+            "Scontrino medio (€)",
+            "Catering/delivery (Sì/No)"
+          ]
+        },
+        {
+          "id": "Panificio Pasticceria",
+          "description": "panificio, pasticceria, forno, panetteria, pasticceria artigianale, laboratorio dolci",
+          "mandatory_fields": [
+            "Superficie vendita (mq)",
+            "Laboratorio produzione (mq)",
+            "Produzione propria (Sì/No)"
+          ],
+          "optional_fields": [
+            "Forno professionale (tipo)",
+            "Vendita ingrosso (% fatturato)",
+            "Attrezzature incluse (Sì/No)"
+          ]
+        },
+        {
+          "id": "Gelateria",
+          "description": "gelateria, gelateria artigianale, gelato artigianale, yogurteria",
+          "mandatory_fields": [
+            "Superficie vendita (mq)",
+            "Produzione artigianale propria (Sì/No)"
+          ],
+          "optional_fields": [
+            "Laboratorio (mq)",
+            "Posti a sedere (n.)",
+            "Gusti medi offerti (n.)",
+            "Stagionalità (%)"
+          ]
+        },
+        {
+          "id": "Enoteca Wine bar",
+          "description": "enoteca, wine bar, vineria, degustazione vini, bar vini",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Licenza somministrazione (Sì/No)"
+          ],
+          "optional_fields": [
+            "Posti a sedere (n.)",
+            "Etichette in catalogo (n.)",
+            "Scontrino medio (€)"
+          ]
+        },
+        {
+          "id": "Pub Birreria",
+          "description": "pub, birreria, birreria artigianale, brew pub, irish pub",
+          "mandatory_fields": [
+            "Superficie sala (mq)",
+            "Licenza somministrazione (Sì/No)"
+          ],
+          "optional_fields": [
+            "Posti a sedere (n.)",
+            "Spine birra (n.)",
+            "Scontrino medio (€)",
+            "Cucina/food (Sì/No)"
+          ]
+        },
+        {
+          "id": "Tabaccheria",
+          "description": "tabaccheria, tabacchi, rivendita tabacchi, tabacchino, tabaccheria ricevitoria",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Licenza tabacchi (Sì/No)"
+          ],
+          "optional_fields": [
+            "Aggio tabacchi annuo (€)",
+            "Aggio gioco annuo (€)",
+            "Bar annesso (Sì/No)"
+          ]
+        },
+        {
+          "id": "Edicola",
+          "description": "edicola, chiosco giornali, edicola cartoleria, punto stampa",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Tipologia (chiosco/negozio)",
+            "Flusso pedonale",
+            "Cartoleria annessa (Sì/No)"
+          ]
+        },
+        {
+          "id": "Profumeria",
+          "description": "profumeria, profumeria di nicchia, profumeria artistica, cosmetica",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Segmento",
+            "Marchi in portafoglio (n.)",
+            "E-commerce (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Abbigliamento",
+          "description": "abbigliamento, boutique, negozio moda, fashion retail, abbigliamento uomo donna",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Segmento",
+            "Target",
+            "E-commerce (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Calzature",
+          "description": "calzature, negozio scarpe, calzoleria, scarpe uomo donna, shoe store",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Segmento",
+            "Target",
+            "E-commerce (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Ottica",
+          "description": "ottica, negozio occhiali, ottico, centro ottico, lenti",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Laboratorio ottico (Sì/No)",
+            "Convenzioni ASL (Sì/No)",
+            "Segmento",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Gioielleria",
+          "description": "gioielleria, oreficeria, gioielli, orafo, gioielleria di lusso",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Caveau/cassaforte (Sì/No)",
+            "Segmento",
+            "Laboratorio orafo (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Telefonia",
+          "description": "telefonia, negozio telefonia, centro telefonia, dealer telefonia, riparazione smartphone",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Dealer operatore",
+            "Riparazione/assistenza (Sì/No)",
+            "Provvigioni incluse (Sì/No)"
+          ]
+        },
+        {
+          "id": "Elettronica di consumo",
+          "description": "elettronica, negozio elettronica, hi-fi, informatica, elettrodomestici",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Categorie merceologiche",
+            "Assistenza tecnica (Sì/No)",
+            "E-commerce (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Articoli per la casa",
+          "description": "articoli casa, casalinghi, arredamento, ferramenta, brico, utensileria",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Categorie merceologiche",
+            "E-commerce (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Parrucchiere",
+          "description": "parrucchiere, salone bellezza, hair stylist, barbiere, barber shop",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Postazioni lavoro (n.)"
+          ],
+          "optional_fields": [
+            "Target",
+            "Trattamenti estetici (Sì/No)",
+            "Clienti/giorno medio (n.)",
+            "Scontrino medio (€)"
+          ]
+        },
+        {
+          "id": "Estetica",
+          "description": "centro estetico, estetica, beauty center, trattamenti estetici, solarium",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Cabine trattamento (n.)"
+          ],
+          "optional_fields": [
+            "Trattamenti offerti",
+            "Apparecchiature laser (Sì/No)",
+            "Clienti/settimana (n.)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Centro unghie",
+          "description": "centro unghie, nail bar, nail salon, manicure pedicure, ricostruzione unghie",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Postazioni lavoro (n.)"
+          ],
+          "optional_fields": [
+            "Trattamenti offerti",
+            "Clienti/settimana (n.)",
+            "Scontrino medio (€)"
+          ]
+        },
+        {
+          "id": "Lavanderia",
+          "description": "lavanderia, lavanderia self-service, lavanderia a secco, lavanderia industriale, tintoria",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Tipologia (self-service/tradizionale/mista)"
+          ],
+          "optional_fields": [
+            "Lavatrici industriali (n.)",
+            "Ritiro/consegna domicilio (Sì/No)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Scuola guida",
+          "description": "scuola guida, autoscuola, patente, agenzia pratiche auto",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Autorizzazione provinciale (Sì/No)"
+          ],
+          "optional_fields": [
+            "Veicoli scuola guida (n.)",
+            "Patenti rilasciate/anno (n.)",
+            "Pratiche auto (Sì/No)"
+          ]
+        },
+        {
+          "id": "Scuola di lingue",
+          "description": "scuola lingue, centro linguistico, corso lingue, language school",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Aule (n.)",
+            "Lingue insegnate",
+            "Iscritti attivi (n.)"
+          ]
+        },
+        {
+          "id": "Farmacia",
+          "description": "farmacia, farmacia comunale, farmacia urbana, farmacia rurale",
+          "mandatory_fields": [
+            "Superficie vendita (mq)",
+            "Titolarità farmacia (Sì/No)"
+          ],
+          "optional_fields": [
+            "Laboratorio galenico (Sì/No)",
+            "Fatturato SSN annuo (€)",
+            "Ricette/giorno medio (n.)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Parafarmacia",
+          "description": "parafarmacia, erboristeria, integratori, cosmetica farmaceutica",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Farmacista abilitato (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Sanitaria ortopedia",
+          "description": "sanitaria, ortopedia, ausili sanitari, noleggio ausili, officina ortopedica",
+          "mandatory_fields": [
+            "Superficie vendita (mq)"
+          ],
+          "optional_fields": [
+            "Convenzioni ASL/INAIL (Sì/No)",
+            "Officina ortopedica (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Centro fisioterapico",
+          "description": "centro fisioterapico, fisioterapia, riabilitazione, studio fisioterapico",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Sale trattamento (n.)"
+          ],
+          "optional_fields": [
+            "Palestra riabilitativa (Sì/No)",
+            "Convenzione SSN (Sì/No)",
+            "Operatori (n.)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Palestra fitness",
+          "description": "palestra, fitness, centro fitness, crossfit, centro sportivo, gym",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Piscina (Sì/No)",
+            "Area wellness (Sì/No)",
+            "Abbonati attivi (n.)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Centro medico polispecialistico",
+          "description": "centro medico, poliambulatorio, ambulatorio, studio medico, centro diagnostico",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Ambulatori (n.)"
+          ],
+          "optional_fields": [
+            "Specializzazioni mediche",
+            "Convenzioni SSN/fondi",
+            "Medici collaboratori (n.)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Agenzia immobiliare",
+          "description": "agenzia immobiliare, studio immobiliare, franchising immobiliare, intermediazione immobiliare",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Mandati attivi (n.)",
+            "Segmento",
+            "Agenti (n.)",
+            "Database clienti (n.)"
+          ]
+        },
+        {
+          "id": "Agenzia assicurativa",
+          "description": "agenzia assicurativa, broker assicurativo, subagente, franchising assicurazioni",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Portafoglio premi annui (€)",
+            "Polizze in portafoglio (n.)",
+            "Tasso retention (%)"
+          ]
+        },
+        {
+          "id": "CAF Patronato",
+          "description": "CAF, patronato, centro assistenza fiscale, consulenza fiscale, 730, ISEE",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Pratiche annue (n.)",
+            "Servizi offerti",
+            "Convenzione sindacale (Sì/No)"
+          ]
+        },
+        {
+          "id": "Servizi finanziari al dettaglio",
+          "description": "servizi finanziari, cessione quinto, prestiti, mutui, mediazione creditizia, agenzia finanziaria",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Mandanti/convenzioni (n.)",
+            "Iscrizione OAM (Sì/No)",
+            "Volume erogato annuo (€)"
+          ]
+        },
+        {
+          "id": "Sala giochi",
+          "description": "sala giochi, sala slot, sala VLT, gaming, amusement",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Licenza AAMS/ADM (Sì/No)"
+          ],
+          "optional_fields": [
+            "Macchine/postazioni (n.)",
+            "Aggio annuo gioco (€)"
+          ]
+        },
+        {
+          "id": "Centro scommesse",
+          "description": "centro scommesse, agenzia scommesse, betting, punto scommesse",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Licenza ADM scommesse (Sì/No)"
+          ],
+          "optional_fields": [
+            "Postazioni/terminali (n.)",
+            "Provvigioni annue (€)"
+          ]
+        },
+        {
+          "id": "Bowling",
+          "description": "bowling, bowling center, pista bowling, intrattenimento bowling",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Piste (n.)"
+          ],
+          "optional_fields": [
+            "Bar/ristorazione (Sì/No)",
+            "Parcheggio (n. posti)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Escape room",
+          "description": "escape room, gioco di fuga, esperienza immersiva, room escape",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Stanze/esperienze (n.)"
+          ],
+          "optional_fields": [
+            "Prezzo medio per persona (€)",
+            "Sessioni/giorno medio (n.)",
+            "Booking online (Sì/No)"
+          ]
+        },
+        {
+          "id": "B&B",
+          "description": "bed and breakfast, B&B, B and B, casa vacanze con colazione",
+          "mandatory_fields": [
+            "Camere (n.)",
+            "SCIA/autorizzazione regionale (Sì/No)"
+          ],
+          "optional_fields": [
+            "Posti letto (n.)",
+            "Colazione inclusa (Sì/No)",
+            "Occupancy rate medio",
+            "ADR medio (€)"
+          ]
+        },
+        {
+          "id": "Affittacamere",
+          "description": "affittacamere, guest house, pensione, camera in affitto",
+          "mandatory_fields": [
+            "Camere (n.)",
+            "SCIA/autorizzazione regionale (Sì/No)"
+          ],
+          "optional_fields": [
+            "Posti letto (n.)",
+            "Occupancy rate medio",
+            "ADR medio (€)"
+          ]
+        },
+        {
+          "id": "Ostello",
+          "description": "ostello, hostel, ostello della gioventù, backpacker hostel",
+          "mandatory_fields": [
+            "Posti letto (n.)",
+            "SCIA/autorizzazione (Sì/No)"
+          ],
+          "optional_fields": [
+            "Camere/dormitori (n.)",
+            "Cucina comune (Sì/No)",
+            "Occupancy rate",
+            "Tariffa media posto letto (€)"
+          ]
+        },
+        {
+          "id": "Autofficina",
+          "description": "autofficina, officina meccanica, meccanico auto, centro revisioni, elettrauto",
+          "mandatory_fields": [
+            "Superficie officina (mq)",
+            "Ponti sollevatori (n.)"
+          ],
+          "optional_fields": [
+            "Specializzazione",
+            "Centro revisioni (Sì/No)",
+            "Gommista (Sì/No)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Carrozzeria",
+          "description": "carrozzeria, riparazione auto, verniciatura auto, centro riparazione sinistri",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Cabina verniciatura (Sì/No)"
+          ],
+          "optional_fields": [
+            "Convenzioni assicurative (Sì/No)",
+            "Soccorso stradale (Sì/No)",
+            "Valore attrezzature (€)"
+          ]
+        },
+        {
+          "id": "Gommista",
+          "description": "gommista, centro pneumatici, cambio gomme, deposito gomme",
+          "mandatory_fields": [
+            "Superficie (mq)"
+          ],
+          "optional_fields": [
+            "Deposito pneumatici (Sì/No)",
+            "Flotte/clienti business (Sì/No)",
+            "Valore magazzino (€)"
+          ]
+        },
+        {
+          "id": "Autolavaggio",
+          "description": "autolavaggio, car wash, lavaggio auto, autolavaggio self-service",
+          "mandatory_fields": [
+            "Superficie (mq)",
+            "Tipologia (manuale/automatico/self-service/misto)"
+          ],
+          "optional_fields": [
+            "Piste lavaggio (n.)",
+            "Servizio detailing (Sì/No)",
+            "Lavaggi/giorno medio (n.)"
+          ]
+        },
+        {
+          "id": "Concessionaria",
+          "description": "concessionaria auto, concessionaria moto, autosalone, vendita veicoli",
+          "mandatory_fields": [
+            "Superficie showroom (mq)",
+            "Mandato casa madre nuovo (Sì/No)"
+          ],
+          "optional_fields": [
+            "Piazzale esposizione (mq)",
+            "Officina interna (mq)",
+            "Veicoli in stock (n.)",
+            "Valore stock (€)"
+          ]
+        }
+      ]
+    }
+  ],
+  "_meta": {
+    "source": "rules.yaml",
+    "macro_categories_count": 3,
+    "sub_categories_intake_counts": {
+      "Immobili": 32,
+      "Aziende": 12,
+      "Attività Commerciali": 48
+    },
+    "sub_categories_query_counts": {
+      "Immobili": 32,
+      "Aziende": 12,
+      "Attività Commerciali": 23
+    }
+  }
+}

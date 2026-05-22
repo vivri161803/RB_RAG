@@ -1,0 +1,307 @@
+{
+  "categories": [
+    {
+      "id": "Immobili",
+      "description": "immobile, proprietà, acquisto, vendita, affitto, investimento immobiliare, real estate, castello, palazzo, villa, casale, appartamento, attico, capannone, ufficio, negozio, hotel, albergo, agriturismo, terreno, magazzino, logistica, retail, centro commerciale, residence",
+      "sub_categories": {
+        "intake": [
+          {
+            "id": "Castello"
+          },
+          {
+            "id": "Palazzo"
+          },
+          {
+            "id": "Villa"
+          },
+          {
+            "id": "Casale"
+          },
+          {
+            "id": "Appartamento"
+          },
+          {
+            "id": "Attico"
+          },
+          {
+            "id": "Capannone industriale"
+          },
+          {
+            "id": "Capannone logistico"
+          },
+          {
+            "id": "Capannone artigianale"
+          },
+          {
+            "id": "Laboratorio"
+          },
+          {
+            "id": "Magazzino"
+          },
+          {
+            "id": "Ufficio"
+          },
+          {
+            "id": "Palazzina direzionale"
+          },
+          {
+            "id": "Negozio"
+          },
+          {
+            "id": "Capannone commerciale"
+          },
+          {
+            "id": "Retail Park"
+          },
+          {
+            "id": "Centro commerciale"
+          },
+          {
+            "id": "Outlet Park"
+          },
+          {
+            "id": "Hotel"
+          },
+          {
+            "id": "Agriturismo"
+          },
+          {
+            "id": "Residence"
+          },
+          {
+            "id": "Azienda agricola"
+          },
+          {
+            "id": "Senior living"
+          },
+          {
+            "id": "Student housing"
+          },
+          {
+            "id": "Casa di cura"
+          },
+          {
+            "id": "Convento"
+          },
+          {
+            "id": "Caserma"
+          },
+          {
+            "id": "Sportello bancario"
+          },
+          {
+            "id": "Stabilimento balneare"
+          },
+          {
+            "id": "Ufficio pubblico"
+          },
+          {
+            "id": "Complesso sportivo"
+          },
+          {
+            "id": "Autorimessa"
+          }
+        ],
+        "query": []
+      }
+    },
+    {
+      "id": "Aziende",
+      "description": "azienda, impresa, società, cessione azienda, acquisizione azienda, share deal, operazione straordinaria, M&A, fusione, scissione, ramo d'azienda, passaggio generazionale, startup, PMI, manifattura, logistica, trasporti, costruzioni, energia, agroindustria, food, retail, distribuzione, hospitality, sanità, ICT, tecnologia, servizi imprese, ambiente, economia circolare, ESG",
+      "sub_categories": {
+        "intake": [
+          {
+            "id": "Industria e Manifattura"
+          },
+          {
+            "id": "Logistica e Trasporti"
+          },
+          {
+            "id": "Costruzioni e Infrastrutture"
+          },
+          {
+            "id": "Energia e Utilities"
+          },
+          {
+            "id": "Agroindustria e Food"
+          },
+          {
+            "id": "Retail e Distribuzione (Azienda)"
+          },
+          {
+            "id": "Hospitality e Turismo (Azienda)"
+          },
+          {
+            "id": "Sanità e Servizi alla Persona (Azienda)"
+          },
+          {
+            "id": "ICT Media e Tecnologia"
+          },
+          {
+            "id": "Servizi alle Imprese"
+          },
+          {
+            "id": "Ambiente Economia Circolare ESG"
+          },
+          {
+            "id": "Settori Speciali Altro"
+          }
+        ],
+        "query": []
+      }
+    },
+    {
+      "id": "Attività Commerciali",
+      "description": "attività commerciale, negozio, bar, ristorante, pizzeria, gelateria, panificio, pasticceria, parrucchiere, estetica, farmacia, tabaccheria, edicola, lavanderia, palestra, fitness, autofficina, carrozzeria, concessionaria, agenzia immobiliare, agenzia assicurativa, B&B, affittacamere, ostello, bowling, escape room, sala giochi, cessione attività, avviamento commerciale, licenza commerciale",
+      "sub_categories": {
+        "intake": [
+          {
+            "id": "Bar"
+          },
+          {
+            "id": "Caffetteria"
+          },
+          {
+            "id": "Ristorante"
+          },
+          {
+            "id": "Pizzeria"
+          },
+          {
+            "id": "Trattoria Osteria"
+          },
+          {
+            "id": "Gastronomia"
+          },
+          {
+            "id": "Panificio Pasticceria"
+          },
+          {
+            "id": "Gelateria"
+          },
+          {
+            "id": "Enoteca Wine bar"
+          },
+          {
+            "id": "Pub Birreria"
+          },
+          {
+            "id": "Tabaccheria"
+          },
+          {
+            "id": "Edicola"
+          },
+          {
+            "id": "Profumeria"
+          },
+          {
+            "id": "Abbigliamento"
+          },
+          {
+            "id": "Calzature"
+          },
+          {
+            "id": "Ottica"
+          },
+          {
+            "id": "Gioielleria"
+          },
+          {
+            "id": "Telefonia"
+          },
+          {
+            "id": "Elettronica di consumo"
+          },
+          {
+            "id": "Articoli per la casa"
+          },
+          {
+            "id": "Parrucchiere"
+          },
+          {
+            "id": "Estetica"
+          },
+          {
+            "id": "Centro unghie"
+          },
+          {
+            "id": "Lavanderia"
+          },
+          {
+            "id": "Scuola guida"
+          },
+          {
+            "id": "Scuola di lingue"
+          },
+          {
+            "id": "Farmacia"
+          },
+          {
+            "id": "Parafarmacia"
+          },
+          {
+            "id": "Sanitaria ortopedia"
+          },
+          {
+            "id": "Centro fisioterapico"
+          },
+          {
+            "id": "Palestra fitness"
+          },
+          {
+            "id": "Centro medico polispecialistico"
+          },
+          {
+            "id": "Agenzia immobiliare"
+          },
+          {
+            "id": "Agenzia assicurativa"
+          },
+          {
+            "id": "CAF Patronato"
+          },
+          {
+            "id": "Servizi finanziari al dettaglio"
+          },
+          {
+            "id": "Sala giochi"
+          },
+          {
+            "id": "Centro scommesse"
+          },
+          {
+            "id": "Bowling"
+          },
+          {
+            "id": "Escape room"
+          },
+          {
+            "id": "B&B"
+          },
+          {
+            "id": "Affittacamere"
+          },
+          {
+            "id": "Ostello"
+          },
+          {
+            "id": "Autofficina"
+          },
+          {
+            "id": "Carrozzeria"
+          },
+          {
+            "id": "Gommista"
+          },
+          {
+            "id": "Autolavaggio"
+          },
+          {
+            "id": "Concessionaria"
+          }
+        ],
+        "query": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+Rules Retrieval
+
+FASE 1 
+Costruzione del KG
+
+INPUT: regole in formato yaml 
+
+A partire dalle regole in formato JSON scrivere uno script che permetta di implementare una pipeline di estrazione di KG tramite Ontologia. PArti fondamentali devono essere NER, NED. Inoltre voglio che si usi pydantic ed una chiamata ad LLM tramite openrouter. Trovi quale modello usare e quali chiave api usare in .env
+
+Lo scopo del grafo e’ quello di Domain Rule Based RAG.
+
+Il grafo deve contenere questi tipi di nodi con i relativi campi: 
+livello_1: nome, descrizione, embedding del nome
+livello_2: nome, descrizione, embedding del nome
+attrbituo: nome del campo, tipo del campo, descrizione del campo, embedding del nome, obbligatorio (Booleano)
+
+Il grafo contiene i seguenti archi:
+livello 1 <- {appartiene_a} - livello 2 (vincolo di esclusivita’)
+livello 1 - {necessita_di} -> attributo
+livello 2 - {necessita_di} -> attributo
+
+Per la NED si utilizzi una NED basata su similarita’ tramite coseno dell’embedding del nome di ogni entita’
+
+Il grafo deve essere messo su NEO4J, quindi che si implementi un modulo di compatibilita’ con Neo4j che permetta di caricare il grafo estratto su Neo4J
+
+FASE 2
+two-stage routing
+
+INPUT: descrizione del prodotto in formato testuale
+
+GOAL: A partire dalla descrizione testuale di un prodotto si vuole fare leva sul KG per estrarre le regole associate a quel tipo di prodotto, che dipendono dal livello 1 e 2 di appartenenza.   COME:
+si implementa un routing in 3 fasi. 
+
+1 - LLM-routing. Si chiede ad un LLM di leggere la descrizione del prodotto fornita e di indicare solamente a quale tipo di livello 1 appartiene, vincolando l’output dell’LLM opportunamente con Pydantic. 
+
+OUTPUT LLM: livello 1, riassunto conciso delle fonti per individuare il livello 2 (massimo 100 parole)
+
+2 - top-K vector search. una volta trovato il livello 1 si utilizzano gli embedding dei livelli 2 associati a quel livello 1 e solo quelli per calcolare una cosine similarity tra quegli embeding e l’embedding del testo generato dal modello al primo passo. Si estraggono i top K livelli 2 piu’ simili. 
+
+OUTPUT: top K livelli 2
+
+3 - LLM Reranking. Si danno in pasto ad un LLM i top-K livelli 2 e gli si chiede di scegliere quale sia quello piu’ adeguato usando come ground truth il riassunto della descrizione generato al livello 1
+
+OUTPUT: livello 2 
+
+
+FASE 3
+Rules Extraction
+
+INPUT: livello 1, livello 2
+
+Una volta che abbiamo i livelli 1 e 2, non rimane che utilizzare una query Cyppher sul KG creato in FASE 1, che permetta  di raccogliere tutti gli attributi associati a livello 1 e livello 2 risalendo il grafo a partire da l2
+
+OUTPUT: lista attributi recuperati
+
+FASE 4 
+json creation
+
+INPUT: lista attributi recuperati
+
+Si usa pydantic runime con LLM tramite il metodo create_model per, leggendo la lista degli attributi recuperati, creare una classe pyantic apposita che descriva le regole associate al prodotto. 
+
+OUTPUT: json pydantic
+
+
+
+
+
+
