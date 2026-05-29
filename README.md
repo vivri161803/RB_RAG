@@ -412,7 +412,7 @@ services:
 
   api:
     # Sostituisci <TUO_USERNAME> con il tuo username Docker Hub
-    image: <TUO_USERNAME>/bulkinsert-rulesextraction:latest
+    image: vivri161803/bulkinsert-rulesextraction:main
     ports:
       - "8000:8000"
     env_file: .env
